@@ -11,5 +11,6 @@ namespace BusinessLayer.Interfaces
     public interface IUserBL
     {
         Task<string> RegisterUserAsync(RegisterUserDto userdto);
+        Task<string> LoginUserAsync(LoginUserDto userdto);
     }
 }

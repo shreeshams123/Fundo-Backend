@@ -10,7 +10,9 @@ namespace DataLayer.Interfaces
 {
     public interface IUserDL
     {
-        Task<bool> IsUserRegistered(string email);
-        Task AddUserAsync(RegisterUserDto userdto);
+        Task<bool> IsUserPresent(string email);
+        Task RegisterUserAsync(User user);
+        Task<User> GetUserByEmailAsync(LoginUserDto userdto);
+        
     }
 }

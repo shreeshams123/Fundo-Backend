@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Interfaces;
+﻿using BCrypt.Net;
+using BusinessLayer.Interfaces;
 using DataLayer.Interfaces;
 using Models.DTOs;
 using Models.Entities;
@@ -20,17 +21,45 @@ namespace BusinessLayer.Services
         }
         public async Task<string> RegisterUserAsync(RegisterUserDto userdto)
         {
-            if (await _userRepo.IsUserRegistered(userdto.Email))
+            if (await _userRepo.IsUserPresent(userdto.Email))
             {
                 return "User with this email already exists";
             }
-            var pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{9,}$";
+            var pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$";
             if (!Regex.IsMatch(userdto.Password, pattern))
             {
                 return "Password should contain minimum 8 characters(atleast one special character,one number,one lowercase and one uppercase letter";
             }
-            await _userRepo.AddUserAsync(userdto);
+            string hashedpassword=BCrypt.Net.BCrypt.HashPassword(userdto.Password);
+            var newUser = new User
+            {
+                Name = userdto.Name,
+                Email = userdto.Email,
+                Phone = userdto.Phone,
+                Password = hashedpassword
+            };
+            await _userRepo.RegisterUserAsync(newUser);
             return "Added user Successfully";
+        }
+
+        public async Task<string> LoginUserAsync(LoginUserDto userdto)
+        {
+
+            var result= await _userRepo.GetUserByEmailAsync(userdto);
+
+            if (result == null)
+            {
+                return "User not found";
+            }
+            bool isValidPassword=BCrypt.Net.BCrypt.Verify(userdto.Password,result.Password);
+            if (isValidPassword)
+            {
+                return "Login Successful";
+            }
+            else
+            {
+                return "Invalid Password";
+            }
         }
     }
 }

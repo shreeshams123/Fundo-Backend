@@ -15,7 +15,7 @@ namespace FunDo.Controllers
         {
             _userBL = userBL;
         }
-        [HttpPost("user")]
+        [HttpPost("Register")]
         
         public async Task<IActionResult> RegisterUser(RegisterUserDto userdto)
         {
@@ -23,6 +23,17 @@ namespace FunDo.Controllers
             if(result== "User with this email already exists")
                 return BadRequest(new {Message=result});
             return Ok(result);
+        }
+        [HttpPost("login")]
+        public async Task<IActionResult> LoginUser(LoginUserDto userdto)
+        {
+            var result=await _userBL.LoginUserAsync(userdto);
+            if(result=="Login Successful")
+            {
+                return Ok(result);
+            }
+            return BadRequest(new {Message=result});
+
         }
     }
 }

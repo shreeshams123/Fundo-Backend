@@ -18,22 +18,24 @@ namespace DataLayer.Repositories
         {
             _context = context;
         }
-        public async Task  AddUserAsync(RegisterUserDto userdto)
+        public async Task  RegisterUserAsync(User user)
         {
-            var user = new User {
-            Name=userdto.Name,
-            Email=userdto.Email,
-            Password=userdto.Password,
-            Phone=userdto.Phone,
-            ConfirmPassword=userdto.ConfirmPassword,
-            };
-             await _context.Users.AddAsync(user);
+            
+            await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<bool> IsUserRegistered(string email)
+        public async Task<bool> IsUserPresent(string email)
         {
             return await _context.Users.AnyAsync(u=>u.Email==email);
         }
+
+        public async Task<User> GetUserByEmailAsync(LoginUserDto userdto)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u=>u.Email == userdto.Email);  
+        }
+
+       
+        
     }
 }
