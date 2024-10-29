@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Models.DTOs;
+using Models.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +10,6 @@ namespace BusinessLayer.Interfaces
 {
     public interface IUserBL
     {
+        Task<string> RegisterUserAsync(RegisterUserDto userdto);
     }
 }
