@@ -1,11 +1,15 @@
 ﻿using BCrypt.Net;
 using BusinessLayer.Interfaces;
 using DataLayer.Interfaces;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using Models.DTOs;
 using Models.Entities;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -15,9 +19,11 @@ namespace BusinessLayer.Services
     public class UserBL : IUserBL
     {
         private readonly IUserDL _userRepo;
-        public UserBL(IUserDL userRepo)
+        private readonly IConfiguration _configuration;
+        public UserBL(IUserDL userRepo,IConfiguration configuration)
         {
             _userRepo = userRepo;
+            _configuration = configuration;
         }
         public async Task<string> RegisterUserAsync(RegisterUserDto userdto)
         {
@@ -42,24 +48,45 @@ namespace BusinessLayer.Services
             return "Added user Successfully";
         }
 
-        public async Task<string> LoginUserAsync(LoginUserDto userdto)
+        public async Task<LoginResponseDto> LoginUserAsync(LoginUserDto userdto)
         {
 
             var result= await _userRepo.GetUserByEmailAsync(userdto);
 
             if (result == null)
             {
-                return "User not found";
+                return new LoginResponseDto { Message = "User not found" };
             }
             bool isValidPassword=BCrypt.Net.BCrypt.Verify(userdto.Password,result.Password);
             if (isValidPassword)
             {
-                return "Login Successful";
+                var token = GenerateJwtToken(result);
+                return new LoginResponseDto { Message="Login Successful",Token=token };
             }
             else
             {
-                return "Invalid Password";
+                return new LoginResponseDto { Message = "Invalid Password" };
             }
+        }
+        private string GenerateJwtToken(User user)
+        {
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]));
+
+            var creds =new SigningCredentials(key,SecurityAlgorithms.HmacSha256);
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub,user.Email),
+                new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
+                new Claim(ClaimTypes.NameIdentifier,user.Id.ToString())
+            };
+            var token = new JwtSecurityToken(
+                issuer:_configuration["Jwt:Issuer"],
+                audience:_configuration["Jwt:Audience"],
+                claims:claims,
+                expires: DateTime.Now.AddHours(1),
+                signingCredentials: creds
+                );
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }

@@ -28,11 +28,11 @@ namespace FunDo.Controllers
         public async Task<IActionResult> LoginUser(LoginUserDto userdto)
         {
             var result=await _userBL.LoginUserAsync(userdto);
-            if(result=="Login Successful")
+            if(result.Message=="Login Successful")
             {
                 return Ok(result);
             }
-            return BadRequest(new {Message=result});
+            return BadRequest(new {Message=result.Message});
 
         }
     }
