@@ -1,5 +1,6 @@
 ﻿using BCrypt.Net;
 using BusinessLayer.Interfaces;
+using BusinessLayer.Utilities;
 using DataLayer.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -19,11 +20,11 @@ namespace BusinessLayer.Services
     public class UserBL : IUserBL
     {
         private readonly IUserDL _userRepo;
-        private readonly IConfiguration _configuration;
-        public UserBL(IUserDL userRepo,IConfiguration configuration)
+        private readonly TokenHelper _tokenHelper;
+        public UserBL(IUserDL userRepo, TokenHelper tokenHelper)
         {
             _userRepo = userRepo;
-            _configuration = configuration;
+            _tokenHelper = tokenHelper;
         }
         public async Task<string> RegisterUserAsync(RegisterUserDto userdto)
         {
@@ -36,7 +37,7 @@ namespace BusinessLayer.Services
             {
                 return "Password should contain minimum 8 characters(atleast one special character,one number,one lowercase and one uppercase letter";
             }
-            string hashedpassword=BCrypt.Net.BCrypt.HashPassword(userdto.Password);
+            string hashedpassword= PasswordHelper.GenerateHashedPassword(userdto.Password);
             var newUser = new User
             {
                 Name = userdto.Name,
@@ -57,10 +58,10 @@ namespace BusinessLayer.Services
             {
                 return new LoginResponseDto { Message = "User not found" };
             }
-            bool isValidPassword=BCrypt.Net.BCrypt.Verify(userdto.Password,result.Password);
+            bool isValidPassword= PasswordHelper.VerifyPassword(userdto.Password,result.Password);
             if (isValidPassword)
             {
-                var token = GenerateJwtToken(result);
+                var token = _tokenHelper.GenerateJwtToken(result);
                 return new LoginResponseDto { Message="Login Successful",Token=token };
             }
             else
@@ -68,25 +69,6 @@ namespace BusinessLayer.Services
                 return new LoginResponseDto { Message = "Invalid Password" };
             }
         }
-        private string GenerateJwtToken(User user)
-        {
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]));
-
-            var creds =new SigningCredentials(key,SecurityAlgorithms.HmacSha256);
-            var claims = new[]
-            {
-                new Claim(JwtRegisteredClaimNames.Sub,user.Email),
-                new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
-                new Claim(ClaimTypes.NameIdentifier,user.Id.ToString())
-            };
-            var token = new JwtSecurityToken(
-                issuer:_configuration["Jwt:Issuer"],
-                audience:_configuration["Jwt:Audience"],
-                claims:claims,
-                expires: DateTime.Now.AddHours(1),
-                signingCredentials: creds
-                );
-            return new JwtSecurityTokenHandler().WriteToken(token);
-        }
+        
     }
 }

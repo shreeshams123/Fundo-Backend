@@ -14,5 +14,6 @@ namespace Models.DTOs
         public string Color { get; set; }
         public bool IsArchive {  get; set; }
         public bool IsTrash {  get; set; }
+        public bool IsCreated { get; set; }
     }
 }

@@ -10,6 +10,7 @@ namespace Models.DTOs
     public class NoteDto
     {
         [Required]
+        
         public string Title {  get; set; }
         [Required]
         public string Description { get; set; }

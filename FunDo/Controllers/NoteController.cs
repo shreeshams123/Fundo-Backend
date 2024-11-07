@@ -1,12 +1,13 @@
 ﻿using BusinessLayer.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MiddleWare;
 using Models.DTOs;
 
 namespace FunDo.Controllers
 {
     [ApiController]
-    [Route("note")]
+    [Route("api/note")]
     public class NoteController : Controller
     {
         private readonly INoteBL _noteBL;
@@ -15,35 +16,34 @@ namespace FunDo.Controllers
             _noteBL = noteBL;
         }
         [Authorize]
-        [HttpPost("add note")]
+        [HttpPost("create")]
         public async Task<IActionResult> CreateNote(NoteDto noteDto)
         {
             var newnote = await _noteBL.CreateNoteAsync(noteDto);
-            if (newnote != null)
-            {
-                Console.WriteLine("Created note successfully");
-                return Ok(newnote);
-            }
-            else
-            {
-                return BadRequest();
-            }
+            return Ok(newnote);
         }
-        [HttpGet("get notes")]
+
+        [HttpGet("get")]
         [Authorize]
-        public async Task<IActionResult> GetNotes()
+        public async Task<IActionResult> GetAllNotes()
         {
-            return Ok(await _noteBL.GetNoteAsync());
+            return Ok(await _noteBL.GetAllNoteAsync());
 
         }
-        [HttpPut("update notes/{noteId}")]
+        [HttpGet("get/{noteId}")]
+        [Authorize]
+        public async Task<IActionResult> GetNotesById([FromRoute] int noteId)
+        {
+            return Ok(await _noteBL.GetNoteByIdAsync(noteId));
+        }
+        [HttpPut("update/{noteId}")]
         [Authorize]
         public async Task<IActionResult> UpdateNote([FromRoute] int noteId, NoteUpdateDto noteUpdateDto)
         {
             var note = await _noteBL.UpdateNoteAsync(noteUpdateDto, noteId);
             return Ok(note);
         }
-        [HttpDelete("delete note/{noteId}")]
+        [HttpDelete("delete/{noteId}")]
         [Authorize]
         public async Task<IActionResult> DeleteNote([FromRoute] int noteId)
         {

@@ -11,6 +11,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Diagnostics;
+using MiddleWare;
+using BusinessLayer.Utilities;
 
 
 
@@ -26,6 +28,11 @@ builder.Services.AddScoped<IUserBL, UserBL>();
 builder.Services.AddScoped<IUserDL, UserDL>();
 builder.Services.AddScoped<INoteBL, NoteBL>();
 builder.Services.AddScoped<INoteDL, NoteDL>();
+builder.Services.AddScoped<ICollaboratorBL, CollaboratorBL>();
+builder.Services.AddScoped<ICollaboratorDL, CollaboratorDL>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddTransient<TokenHelper>();
+
 
 builder.Services.AddAuthentication(options =>
 {
@@ -88,7 +95,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 app.MapControllers();
 
 app.Run();

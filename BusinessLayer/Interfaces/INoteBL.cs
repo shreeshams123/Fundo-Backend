@@ -11,7 +11,8 @@ namespace BusinessLayer.Interfaces
     public interface INoteBL
     {
         Task<NoteResponseDto> CreateNoteAsync(NoteDto noteDto);
-        Task<IEnumerable<NoteResponseDto>> GetNoteAsync();
+        Task<IEnumerable<NoteResponseDto>> GetAllNoteAsync();
+        Task<NoteResponseDto> GetNoteByIdAsync(int noteId);
         Task<NoteResponseDto> UpdateNoteAsync(NoteUpdateDto noteUpdateDto, int NoteId);
         Task DeleteNoteAsync(int NoteId);
     }

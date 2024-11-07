@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Interfaces;
+using BusinessLayer.Utilities;
 using DataLayer.Interfaces;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
 using Models.DTOs;
@@ -18,15 +20,19 @@ namespace BusinessLayer.Services
     public class NoteBL : INoteBL
     {
         private readonly INoteDL _noteDL;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        public NoteBL(INoteDL noteDL, IHttpContextAccessor httpContextAccessor)
+        private readonly TokenHelper _tokenHelper;
+        public NoteBL(INoteDL noteDL, TokenHelper tokenHelper)
         {
-            _httpContextAccessor = httpContextAccessor;
             _noteDL = noteDL;
+            _tokenHelper = tokenHelper;
+            
         }
         public async Task<NoteResponseDto> CreateNoteAsync(NoteDto noteDto)
         {
-            var userId = GetUserIdFromToken();
+            if (noteDto == null)
+                throw new ArgumentNullException(nameof(noteDto));
+
+            var userId = _tokenHelper.GetUserIdFromToken();
             var newnote = new Note
             {
                 UserId = userId,
@@ -34,34 +40,29 @@ namespace BusinessLayer.Services
                 Description = noteDto.Description,
                 Color = string.IsNullOrWhiteSpace(noteDto.Color) ? null : noteDto.Color
             };
-            return await _noteDL.CreateNoteInDbAsync(newnote);
+            return await _noteDL.CreateNoteInDbAsync(newnote,userId);
         }
-        private int GetUserIdFromToken()
+                   
+        public async Task<IEnumerable<NoteResponseDto>> GetAllNoteAsync()
         {
-            var token = _httpContextAccessor.HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var jwtToken = tokenHandler.ReadToken(token) as JwtSecurityToken;
-            var userIdClaim = jwtToken?.Claims?.FirstOrDefault(claim => claim.Type == ClaimTypes.NameIdentifier)?.Value;
-            if ((userIdClaim != null))
-            {
-                return int.Parse(userIdClaim);
-            }
+            var userId = _tokenHelper.GetUserIdFromToken();
+            return await _noteDL.GetAllNotesInDb(userId);
+        }
 
-            throw new Exception("Unauthorized User");
-        }
-        public async Task<IEnumerable<NoteResponseDto>> GetNoteAsync()
+        public async Task<NoteResponseDto> GetNoteByIdAsync(int noteId)
         {
-            var userId = GetUserIdFromToken();
-            return await _noteDL.GetNoteByIdAsync(userId);
+            var userId = _tokenHelper.GetUserIdFromToken();
+            return await _noteDL.GetNoteByIdInDb(noteId, userId);
         }
+ 
         public async Task<NoteResponseDto> UpdateNoteAsync(NoteUpdateDto noteUpdateDto, int NoteId)
         {
-            var userId = GetUserIdFromToken();
+            var userId = _tokenHelper.GetUserIdFromToken();
             return await _noteDL.UpdateNoteInDb(noteUpdateDto, NoteId, userId);
         }
         public async Task DeleteNoteAsync(int NoteId)
         {
-            var userId = GetUserIdFromToken();
+            var userId = _tokenHelper.GetUserIdFromToken();
             await _noteDL.DeleteNoteInDb(NoteId,userId);
         }
     }

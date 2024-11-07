@@ -20,6 +20,7 @@ namespace Models.Entities
         public string? Color { get; set; }
         public bool IsArchive { get; set; } = false;
         public bool IsTrash { get; set; } = false;
+        public ICollection<Collaborator> Collaborators { get; set; }
          
     }
 }

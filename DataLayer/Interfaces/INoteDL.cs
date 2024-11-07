@@ -10,8 +10,9 @@ namespace DataLayer.Interfaces
 {
     public interface INoteDL
     {
-        Task<NoteResponseDto> CreateNoteInDbAsync(Note note);
-        Task<IEnumerable<NoteResponseDto>> GetNoteByIdAsync(int userId);
+        Task<NoteResponseDto> CreateNoteInDbAsync(Note note,int userId);
+        Task<IEnumerable<NoteResponseDto>> GetAllNotesInDb(int userId);
+        Task<NoteResponseDto> GetNoteByIdInDb(int NoteId, int UserId);
         Task<NoteResponseDto> UpdateNoteInDb(NoteUpdateDto noteUpdateDto, int NoteId,int UserId);
         Task DeleteNoteInDb(int noteId,int userId);
 
