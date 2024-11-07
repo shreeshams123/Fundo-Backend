@@ -1,7 +1,7 @@
 ﻿using BusinessLayer.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MiddleWare;
+
 using Models.DTOs;
 
 namespace FunDo.Controllers

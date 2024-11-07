@@ -11,7 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Diagnostics;
-using MiddleWare;
+
 using BusinessLayer.Utilities;
 
 
@@ -95,7 +95,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
+
 app.MapControllers();
 
 app.Run();
