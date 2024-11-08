@@ -12,6 +12,9 @@ namespace BusinessLayer.Interfaces
     {
         Task<string> RegisterUserAsync(RegisterUserDto userdto);
         Task<LoginResponseDto> LoginUserAsync(LoginUserDto userdto);
-        
+        Task<bool> ForgotPasswordAsync(ForgotPasswordDto forgotPasswordDto);
+       
+        Task<bool> ResetPassword(string Token, string Password);
+
     }
 }

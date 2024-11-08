@@ -21,11 +21,12 @@ namespace BusinessLayer.Services
     {
         private readonly INoteDL _noteDL;
         private readonly TokenHelper _tokenHelper;
-        public NoteBL(INoteDL noteDL, TokenHelper tokenHelper)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public NoteBL(INoteDL noteDL, TokenHelper tokenHelper,IHttpContextAccessor httpContextAccessor)
         {
             _noteDL = noteDL;
             _tokenHelper = tokenHelper;
-            
+            _httpContextAccessor = httpContextAccessor;
         }
         public async Task<NoteResponseDto> CreateNoteAsync(NoteDto noteDto)
         {

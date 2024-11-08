@@ -21,6 +21,7 @@ namespace Models.Entities
         public bool IsArchive { get; set; } = false;
         public bool IsTrash { get; set; } = false;
         public ICollection<Collaborator> Collaborators { get; set; }
+        public ICollection<NoteLabel> NoteLabels { get; set; }
          
     }
 }

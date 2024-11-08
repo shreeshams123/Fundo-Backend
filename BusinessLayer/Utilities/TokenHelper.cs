@@ -17,14 +17,14 @@ namespace BusinessLayer.Utilities
         private readonly IConfiguration _configuration;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        // Constructor with dependency injection
+        
         public TokenHelper(IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
         {
             _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
             _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
         }
 
-        // Generate JWT Token
+        
         public string GenerateJwtToken(User user)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]));
@@ -32,8 +32,8 @@ namespace BusinessLayer.Utilities
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(ClaimTypes.Email, user.Email),
+                
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
             };
             var token = new JwtSecurityToken(
@@ -46,6 +46,38 @@ namespace BusinessLayer.Utilities
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+        public string GeneratePasswordResetToken(User user)
+        {
+            if (user == null || string.IsNullOrEmpty(user.Email))
+            {
+                throw new ArgumentNullException(nameof(user), "User or email cannot be null");
+            }
+            var jwtSecret = _configuration["Jwt:PasswordSecretKey"];
+            if (string.IsNullOrEmpty(jwtSecret))
+            {
+                throw new InvalidOperationException("JWT secret key not found in configuration.");
+            }
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecret));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var claims = new[]
+            {
+            new Claim(ClaimTypes.Email, user.Email),
+        
+             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()) 
+            };
+
+            var token = new JwtSecurityToken(
+                issuer: _configuration["Jwt:Issuer"],
+                audience: _configuration["Jwt:Audience"],
+                claims: claims,
+                expires: DateTime.Now.AddMinutes(10),
+                signingCredentials: creds
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
 
         public int GetUserIdFromToken()
         {
@@ -60,21 +92,87 @@ namespace BusinessLayer.Utilities
             var token = authorizationHeader.Replace("Bearer ", "");
             var tokenHandler = new JwtSecurityTokenHandler();
 
-            if (!tokenHandler.CanReadToken(token))
+            
+            var validationParameters = new TokenValidationParameters
             {
-                throw new UnauthorizedAccessException("Invalid token.");
-            }
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"])), 
 
-            var jwtToken = tokenHandler.ReadToken(token) as JwtSecurityToken;
-            var userIdClaim = jwtToken?.Claims.FirstOrDefault(claim => claim.Type == ClaimTypes.NameIdentifier)?.Value;
+                ValidateIssuer = true,
+                ValidIssuer = _configuration["Jwt:Issuer"],
 
-            if (string.IsNullOrEmpty(userIdClaim))
+                ValidateAudience = true,
+                ValidAudience = _configuration["Jwt:Audience"],
+
+                ValidateLifetime = true, 
+                ClockSkew = TimeSpan.Zero  
+            };
+
+            try
             {
-                throw new UnauthorizedAccessException("User ID not found in token.");
-            }
+                var principal = tokenHandler.ValidateToken(token, validationParameters, out var validatedToken);
 
-            return int.Parse(userIdClaim);
+                
+                var userIdClaim = principal.Claims.FirstOrDefault(claim => claim.Type == ClaimTypes.NameIdentifier)?.Value;
+
+                if (string.IsNullOrEmpty(userIdClaim))
+                {
+                    throw new UnauthorizedAccessException("User ID not found in token.");
+                }
+
+                return int.Parse(userIdClaim);
+            }
+            catch (SecurityTokenExpiredException)
+            {
+                throw new UnauthorizedAccessException("Token has expired.");
+            }
+            catch (Exception ex)
+            {
+                throw new UnauthorizedAccessException("Invalid token: " + ex.Message);
+            }
         }
+        public int ValidatePasswordResetToken(string token)
+        {
+           
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token is missing");
+            }
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var validationParameters = new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:PasswordSecretKey"])),
+                ValidateIssuer = true,
+                ValidIssuer = _configuration["Jwt:Issuer"],
+                ValidateAudience = true,
+                ValidAudience = _configuration["Jwt:Audience"],
+                ValidateLifetime = true,
+                ClockSkew = TimeSpan.Zero
+            };
+            try
+            {
+                var principal = tokenHandler.ValidateToken(token, validationParameters, out var validatedToken);
+                var userIdClaim = principal.Claims.FirstOrDefault(claim => claim.Type == ClaimTypes.NameIdentifier)?.Value;
+                Console.WriteLine($"userIdClaim: {userIdClaim}");
+                
+                
+                if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out var userId))
+                {
+                    throw new UnauthorizedAccessException("UserId not found or invalid in the token");
+                }
+                return userId;
+            }
+            catch (SecurityTokenExpiredException)
+            {
+                throw new UnauthorizedAccessException("Token has expired.");
+            }
+            catch (Exception ex)
+            {
+                throw new UnauthorizedAccessException("Invalid token: " + ex.Message);
+            }
+        }
+
 
     }
 }

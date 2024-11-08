@@ -2,6 +2,7 @@
 using BusinessLayer.Interfaces;
 using BusinessLayer.Utilities;
 using DataLayer.Interfaces;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Models.DTOs;
@@ -21,14 +22,19 @@ namespace BusinessLayer.Services
     {
         private readonly IUserDL _userRepo;
         private readonly TokenHelper _tokenHelper;
-        public UserBL(IUserDL userRepo, TokenHelper tokenHelper)
+        private readonly IConfiguration _configuration;
+        private readonly IEmailService _emailService;
+        public UserBL(IUserDL userRepo, TokenHelper tokenHelper,IConfiguration configuration, IEmailService emailService)
         {
             _userRepo = userRepo;
             _tokenHelper = tokenHelper;
+            _configuration = configuration;
+            _emailService = emailService;
         }
         public async Task<string> RegisterUserAsync(RegisterUserDto userdto)
         {
-            if (await _userRepo.IsUserPresent(userdto.Email))
+            var userpresent = await _userRepo.GetUserByEmailAsync(userdto.Email);
+            if (userpresent!=null)
             {
                 return "User with this email already exists";
             }
@@ -52,7 +58,7 @@ namespace BusinessLayer.Services
         public async Task<LoginResponseDto> LoginUserAsync(LoginUserDto userdto)
         {
 
-            var result= await _userRepo.GetUserByEmailAsync(userdto);
+            var result= await _userRepo.GetUserByEmailAsync(userdto.Email);
 
             if (result == null)
             {
@@ -69,6 +75,39 @@ namespace BusinessLayer.Services
                 return new LoginResponseDto { Message = "Invalid Password" };
             }
         }
+        public async Task<bool> ForgotPasswordAsync(ForgotPasswordDto forgotPasswordDto)
+        {
+            var user=await _userRepo.GetUserByEmailAsync(forgotPasswordDto.Email);
+            if (user == null)
+            {
+               
+                return false;
+            }
+            else
+            {
+                var resetToken=_tokenHelper.GeneratePasswordResetToken(user);
+                
+                await _emailService.SendForgotPasswordMailAsync(forgotPasswordDto.Email,resetToken);
+                return true;
+            }
+            
+        }
         
+        public async Task<bool> ResetPassword(string Token, string Password)
+        {
+            var userId = _tokenHelper.ValidatePasswordResetToken(Token);
+            if (userId == null)
+            {
+                return false;
+            }
+            var user = await _userRepo.GetUserByIdAsync(userId);
+            if (user == null)
+            {
+                return false;
+            }
+            var hashpassword=PasswordHelper.GenerateHashedPassword(Password);
+            await _userRepo.UpdateUserAsync(user);
+            return true;
+        }
     }
 }
