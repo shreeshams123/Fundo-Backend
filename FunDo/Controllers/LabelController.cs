@@ -15,10 +15,45 @@ namespace FunDo.Controllers
             _labelBL = labelBL;
         }
         [Authorize]
-        [HttpPost]
+        [HttpPost("/add-labels")]
         public async Task<IActionResult> AddLabels(LabelRequestDto requestDto)
         {
-            return Ok(await _labelBL.AddLabelsToDbAsync(requestDto));
+            var labelDto = await _labelBL.AddLabelsToDbAsync(requestDto);
+            return Ok(labelDto);
         }
+        [Authorize]
+        [HttpPost("/update-labels/{noteId}")]
+        public async Task<IActionResult> UpdateLabels([FromRoute]int noteId, [FromBody] List<int> LabelIds)
+        {
+            await _labelBL.UpdateLabelToNotesAsync(noteId,LabelIds);
+            return Ok();
+        }
+        [Authorize]
+        [HttpGet("get-labels-checklist/{noteId}")]
+        public async Task<IActionResult> getLabelsChecklist([FromRoute] int noteId)
+        {
+            try
+            {
+                var labelCheckList = await _labelBL.GetLabelChecklistForNote(noteId);
+                return Ok(labelCheckList);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [Authorize]
+        [HttpGet("get-all-labels")]
+        public async Task<IActionResult> getAllLabels()
+        {
+            return Ok(await _labelBL.GetAllLabelsAsync());
+        }
+        [Authorize]
+        [HttpDelete("delete-label{labelId}")]
+        public async Task<IActionResult> DeleteLabel([FromRoute]int labelId){
+            await _labelBL.DeleteLabelAsync(labelId);
+            return Ok();
+        }
+
     }
 }

@@ -95,7 +95,7 @@ namespace BusinessLayer.Services
         
         public async Task<bool> ResetPassword(string Token, string Password)
         {
-            var userId = _tokenHelper.ValidatePasswordResetToken(Token);
+            var userId = _tokenHelper.GetUserIdPasswordResetToken(Token);
             if (userId == null)
             {
                 return false;
@@ -106,6 +106,7 @@ namespace BusinessLayer.Services
                 return false;
             }
             var hashpassword=PasswordHelper.GenerateHashedPassword(Password);
+            //user.Password = hashpassword;
             await _userRepo.UpdateUserAsync(user);
             return true;
         }

@@ -10,5 +10,9 @@ namespace BusinessLayer.Interfaces
     public interface ILabelBL
     {
         Task<LabelDto> AddLabelsToDbAsync(LabelRequestDto labelRequestDto);
+        Task UpdateLabelToNotesAsync(int noteId, List<int> labelIds);
+        Task<List<LabelCheckListDto>> GetLabelChecklistForNote(int noteId);
+        Task<List<LabelDto>> GetAllLabelsAsync();
+        Task DeleteLabelAsync(int Id);
     }
 }
