@@ -32,7 +32,7 @@ namespace DataLayer.Repositories
             {
                 throw new NoteException("Note not found");
             }
-            if (note.UserId != userId)
+            if (note.UserId != userId && ! _context.Collaborators.Any(c=>c.UserId==userId && c.NoteId==NoteId))
             {
                 throw new UserException("You have no permission to add collaborator");
             }
@@ -51,35 +51,72 @@ namespace DataLayer.Repositories
                     await _context.SaveChangesAsync();
                     return new UserDto { Id = collabUser.Id, Name = collabUser.Name, Email = collabUser.Email };
             }
-        public async Task DeleteCollaboratorInDb(int NoteId,string Email,int ownerId)
+        public async Task DeleteCollaboratorInDb(int noteId, string email, int userId)
         {
-            bool ownerExists=await _context.Users.AnyAsync(u=>u.Id==ownerId);
-            if (!ownerExists)
+            var userExists = await _context.Users.AnyAsync(u => u.Id == userId);
+            if (!userExists)
             {
                 throw new UserException("User not found");
             }
-            var note = await _context.Notes.FindAsync(NoteId);
+
+            var note = await _context.Notes.FindAsync(noteId);
             if (note == null)
             {
                 throw new NoteException("Note not found");
             }
-            if (note.UserId !=ownerId)
+
+            if (note.UserId == userId)
             {
-                throw new UserException("You have no permission to delete collaborator");
+                var collaborator = await _context.Users
+                    .FirstOrDefaultAsync(u => u.Email == email);
+
+                if (collaborator == null)
+                {
+                    throw new UserException("Collaborator not found");
+                }
+
+                var collaboratorEntry = await _context.Collaborators
+                    .FirstOrDefaultAsync(c => c.NoteId == noteId && c.UserId == collaborator.Id);
+
+                if (collaboratorEntry == null)
+                {
+                    throw new UserException("User is not a collaborator for this note");
+                }
+
+                _context.Collaborators.Remove(collaboratorEntry);
+                await _context.SaveChangesAsync();
             }
-            var User = await _context.Users.FirstOrDefaultAsync(u=>u.Email==Email);
-            if (User == null)
+            else
             {
-                throw new UserException("Collaborator user not found");
+                var collaboratorToDelete = await _context.Users
+                    .FirstOrDefaultAsync(u => u.Email == email); 
+
+                if (collaboratorToDelete == null)
+                {
+                    throw new UserException("Collaborator not found");
+                }
+
+                var collaboratorEntry = await _context.Collaborators
+                    .FirstOrDefaultAsync(c => c.NoteId == noteId && c.UserId == collaboratorToDelete.Id);
+
+                if (collaboratorEntry == null)
+                {
+                    throw new UserException("User is not a collaborator for this note");
+                }
+
+                if (collaboratorToDelete.Id == userId)
+                {
+                    _context.Collaborators.Remove(collaboratorEntry);
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    throw new UnauthorizedAccessException("You cannot remove other collaborators.");
+                }
             }
-            var collaborator=await _context.Collaborators.FirstOrDefaultAsync(c=>c.NoteId==NoteId && c.UserId==User.Id);
-            if (collaborator == null)
-            {
-                throw new UserException("User is not a collaborator for this note");
-            }
-            _context.Collaborators.Remove(collaborator);
-            await _context.SaveChangesAsync();
         }
+
+
         public async Task<IEnumerable<UserDto>> GetCollaborators(int NoteId,int ownerId)
         {
             bool ownerExists = await _context.Users.AnyAsync(u => u.Id == ownerId);
@@ -92,9 +129,9 @@ namespace DataLayer.Repositories
             {
                 throw new NoteException("Note not found");
             }
-            if (note.UserId != ownerId)
+            if (note.UserId != ownerId && !_context.Collaborators.Any(c=>c.UserId==ownerId&& c.NoteId==NoteId))
             {
-                throw new UserException("You do not have access to this get the Collaborators");
+                throw new UserException("You do not have access to  get the Collaborators");
             }
             var collaborators=await  _context.Collaborators.Where(c=>c.NoteId==NoteId).Join(_context.Users,collaborator=>collaborator.UserId,user=>user.Id,(collaborator, user)=>new UserDto {Id=user.Id,Email=user.Email,Name=user.Name }).ToListAsync();
             return collaborators;

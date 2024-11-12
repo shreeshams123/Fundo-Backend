@@ -6,6 +6,7 @@ using Models.DTOs;
 using Models.Entities;
 using System;
 using System.Collections.Generic;
+using System.IO.Compression;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
@@ -41,6 +42,7 @@ namespace DataLayer.Repositories
                     Color = note.Color,
                     IsArchive = note.IsArchive,
                     IsTrash = note.IsTrash,
+                    IsCreated=true
                 };
 
                 return newNote;
@@ -114,14 +116,7 @@ namespace DataLayer.Repositories
                 {
                     note.Color = noteUpdateDto.Color;
                 }
-                if (noteUpdateDto.IsArchive.HasValue)
-                {
-                    note.IsArchive = noteUpdateDto.IsArchive.Value;
-                }
-                if (noteUpdateDto.IsTrash.HasValue)
-                {
-                    note.IsTrash = noteUpdateDto.IsTrash.Value;
-                }
+                
                 await _context.SaveChangesAsync();
                 var newnote = new NoteResponseDto
                 {
@@ -138,6 +133,35 @@ namespace DataLayer.Repositories
 
             throw new UnauthorizedAccessException("You do not have permission to update this note.");
         }
+        public async Task toggleArchive(int noteId,int userId,bool isArchive)
+        {
+            var note=await _context.Notes.FindAsync(noteId);
+            if(note == null)
+            {
+                throw new NoteException("Note not found");
+            }
+            if (note.UserId != userId)
+            {
+                throw new UserException("You are not allowed to access this note");
+            }
+            note.IsArchive = isArchive;
+            await _context.SaveChangesAsync();
+        }
+        public async Task toggleTrash(int noteId,int userId,bool isTrash)
+        {
+            var note = await _context.Notes.FindAsync(noteId);
+            if (note == null)
+            {
+                throw new NoteException("Note not found");
+            }
+            if (note.UserId != userId)
+            {
+                throw new UserException("You are not allowed to access this note");
+            }
+            note.IsTrash = isTrash;
+            await _context.SaveChangesAsync();
+        }
+
         public async Task DeleteNoteInDb(int noteId, int userId)
         {
             var userExists = await _context.Users.AnyAsync(u => u.Id == userId);

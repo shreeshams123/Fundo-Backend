@@ -12,9 +12,6 @@ namespace Models.DTOs
         public string? Title {  get; set; }
         public string? Description { get; set; }
         public string? Color {  get; set; }
-        [DefaultValue(false)]
-        public bool? IsArchive { get; set; }
-        [DefaultValue(false)]
-        public bool? IsTrash { get; set; }  
+        
     }
 }

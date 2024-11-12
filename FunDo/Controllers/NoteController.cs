@@ -50,6 +50,21 @@ namespace FunDo.Controllers
             await _noteBL.DeleteNoteAsync(noteId);
             return Ok();
         }
+        [HttpPatch("archive/{noteId}")]
+        [Authorize]
+        public async Task<IActionResult> ToggleArchiveNote([FromRoute] int noteId,bool isArchive)
+        {
+            await _noteBL.toggleArchiveAsync(noteId, isArchive);
+            return Ok();
+        }
+        [HttpPatch("trash/{noteId}")]
+        [Authorize]
+        public async Task<IActionResult> ToggleTrashNote([FromRoute] int noteId, bool isTrash)
+        {
+            await _noteBL.toggleArchiveAsync(noteId, isTrash);
+            return Ok();
+        }
+
 
 
     }

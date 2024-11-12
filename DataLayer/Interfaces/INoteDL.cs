@@ -15,7 +15,8 @@ namespace DataLayer.Interfaces
         Task<NoteResponseDto> GetNoteByIdInDb(int NoteId, int UserId);
         Task<NoteResponseDto> UpdateNoteInDb(NoteUpdateDto noteUpdateDto, int NoteId,int UserId);
         Task DeleteNoteInDb(int noteId,int userId);
-
+        Task toggleArchive(int noteId, int userId, bool isArchive);
+        Task toggleTrash(int noteId, int userId, bool isTrash);
 
     }
 }

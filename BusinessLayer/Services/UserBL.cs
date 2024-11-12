@@ -106,7 +106,7 @@ namespace BusinessLayer.Services
                 return false;
             }
             var hashpassword=PasswordHelper.GenerateHashedPassword(Password);
-            //user.Password = hashpassword;
+            user.Password = hashpassword;
             await _userRepo.UpdateUserAsync(user);
             return true;
         }

@@ -21,12 +21,10 @@ namespace BusinessLayer.Services
     {
         private readonly INoteDL _noteDL;
         private readonly TokenHelper _tokenHelper;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        public NoteBL(INoteDL noteDL, TokenHelper tokenHelper,IHttpContextAccessor httpContextAccessor)
+        public NoteBL(INoteDL noteDL, TokenHelper tokenHelper)
         {
             _noteDL = noteDL;
             _tokenHelper = tokenHelper;
-            _httpContextAccessor = httpContextAccessor;
         }
         public async Task<NoteResponseDto> CreateNoteAsync(NoteDto noteDto)
         {
@@ -65,6 +63,16 @@ namespace BusinessLayer.Services
         {
             var userId = _tokenHelper.GetUserIdFromToken();
             await _noteDL.DeleteNoteInDb(NoteId,userId);
+        }
+        public async Task toggleArchiveAsync(int NoteId,bool isArchive)
+        {
+            var userId= _tokenHelper.GetUserIdFromToken();
+            await _noteDL.toggleArchive(NoteId,userId,isArchive);
+        }
+        public async Task toggleTrashAsync(int NoteId, bool isTrash)
+        {
+            var userId = _tokenHelper.GetUserIdFromToken();
+            await _noteDL.toggleArchive(NoteId, userId, isTrash);
         }
     }
 }
