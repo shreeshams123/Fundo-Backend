@@ -1,7 +1,7 @@
 ﻿using BusinessLayer.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+using Models;
 using Models.DTOs;
 
 namespace FunDo.Controllers
@@ -11,58 +11,109 @@ namespace FunDo.Controllers
     public class NoteController : Controller
     {
         private readonly INoteBL _noteBL;
-        public NoteController(INoteBL noteBL)
+        private readonly ILogger<NoteController> _logger;
+        public NoteController(INoteBL noteBL, ILogger<NoteController> logger)
         {
             _noteBL = noteBL;
+            _logger = logger;
         }
         [Authorize]
-        [HttpPost("create")]
+        [HttpPost]
         public async Task<IActionResult> CreateNote(NoteDto noteDto)
         {
-            var newnote = await _noteBL.CreateNoteAsync(noteDto);
-            return Ok(newnote);
+            _logger.LogInformation("Attempt to create a note");
+            var apiResponse = await _noteBL.CreateNoteAsync(noteDto);
+            if (apiResponse.Success)
+            {
+                _logger.LogInformation("Created notes successfully");
+                return Ok(apiResponse);
+            }
+            _logger.LogWarning("Note creation failed");
+            return BadRequest(apiResponse);
         }
 
-        [HttpGet("get")]
+        [HttpGet]
         [Authorize]
         public async Task<IActionResult> GetAllNotes()
         {
-            return Ok(await _noteBL.GetAllNoteAsync());
+            _logger.LogInformation("Attempt to get all notes from Database");
+            var apiResponse=await _noteBL.GetAllNoteAsync();
+            if (apiResponse.Success)
+            {
+                _logger.LogInformation("Notes retrieved successfully");
+                return Ok(apiResponse);
+            }
+            _logger.LogInformation("Retrieving notes failed");
+            return BadRequest(apiResponse);
 
         }
         [HttpGet("get/{noteId}")]
         [Authorize]
         public async Task<IActionResult> GetNotesById([FromRoute] int noteId)
         {
-            return Ok(await _noteBL.GetNoteByIdAsync(noteId));
+            _logger.LogInformation("Started retrieving notes by Id");
+            var apiResponse = await _noteBL.GetNoteByIdAsync(noteId);
+            if (apiResponse.Success)
+            {
+                return Ok(apiResponse);
+            }
+            return BadRequest(apiResponse);
         }
-        [HttpPut("update/{noteId}")]
+
+
+        [HttpPatch("update/{noteId}")]
         [Authorize]
         public async Task<IActionResult> UpdateNote([FromRoute] int noteId, NoteUpdateDto noteUpdateDto)
         {
-            var note = await _noteBL.UpdateNoteAsync(noteUpdateDto, noteId);
-            return Ok(note);
+            _logger.LogInformation("Updating note with ID: {NoteId}", noteId);
+            var apiResponse = await _noteBL.UpdateNoteAsync(noteUpdateDto, noteId);
+            if (apiResponse.Success)
+            {
+                return Ok(apiResponse);
+            }
+            return BadRequest(apiResponse);
         }
         [HttpDelete("delete/{noteId}")]
         [Authorize]
         public async Task<IActionResult> DeleteNote([FromRoute] int noteId)
         {
-            await _noteBL.DeleteNoteAsync(noteId);
-            return Ok();
+            _logger.LogInformation("Received request to delete note with ID: {NoteId}", noteId);
+            var apiresponse = await _noteBL.DeleteNoteAsync(noteId);
+            if (apiresponse.Success)
+            {
+                _logger.LogInformation("Successfully deleted note with ID: {NoteId}", noteId);
+                return Ok(apiresponse);
+            }
+            _logger.LogWarning("Failed to delete note with ID: {NoteId}. Reason: {Message}", noteId, apiresponse.Message);
+            return BadRequest(apiresponse);
         }
         [HttpPatch("archive/{noteId}")]
         [Authorize]
-        public async Task<IActionResult> ToggleArchiveNote([FromRoute] int noteId,bool isArchive)
+        public async Task<IActionResult> ToggleArchiveNote([FromRoute] int noteId, bool isArchive)
         {
-            await _noteBL.toggleArchiveAsync(noteId, isArchive);
-            return Ok();
+            _logger.LogInformation("Received request to toggle archive status for note with ID: {NoteId}", noteId);
+            var apiresponse = await _noteBL.ToggleArchiveAsync(noteId, isArchive);
+            if (apiresponse.Success)
+            {
+                _logger.LogInformation("Successfully toggled archive status for note with ID: {NoteId}", noteId);
+                return Ok(apiresponse);
+            }
+            _logger.LogWarning("Failed to toggle archive status for note with ID: {NoteId}. Reason: {Message}", noteId, apiresponse.Message);
+            return BadRequest(apiresponse);
         }
         [HttpPatch("trash/{noteId}")]
         [Authorize]
         public async Task<IActionResult> ToggleTrashNote([FromRoute] int noteId, bool isTrash)
         {
-            await _noteBL.toggleArchiveAsync(noteId, isTrash);
-            return Ok();
+            _logger.LogInformation("Received request to toggle trash status for note with ID: {NoteId}", noteId);
+            var apiresponse = await _noteBL.ToggleTrashAsync(noteId, isTrash);
+            if (apiresponse.Success)
+            {
+                _logger.LogInformation("Successfully toggled trash status for note with ID: {NoteId}", noteId);
+                return Ok(apiresponse);
+            }
+            _logger.LogWarning("Failed to toggle trash status for note with ID: {NoteId}. Reason: {Message}", noteId, apiresponse.Message);
+            return BadRequest(apiresponse);
         }
 
 

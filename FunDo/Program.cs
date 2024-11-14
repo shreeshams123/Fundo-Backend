@@ -13,13 +13,19 @@ using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Diagnostics;
 
 using BusinessLayer.Utilities;
+using Serilog;
 
 
 
 
 var builder = WebApplication.CreateBuilder(args);
-
-
+Log.Logger=new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration).CreateLogger();
+if (!Directory.Exists("Logs"))
+{
+    Directory.CreateDirectory("Logs");
+}
+builder.Host.UseSerilog();
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

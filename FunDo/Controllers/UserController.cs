@@ -11,46 +11,69 @@ namespace FunDo.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserBL _userBL;
-        public UserController(IUserBL userBL)
+        private readonly ILogger<UserController> _logger;   
+        public UserController(IUserBL userBL, ILogger<UserController> logger)
         {
             _userBL = userBL;
+            _logger = logger;
+
         }
         [HttpPost("Register")]
 
         public async Task<IActionResult> RegisterUser(RegisterUserDto userdto)
         {
-            var result = await _userBL.RegisterUserAsync(userdto);
-            if (result == "User with this email already exists")
-                return BadRequest(new { Message = result });
-            return Ok(result);
+            _logger.LogInformation("User registration attempt started");
+            var apiResponse = await _userBL.RegisterUserAsync(userdto);
+            if (apiResponse.Success)
+            {
+                _logger.LogInformation("Registration successful");
+                return Ok(apiResponse);
+                
+            }
+            _logger.LogWarning("Registration failed");
+            return BadRequest(apiResponse);
+
         }
         [HttpPost("login")]
         public async Task<IActionResult> LoginUser(LoginUserDto userdto)
         {
-            var result = await _userBL.LoginUserAsync(userdto);
-            if (result.Message == "Login Successful")
+            _logger.LogInformation("Logging user {Email}", userdto.Email);
+            var apiresponse = await _userBL.LoginUserAsync(userdto);
+            if (apiresponse.Success)
             {
-                return Ok(result);
+                _logger.LogInformation("Login successful");
+                return Ok(apiresponse);
             }
-            return BadRequest(new { Message = result.Message });
+            _logger.LogWarning("Login failed");
+            return BadRequest(apiresponse);
 
         }
         [HttpPost("forgot-password")]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordDto forgotPasswordDto)
         {
-            await _userBL.ForgotPasswordAsync(forgotPasswordDto);
-            return Ok("A password reset link has been sent to your mail");
+            _logger.LogInformation("Forgot password started by {Email}",forgotPasswordDto.Email);
+            var apiresponse=await _userBL.ForgotPasswordAsync(forgotPasswordDto);
+            if (apiresponse.Success)
+            {
+                _logger.LogInformation("A link has been sent to mail if the user is registered ");
+                return Ok(apiresponse);
+            }
+            return BadRequest(apiresponse);
         }
         
         [HttpPost("reset-password")]
         public async Task<IActionResult> ResetPassword(ResetPasswordDto resetPasswordDto)
         {
-            bool isPasswordSet = await _userBL.ResetPassword(resetPasswordDto.Token, resetPasswordDto.Password);
-            if (isPasswordSet == false)
+            _logger.LogInformation("Reset password started");
+            var apiresponse= await _userBL.ResetPassword(resetPasswordDto.Token, resetPasswordDto.Password);
+            if (apiresponse.Success)
             {
-                return BadRequest(new { message = "Password couldn't be set" });
+                _logger.LogInformation("Reset password successful");
+                return Ok(apiresponse);
             }
-            return Ok();
-        }
+            _logger.LogWarning("Reset password failed");
+                return BadRequest(apiresponse);
+            }
+            
     }
 }

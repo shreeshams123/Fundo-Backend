@@ -1,0 +1,924 @@
+2024-11-13 16:09:47.684 +05:30 [INF] User profile is available. Using 'C:\Users\Shreesha_MS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-13 16:09:47.835 +05:30 [INF] Now listening on: https://localhost:7234
+2024-11-13 16:09:47.835 +05:30 [INF] Now listening on: http://localhost:5178
+2024-11-13 16:09:47.868 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-13 16:09:47.870 +05:30 [INF] Hosting environment: Development
+2024-11-13 16:09:47.871 +05:30 [INF] Content root path: D:\FunDo\FunDo
+2024-11-13 16:09:48.356 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7234/swagger/index.html - null null
+2024-11-13 16:09:48.538 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7234/swagger/index.html - 200 null text/html;charset=utf-8 187.984ms
+2024-11-13 16:09:48.544 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7234/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-13 16:09:48.544 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7234/_vs/browserLink - null null
+2024-11-13 16:09:48.551 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7234/_framework/aspnetcore-browser-refresh.js - 200 13746 application/javascript; charset=utf-8 7.6949ms
+2024-11-13 16:09:48.582 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7234/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.8418ms
+2024-11-13 16:09:48.675 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7234/swagger/v1/swagger.json - null null
+2024-11-13 16:09:48.768 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7234/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 93.062ms
+2024-11-13 16:10:12.367 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7234/api/user/login - application/json 56
+2024-11-13 16:10:12.420 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.LoginUser (FunDo)'
+2024-11-13 16:10:12.452 +05:30 [INF] Route matched with {action = "LoginUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginUser(Models.DTOs.LoginUserDto) on controller FunDo.Controllers.UserController (FunDo).
+2024-11-13 16:10:12.635 +05:30 [INF] Logging user Jac@gmail.com
+2024-11-13 16:10:12.637 +05:30 [INF] Checking if the user present
+2024-11-13 16:10:12.638 +05:30 [INF] Attempting to retrieve user with Email: Jac@gmail.com
+2024-11-13 16:10:13.936 +05:30 [INF] Executed DbCommand (52ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-13 16:10:13.960 +05:30 [WRN] User with Email: Jac@gmail.com not found.
+2024-11-13 16:10:13.962 +05:30 [WRN] User does not present
+2024-11-13 16:10:13.963 +05:30 [WRN] Login failed
+2024-11-13 16:10:13.977 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Models.DTOs.LoginResponseDto'.
+2024-11-13 16:10:13.987 +05:30 [INF] Executed action FunDo.Controllers.UserController.LoginUser (FunDo) in 1529.3446ms
+2024-11-13 16:10:13.989 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.LoginUser (FunDo)'
+2024-11-13 16:10:14.001 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7234/api/user/login - 400 null application/json; charset=utf-8 1634.2125ms
+2024-11-13 16:11:21.656 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7234/api/user/login - application/json 57
+2024-11-13 16:11:21.664 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.LoginUser (FunDo)'
+2024-11-13 16:11:21.665 +05:30 [INF] Route matched with {action = "LoginUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginUser(Models.DTOs.LoginUserDto) on controller FunDo.Controllers.UserController (FunDo).
+2024-11-13 16:11:21.671 +05:30 [INF] Logging user Jack@gmail.com
+2024-11-13 16:11:21.672 +05:30 [INF] Checking if the user present
+2024-11-13 16:11:21.672 +05:30 [INF] Attempting to retrieve user with Email: Jack@gmail.com
+2024-11-13 16:11:21.693 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-13 16:11:21.734 +05:30 [INF] User with Email: Jack@gmail.com retrieved successfully.
+2024-11-13 16:11:21.735 +05:30 [INF] Verifying the password
+2024-11-13 16:11:22.232 +05:30 [INF] Password is valid and token is generated
+2024-11-13 16:11:22.234 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.DTOs.LoginResponseDto'.
+2024-11-13 16:11:22.234 +05:30 [INF] Executed action FunDo.Controllers.UserController.LoginUser (FunDo) in 566.8223ms
+2024-11-13 16:11:22.235 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.LoginUser (FunDo)'
+2024-11-13 16:11:22.236 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7234/api/user/login - 200 null application/json; charset=utf-8 580.4334ms
+2024-11-13 16:13:24.391 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7234/api/note - application/json 57
+2024-11-13 16:13:24.461 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.CreateNote (FunDo)'
+2024-11-13 16:13:24.468 +05:30 [INF] Route matched with {action = "CreateNote", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateNote(Models.DTOs.NoteDto) on controller FunDo.Controllers.NoteController (FunDo).
+2024-11-13 16:13:24.477 +05:30 [INF] Attempt to create a note
+2024-11-13 16:13:24.592 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:13:24.737 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Boolean), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Notes] ([Color], [Description], [IsArchive], [IsTrash], [Title], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2024-11-13 16:13:24.760 +05:30 [INF] Created notes successfully
+2024-11-13 16:13:24.765 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[Models.DTOs.NoteResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-13 16:13:24.769 +05:30 [INF] Executed action FunDo.Controllers.NoteController.CreateNote (FunDo) in 298.617ms
+2024-11-13 16:13:24.771 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.CreateNote (FunDo)'
+2024-11-13 16:13:24.772 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7234/api/note - 200 null application/json; charset=utf-8 381.692ms
+2024-11-13 16:14:24.575 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7234/api/note - application/json 64
+2024-11-13 16:14:24.585 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.CreateNote (FunDo)'
+2024-11-13 16:14:24.586 +05:30 [INF] Route matched with {action = "CreateNote", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateNote(Models.DTOs.NoteDto) on controller FunDo.Controllers.NoteController (FunDo).
+2024-11-13 16:14:24.588 +05:30 [INF] Attempt to create a note
+2024-11-13 16:14:24.592 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:14:24.608 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Boolean), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Notes] ([Color], [Description], [IsArchive], [IsTrash], [Title], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2024-11-13 16:14:24.610 +05:30 [INF] Created notes successfully
+2024-11-13 16:14:24.610 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[Models.DTOs.NoteResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-13 16:14:24.611 +05:30 [INF] Executed action FunDo.Controllers.NoteController.CreateNote (FunDo) in 23.8347ms
+2024-11-13 16:14:24.611 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.CreateNote (FunDo)'
+2024-11-13 16:14:24.612 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7234/api/note - 200 null application/json; charset=utf-8 43.4936ms
+2024-11-13 16:14:39.290 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7234/api/note - null null
+2024-11-13 16:14:39.293 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDo)'
+2024-11-13 16:14:39.297 +05:30 [INF] Route matched with {action = "GetAllNotes", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllNotes() on controller FunDo.Controllers.NoteController (FunDo).
+2024-11-13 16:14:39.301 +05:30 [INF] Attempt to get all notes from Database
+2024-11-13 16:14:39.302 +05:30 [INF] Fetching all notes for user with ID: 1010
+2024-11-13 16:14:39.304 +05:30 [INF] Checking if user with ID: 1010 exists
+2024-11-13 16:14:39.310 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:14:39.312 +05:30 [INF] Fetching notes for user with ID: 1010
+2024-11-13 16:14:39.383 +05:30 [INF] Executed DbCommand (19ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[Title], [n].[Description], [n].[Color], [n].[IsArchive], [n].[IsTrash], CASE
+    WHEN [n].[UserId] = @__userId_0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsCreated]
+FROM [Notes] AS [n]
+WHERE [n].[UserId] = @__userId_0 OR EXISTS (
+    SELECT 1
+    FROM [Collaborators] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[NoteId] = [n].[Id])
+2024-11-13 16:14:39.386 +05:30 [INF] 2 notes retrieved for user with ID: 1010
+2024-11-13 16:14:39.387 +05:30 [INF] Notes retrieved successfully
+2024-11-13 16:14:39.387 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.NoteResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-13 16:14:39.389 +05:30 [INF] Executed action FunDo.Controllers.NoteController.GetAllNotes (FunDo) in 90.5787ms
+2024-11-13 16:14:39.390 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDo)'
+2024-11-13 16:14:39.394 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7234/api/note - 200 null application/json; charset=utf-8 104.3799ms
+2024-11-13 16:14:51.306 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7234/api/note/get/1022 - null null
+2024-11-13 16:14:51.314 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.GetNotesById (FunDo)'
+2024-11-13 16:14:51.318 +05:30 [INF] Route matched with {action = "GetNotesById", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetNotesById(Int32) on controller FunDo.Controllers.NoteController (FunDo).
+2024-11-13 16:14:51.323 +05:30 [INF] Started retrieving notes by Id
+2024-11-13 16:14:51.325 +05:30 [INF] Attempting to retrieve note with ID: 1022 for user ID: 1010
+2024-11-13 16:14:51.328 +05:30 [INF] Checking if user with ID: 1010 exists
+2024-11-13 16:14:51.330 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:14:51.332 +05:30 [INF] Retrieving note with ID: 1022
+2024-11-13 16:14:51.347 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-13 16:14:51.354 +05:30 [INF] Note with ID: 1022 retrieved successfully
+2024-11-13 16:14:51.355 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[Models.DTOs.NoteResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-13 16:14:51.356 +05:30 [INF] Executed action FunDo.Controllers.NoteController.GetNotesById (FunDo) in 36.3139ms
+2024-11-13 16:14:51.356 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.GetNotesById (FunDo)'
+2024-11-13 16:14:51.357 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7234/api/note/get/1022 - 200 null application/json; charset=utf-8 50.8843ms
+2024-11-13 16:15:12.753 +05:30 [INF] Request starting HTTP/2 PATCH https://localhost:7234/api/note/update/1022 - application/json 25
+2024-11-13 16:15:12.755 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.UpdateNote (FunDo)'
+2024-11-13 16:15:12.758 +05:30 [INF] Route matched with {action = "UpdateNote", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateNote(Int32, Models.DTOs.NoteUpdateDto) on controller FunDo.Controllers.NoteController (FunDo).
+2024-11-13 16:15:12.763 +05:30 [INF] Updating note with ID: 1022
+2024-11-13 16:15:12.767 +05:30 [INF] User with ID: 1010 is attempting to update note with ID: 1022
+2024-11-13 16:15:12.769 +05:30 [INF] Checking if user with ID: 1010 exists
+2024-11-13 16:15:12.772 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:15:12.773 +05:30 [INF] Retrieving note with ID: 1022
+2024-11-13 16:15:12.775 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-13 16:15:12.777 +05:30 [INF] User with ID: 1010 has permission to update note ID: 1022
+2024-11-13 16:15:12.790 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Notes] SET [Color] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2024-11-13 16:15:12.797 +05:30 [INF] Successfully updated note with ID: 1022
+2024-11-13 16:15:12.797 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[Models.DTOs.NoteResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-13 16:15:12.798 +05:30 [INF] Executed action FunDo.Controllers.NoteController.UpdateNote (FunDo) in 38.858ms
+2024-11-13 16:15:12.799 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.UpdateNote (FunDo)'
+2024-11-13 16:15:12.800 +05:30 [INF] Request finished HTTP/2 PATCH https://localhost:7234/api/note/update/1022 - 200 null application/json; charset=utf-8 47.0295ms
+2024-11-13 16:15:40.600 +05:30 [INF] Request starting HTTP/2 DELETE https://localhost:7234/api/note/delete/1 - null null
+2024-11-13 16:15:40.605 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.DeleteNote (FunDo)'
+2024-11-13 16:15:40.610 +05:30 [INF] Route matched with {action = "DeleteNote", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteNote(Int32) on controller FunDo.Controllers.NoteController (FunDo).
+2024-11-13 16:15:40.613 +05:30 [INF] Received request to delete note with ID: 1
+2024-11-13 16:15:40.614 +05:30 [INF] Initiating deletion of note with ID: 1 for user ID: 1010
+2024-11-13 16:15:40.631 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:15:40.635 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-13 16:15:40.636 +05:30 [WRN] Note with ID: 1 not found
+2024-11-13 16:15:40.637 +05:30 [WRN] Failed to delete note with ID: 1. Reason: Note not found
+2024-11-13 16:15:40.641 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-13 16:15:40.643 +05:30 [INF] Executed action FunDo.Controllers.NoteController.DeleteNote (FunDo) in 31.1461ms
+2024-11-13 16:15:40.646 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.DeleteNote (FunDo)'
+2024-11-13 16:15:40.648 +05:30 [INF] Request finished HTTP/2 DELETE https://localhost:7234/api/note/delete/1 - 400 null application/json; charset=utf-8 48.3796ms
+2024-11-13 16:15:55.840 +05:30 [INF] Request starting HTTP/2 PATCH https://localhost:7234/api/note/archive/1023?isArchive=true - null null
+2024-11-13 16:15:55.842 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.ToggleArchiveNote (FunDo)'
+2024-11-13 16:15:55.845 +05:30 [INF] Route matched with {action = "ToggleArchiveNote", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ToggleArchiveNote(Int32, Boolean) on controller FunDo.Controllers.NoteController (FunDo).
+2024-11-13 16:15:55.853 +05:30 [INF] Received request to toggle archive status for note with ID: 1023
+2024-11-13 16:15:55.854 +05:30 [INF] Initiating toggle of archive status for note with ID: 1023 for user ID: 1010
+2024-11-13 16:15:55.857 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:15:55.860 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-13 16:15:55.869 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Notes] SET [IsArchive] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2024-11-13 16:15:55.871 +05:30 [INF] Note with ID: 1023 archive status updated to true
+2024-11-13 16:15:55.872 +05:30 [INF] Successfully toggled archive status for note with ID: 1023
+2024-11-13 16:15:55.873 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-13 16:15:55.873 +05:30 [INF] Executed action FunDo.Controllers.NoteController.ToggleArchiveNote (FunDo) in 26.6806ms
+2024-11-13 16:15:55.874 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.ToggleArchiveNote (FunDo)'
+2024-11-13 16:15:55.875 +05:30 [INF] Request finished HTTP/2 PATCH https://localhost:7234/api/note/archive/1023?isArchive=true - 200 null application/json; charset=utf-8 34.094ms
+2024-11-13 16:16:14.654 +05:30 [INF] Request starting HTTP/2 PATCH https://localhost:7234/api/note/trash/1023?isTrash=true - null null
+2024-11-13 16:16:14.656 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.ToggleTrashNote (FunDo)'
+2024-11-13 16:16:14.660 +05:30 [INF] Route matched with {action = "ToggleTrashNote", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ToggleTrashNote(Int32, Boolean) on controller FunDo.Controllers.NoteController (FunDo).
+2024-11-13 16:16:14.664 +05:30 [INF] Received request to toggle trash status for note with ID: 1023
+2024-11-13 16:16:14.665 +05:30 [INF] Initiating toggle of trash status for note with ID: 1023 for user ID: 1010
+2024-11-13 16:16:14.668 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:16:14.675 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-13 16:16:14.683 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Notes] SET [IsTrash] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2024-11-13 16:16:14.685 +05:30 [INF] Note with ID: 1023 archive status updated to true
+2024-11-13 16:16:14.686 +05:30 [INF] Successfully toggled trash status for note with ID: 1023
+2024-11-13 16:16:14.686 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-13 16:16:14.691 +05:30 [INF] Executed action FunDo.Controllers.NoteController.ToggleTrashNote (FunDo) in 29.0073ms
+2024-11-13 16:16:14.693 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.ToggleTrashNote (FunDo)'
+2024-11-13 16:16:14.694 +05:30 [INF] Request finished HTTP/2 PATCH https://localhost:7234/api/note/trash/1023?isTrash=true - 200 null application/json; charset=utf-8 39.7902ms
+2024-11-13 16:16:27.921 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7234/api/note - null null
+2024-11-13 16:16:27.922 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDo)'
+2024-11-13 16:16:27.923 +05:30 [INF] Route matched with {action = "GetAllNotes", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllNotes() on controller FunDo.Controllers.NoteController (FunDo).
+2024-11-13 16:16:27.924 +05:30 [INF] Attempt to get all notes from Database
+2024-11-13 16:16:27.925 +05:30 [INF] Fetching all notes for user with ID: 1010
+2024-11-13 16:16:27.925 +05:30 [INF] Checking if user with ID: 1010 exists
+2024-11-13 16:16:27.931 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:16:27.933 +05:30 [INF] Fetching notes for user with ID: 1010
+2024-11-13 16:16:27.943 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[Title], [n].[Description], [n].[Color], [n].[IsArchive], [n].[IsTrash], CASE
+    WHEN [n].[UserId] = @__userId_0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsCreated]
+FROM [Notes] AS [n]
+WHERE [n].[UserId] = @__userId_0 OR EXISTS (
+    SELECT 1
+    FROM [Collaborators] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[NoteId] = [n].[Id])
+2024-11-13 16:16:27.945 +05:30 [INF] 2 notes retrieved for user with ID: 1010
+2024-11-13 16:16:27.945 +05:30 [INF] Notes retrieved successfully
+2024-11-13 16:16:27.946 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.NoteResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-13 16:16:27.947 +05:30 [INF] Executed action FunDo.Controllers.NoteController.GetAllNotes (FunDo) in 22.6422ms
+2024-11-13 16:16:27.947 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDo)'
+2024-11-13 16:16:27.948 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7234/api/note - 200 null application/json; charset=utf-8 27.8718ms
+2024-11-13 16:16:55.536 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7234/api/Collaborator/AddCollaborator/1022?Email=shreesha2002ms%40gmail.com - null 0
+2024-11-13 16:16:55.542 +05:30 [INF] Executing endpoint 'FunDo.Controllers.CollaboratorController.AddCollaborator (FunDo)'
+2024-11-13 16:16:55.548 +05:30 [INF] Route matched with {action = "AddCollaborator", controller = "Collaborator"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddCollaborator(Int32, System.String) on controller FunDo.Controllers.CollaboratorController (FunDo).
+2024-11-13 16:16:55.551 +05:30 [INF] Attempting to add collaborator with email: shreesha2002ms@gmail.com to note with ID: 1022
+2024-11-13 16:16:55.552 +05:30 [INF] Attempting to add collaborator with email: shreesha2002ms@gmail.com to note with ID: 1022 by user with ID: 1010
+2024-11-13 16:16:55.554 +05:30 [INF] Received request to add collaborator to note with ID: 1022 by user ID: 1010
+2024-11-13 16:16:55.558 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:16:55.563 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-13 16:16:55.566 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-13 16:16:55.572 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__collabUser_Id_0='?' (DbType = Int32), @__noteId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Collaborators] AS [c]
+        WHERE [c].[UserId] = @__collabUser_Id_0 AND [c].[NoteId] = @__noteId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:16:55.612 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Collaborators] ([NoteId], [UserId])
+VALUES (@p0, @p1);
+2024-11-13 16:16:55.614 +05:30 [INF] Successfully added user with email: shreesha2002ms@gmail.com as a collaborator to note with ID: 1022
+2024-11-13 16:16:55.615 +05:30 [INF] Successfully added collaborator with email: shreesha2002ms@gmail.com to note with ID: 1022
+2024-11-13 16:16:55.616 +05:30 [INF] Successfully added collaborator with email: shreesha2002ms@gmail.com to note with ID: 1022
+2024-11-13 16:16:55.616 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[Models.DTOs.UserDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-13 16:16:55.618 +05:30 [INF] Executed action FunDo.Controllers.CollaboratorController.AddCollaborator (FunDo) in 68.8051ms
+2024-11-13 16:16:55.618 +05:30 [INF] Executed endpoint 'FunDo.Controllers.CollaboratorController.AddCollaborator (FunDo)'
+2024-11-13 16:16:55.619 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7234/api/Collaborator/AddCollaborator/1022?Email=shreesha2002ms%40gmail.com - 200 null application/json; charset=utf-8 83.6808ms
+2024-11-13 16:17:17.732 +05:30 [INF] Request starting HTTP/2 DELETE https://localhost:7234/api/Collaborator/DeleteCollaborator/1023/shreesha2002ms@gmail.com - null null
+2024-11-13 16:17:17.736 +05:30 [INF] Executing endpoint 'FunDo.Controllers.CollaboratorController.DeleteCollaborator (FunDo)'
+2024-11-13 16:17:17.742 +05:30 [INF] Route matched with {action = "DeleteCollaborator", controller = "Collaborator"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteCollaborator(Int32, System.String) on controller FunDo.Controllers.CollaboratorController (FunDo).
+2024-11-13 16:17:17.744 +05:30 [INF] Attempting to delete collaborator with email: shreesha2002ms@gmail.com from note with ID: 1023
+2024-11-13 16:17:17.745 +05:30 [INF] Attempting to delete collaborator with email: shreesha2002ms@gmail.com from note with ID: 1023 by user with ID: 1010
+2024-11-13 16:17:17.749 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:17:17.755 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-13 16:17:17.758 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-13 16:17:17.764 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__noteId_0='?' (DbType = Int32), @__collaboratorToDelete_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[UserId], [c].[NoteId]
+FROM [Collaborators] AS [c]
+WHERE [c].[NoteId] = @__noteId_0 AND [c].[UserId] = @__collaboratorToDelete_Id_1
+2024-11-13 16:17:17.768 +05:30 [WRN] This user is not a collaborator for the note
+2024-11-13 16:17:17.771 +05:30 [WRN] Failed to delete collaborator with email: shreesha2002ms@gmail.com from note with ID: 1023. Reason: This user is not a collaborator for this note
+2024-11-13 16:17:17.771 +05:30 [WRN] Failed to delete collaborator with email: shreesha2002ms@gmail.com from note with ID: 1023. Reason: This user is not a collaborator for this note
+2024-11-13 16:17:17.772 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-13 16:17:17.773 +05:30 [INF] Executed action FunDo.Controllers.CollaboratorController.DeleteCollaborator (FunDo) in 29.9618ms
+2024-11-13 16:17:17.773 +05:30 [INF] Executed endpoint 'FunDo.Controllers.CollaboratorController.DeleteCollaborator (FunDo)'
+2024-11-13 16:17:17.774 +05:30 [INF] Request finished HTTP/2 DELETE https://localhost:7234/api/Collaborator/DeleteCollaborator/1023/shreesha2002ms@gmail.com - 400 null application/json; charset=utf-8 44.0466ms
+2024-11-13 16:17:23.427 +05:30 [INF] Request starting HTTP/2 DELETE https://localhost:7234/api/Collaborator/DeleteCollaborator/1022/shreesha2002ms@gmail.com - null null
+2024-11-13 16:17:23.429 +05:30 [INF] Executing endpoint 'FunDo.Controllers.CollaboratorController.DeleteCollaborator (FunDo)'
+2024-11-13 16:17:23.429 +05:30 [INF] Route matched with {action = "DeleteCollaborator", controller = "Collaborator"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteCollaborator(Int32, System.String) on controller FunDo.Controllers.CollaboratorController (FunDo).
+2024-11-13 16:17:23.432 +05:30 [INF] Attempting to delete collaborator with email: shreesha2002ms@gmail.com from note with ID: 1022
+2024-11-13 16:17:23.433 +05:30 [INF] Attempting to delete collaborator with email: shreesha2002ms@gmail.com from note with ID: 1022 by user with ID: 1010
+2024-11-13 16:17:23.436 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:17:23.444 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-13 16:17:23.446 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-13 16:17:23.448 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__noteId_0='?' (DbType = Int32), @__collaboratorToDelete_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[UserId], [c].[NoteId]
+FROM [Collaborators] AS [c]
+WHERE [c].[NoteId] = @__noteId_0 AND [c].[UserId] = @__collaboratorToDelete_Id_1
+2024-11-13 16:17:23.461 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Collaborators]
+OUTPUT 1
+WHERE [NoteId] = @p0 AND [UserId] = @p1;
+2024-11-13 16:17:23.468 +05:30 [INF] Collaborator with email: shreesha2002ms@gmail.com removed from note with ID: 1022
+2024-11-13 16:17:23.469 +05:30 [INF] Successfully deleted collaborator with email: shreesha2002ms@gmail.com from note with ID: 1022
+2024-11-13 16:17:23.470 +05:30 [INF] Successfully deleted collaborator with email: shreesha2002ms@gmail.com from note with ID: 1022
+2024-11-13 16:17:23.471 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-13 16:17:23.472 +05:30 [INF] Executed action FunDo.Controllers.CollaboratorController.DeleteCollaborator (FunDo) in 41.8825ms
+2024-11-13 16:17:23.473 +05:30 [INF] Executed endpoint 'FunDo.Controllers.CollaboratorController.DeleteCollaborator (FunDo)'
+2024-11-13 16:17:23.474 +05:30 [INF] Request finished HTTP/2 DELETE https://localhost:7234/api/Collaborator/DeleteCollaborator/1022/shreesha2002ms@gmail.com - 200 null application/json; charset=utf-8 47.0852ms
+2024-11-13 16:17:37.878 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7234/api/Collaborator/GetCollaborators/1022 - null null
+2024-11-13 16:17:37.880 +05:30 [INF] Executing endpoint 'FunDo.Controllers.CollaboratorController.GetCollaborators (FunDo)'
+2024-11-13 16:17:37.884 +05:30 [INF] Route matched with {action = "GetCollaborators", controller = "Collaborator"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCollaborators(Int32) on controller FunDo.Controllers.CollaboratorController (FunDo).
+2024-11-13 16:17:37.888 +05:30 [INF] Attempting to get collaborators for note with ID: 1022
+2024-11-13 16:17:37.889 +05:30 [INF] Attempting to retrieve collaborators for note with ID: 1022 by user with ID: 1010
+2024-11-13 16:17:37.900 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__ownerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__ownerId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:17:37.903 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-13 16:17:37.936 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__NoteId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Name]
+FROM [Collaborators] AS [c]
+INNER JOIN [Users] AS [u] ON [c].[UserId] = [u].[Id]
+WHERE [c].[NoteId] = @__NoteId_0
+2024-11-13 16:17:37.938 +05:30 [INF] Successfully retrieved collaborators for note with ID: 1022
+2024-11-13 16:17:37.939 +05:30 [INF] Successfully retrieved collaborators for note with ID: 1022
+2024-11-13 16:17:37.940 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.UserDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-13 16:17:37.943 +05:30 [INF] Executed action FunDo.Controllers.CollaboratorController.GetCollaborators (FunDo) in 56.8993ms
+2024-11-13 16:17:37.944 +05:30 [INF] Executed endpoint 'FunDo.Controllers.CollaboratorController.GetCollaborators (FunDo)'
+2024-11-13 16:17:37.945 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7234/api/Collaborator/GetCollaborators/1022 - 200 null application/json; charset=utf-8 68.0083ms
+2024-11-13 16:17:52.986 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7234/api/Collaborator/AddCollaborator/1022?Email=shreesha2002ms%40gmail.com - null 0
+2024-11-13 16:17:52.990 +05:30 [INF] Executing endpoint 'FunDo.Controllers.CollaboratorController.AddCollaborator (FunDo)'
+2024-11-13 16:17:52.990 +05:30 [INF] Route matched with {action = "AddCollaborator", controller = "Collaborator"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddCollaborator(Int32, System.String) on controller FunDo.Controllers.CollaboratorController (FunDo).
+2024-11-13 16:17:52.992 +05:30 [INF] Attempting to add collaborator with email: shreesha2002ms@gmail.com to note with ID: 1022
+2024-11-13 16:17:52.993 +05:30 [INF] Attempting to add collaborator with email: shreesha2002ms@gmail.com to note with ID: 1022 by user with ID: 1010
+2024-11-13 16:17:52.993 +05:30 [INF] Received request to add collaborator to note with ID: 1022 by user ID: 1010
+2024-11-13 16:17:52.998 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:17:53.001 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-13 16:17:53.004 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-13 16:17:53.007 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__collabUser_Id_0='?' (DbType = Int32), @__noteId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Collaborators] AS [c]
+        WHERE [c].[UserId] = @__collabUser_Id_0 AND [c].[NoteId] = @__noteId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:17:53.017 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Collaborators] ([NoteId], [UserId])
+VALUES (@p0, @p1);
+2024-11-13 16:17:53.019 +05:30 [INF] Successfully added user with email: shreesha2002ms@gmail.com as a collaborator to note with ID: 1022
+2024-11-13 16:17:53.020 +05:30 [INF] Successfully added collaborator with email: shreesha2002ms@gmail.com to note with ID: 1022
+2024-11-13 16:17:53.020 +05:30 [INF] Successfully added collaborator with email: shreesha2002ms@gmail.com to note with ID: 1022
+2024-11-13 16:17:53.021 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[Models.DTOs.UserDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-13 16:17:53.022 +05:30 [INF] Executed action FunDo.Controllers.CollaboratorController.AddCollaborator (FunDo) in 30.6531ms
+2024-11-13 16:17:53.023 +05:30 [INF] Executed endpoint 'FunDo.Controllers.CollaboratorController.AddCollaborator (FunDo)'
+2024-11-13 16:17:53.024 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7234/api/Collaborator/AddCollaborator/1022?Email=shreesha2002ms%40gmail.com - 200 null application/json; charset=utf-8 37.763ms
+2024-11-13 16:17:59.731 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7234/api/Collaborator/AddCollaborator/1022?Email=shreesha2002ms%40gmail.com - null 0
+2024-11-13 16:17:59.733 +05:30 [INF] Executing endpoint 'FunDo.Controllers.CollaboratorController.AddCollaborator (FunDo)'
+2024-11-13 16:17:59.733 +05:30 [INF] Route matched with {action = "AddCollaborator", controller = "Collaborator"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddCollaborator(Int32, System.String) on controller FunDo.Controllers.CollaboratorController (FunDo).
+2024-11-13 16:17:59.735 +05:30 [INF] Attempting to add collaborator with email: shreesha2002ms@gmail.com to note with ID: 1022
+2024-11-13 16:17:59.736 +05:30 [INF] Attempting to add collaborator with email: shreesha2002ms@gmail.com to note with ID: 1022 by user with ID: 1010
+2024-11-13 16:17:59.736 +05:30 [INF] Received request to add collaborator to note with ID: 1022 by user ID: 1010
+2024-11-13 16:17:59.738 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:17:59.742 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-13 16:17:59.746 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-13 16:17:59.749 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__collabUser_Id_0='?' (DbType = Int32), @__noteId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Collaborators] AS [c]
+        WHERE [c].[UserId] = @__collabUser_Id_0 AND [c].[NoteId] = @__noteId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:17:59.750 +05:30 [WRN] User with email: shreesha2002ms@gmail.com is already a collaborator for note with ID: 1022
+2024-11-13 16:17:59.751 +05:30 [WRN] Failed to add collaborator with email: shreesha2002ms@gmail.com to note with ID: 1022. Reason: This user is already a collaborator for this note.
+2024-11-13 16:17:59.751 +05:30 [WRN] Failed to add collaborator with email: shreesha2002ms@gmail.com to note with ID: 1022. Reason: This user is already a collaborator for this note.
+2024-11-13 16:17:59.757 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Models.ApiResponse`1[[Models.DTOs.UserDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-13 16:17:59.758 +05:30 [INF] Executed action FunDo.Controllers.CollaboratorController.AddCollaborator (FunDo) in 23.2195ms
+2024-11-13 16:17:59.759 +05:30 [INF] Executed endpoint 'FunDo.Controllers.CollaboratorController.AddCollaborator (FunDo)'
+2024-11-13 16:17:59.760 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7234/api/Collaborator/AddCollaborator/1022?Email=shreesha2002ms%40gmail.com - 400 null application/json; charset=utf-8 29.0008ms
+2024-11-13 16:18:06.515 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7234/api/Collaborator/GetCollaborators/1022 - null null
+2024-11-13 16:18:06.517 +05:30 [INF] Executing endpoint 'FunDo.Controllers.CollaboratorController.GetCollaborators (FunDo)'
+2024-11-13 16:18:06.518 +05:30 [INF] Route matched with {action = "GetCollaborators", controller = "Collaborator"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCollaborators(Int32) on controller FunDo.Controllers.CollaboratorController (FunDo).
+2024-11-13 16:18:06.520 +05:30 [INF] Attempting to get collaborators for note with ID: 1022
+2024-11-13 16:18:06.521 +05:30 [INF] Attempting to retrieve collaborators for note with ID: 1022 by user with ID: 1010
+2024-11-13 16:18:06.523 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__ownerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__ownerId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:18:06.527 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-13 16:18:06.535 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__NoteId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Name]
+FROM [Collaborators] AS [c]
+INNER JOIN [Users] AS [u] ON [c].[UserId] = [u].[Id]
+WHERE [c].[NoteId] = @__NoteId_0
+2024-11-13 16:18:06.537 +05:30 [INF] Successfully retrieved collaborators for note with ID: 1022
+2024-11-13 16:18:06.537 +05:30 [INF] Successfully retrieved collaborators for note with ID: 1022
+2024-11-13 16:18:06.538 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.UserDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-13 16:18:06.539 +05:30 [INF] Executed action FunDo.Controllers.CollaboratorController.GetCollaborators (FunDo) in 20.3903ms
+2024-11-13 16:18:06.540 +05:30 [INF] Executed endpoint 'FunDo.Controllers.CollaboratorController.GetCollaborators (FunDo)'
+2024-11-13 16:18:06.541 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7234/api/Collaborator/GetCollaborators/1022 - 200 null application/json; charset=utf-8 26.0798ms
+2024-11-13 16:18:18.642 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7234/add-labels - application/json 20
+2024-11-13 16:18:18.644 +05:30 [INF] Executing endpoint 'FunDo.Controllers.LabelController.AddLabels (FunDo)'
+2024-11-13 16:18:18.647 +05:30 [INF] Route matched with {action = "AddLabels", controller = "Label"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddLabels(Models.DTOs.LabelRequestDto) on controller FunDo.Controllers.LabelController (FunDo).
+2024-11-13 16:18:18.653 +05:30 [INF] Attempting to add labels
+2024-11-13 16:18:18.655 +05:30 [INF] Adding label to database.
+2024-11-13 16:18:18.656 +05:30 [INF] Attempting to add label with name: Home
+2024-11-13 16:18:18.668 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__labeldto_Name_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Labels] AS [l]
+        WHERE [l].[Name] = @__labeldto_Name_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:18:18.677 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Labels] ([Name])
+OUTPUT INSERTED.[Id]
+VALUES (@p0);
+2024-11-13 16:18:18.685 +05:30 [INF] Successfully added label with ID: 6
+2024-11-13 16:18:18.686 +05:30 [INF] Successfully added label with ID: 6
+2024-11-13 16:18:18.686 +05:30 [INF] Labels added successfully
+2024-11-13 16:18:18.686 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[Models.DTOs.LabelDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-13 16:18:18.688 +05:30 [INF] Executed action FunDo.Controllers.LabelController.AddLabels (FunDo) in 39.3378ms
+2024-11-13 16:18:18.688 +05:30 [INF] Executed endpoint 'FunDo.Controllers.LabelController.AddLabels (FunDo)'
+2024-11-13 16:18:18.689 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7234/add-labels - 200 null application/json; charset=utf-8 46.8938ms
+2024-11-13 16:18:40.802 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7234/update-labels/1022 - application/json 7
+2024-11-13 16:18:40.804 +05:30 [INF] Executing endpoint 'FunDo.Controllers.LabelController.UpdateLabels (FunDo)'
+2024-11-13 16:18:40.808 +05:30 [INF] Route matched with {action = "UpdateLabels", controller = "Label"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateLabels(Int32, System.Collections.Generic.List`1[System.Int32]) on controller FunDo.Controllers.LabelController (FunDo).
+2024-11-13 16:18:40.818 +05:30 [INF] Attempting to update labels for Note ID: 1022
+2024-11-13 16:18:40.819 +05:30 [INF] Updating labels for note with ID: 1022
+2024-11-13 16:18:40.824 +05:30 [INF] Updating labels for Note ID: 1022 by User ID: 1010
+2024-11-13 16:18:40.877 +05:30 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-11-13 16:18:40.890 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__noteId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Description], [t].[IsArchive], [t].[IsTrash], [t].[Title], [t].[UserId], [c].[UserId], [c].[NoteId], [n0].[NoteId], [n0].[LabelId]
+FROM (
+    SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+    FROM [Notes] AS [n]
+    WHERE [n].[Id] = @__noteId_0
+) AS [t]
+LEFT JOIN [Collaborators] AS [c] ON [t].[Id] = [c].[NoteId]
+LEFT JOIN [NoteLabels] AS [n0] ON [t].[Id] = [n0].[NoteId]
+ORDER BY [t].[Id], [c].[UserId], [c].[NoteId], [n0].[NoteId]
+2024-11-13 16:18:40.947 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[@__LabelIds_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[Name]
+FROM [Labels] AS [l]
+WHERE [l].[Id] IN (
+    SELECT [l0].[value]
+    FROM OPENJSON(@__LabelIds_0) WITH ([value] int '$') AS [l0]
+)
+2024-11-13 16:18:40.950 +05:30 [INF] Added label with ID: 6 to Note ID: 1022
+2024-11-13 16:18:40.958 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [NoteLabels] ([LabelId], [NoteId])
+VALUES (@p0, @p1);
+2024-11-13 16:18:40.960 +05:30 [INF] Successfully updated labels for Note ID: 1022
+2024-11-13 16:18:40.961 +05:30 [INF] Labels updated successfully for Note ID: 1022
+2024-11-13 16:18:40.961 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-13 16:18:40.962 +05:30 [INF] Executed action FunDo.Controllers.LabelController.UpdateLabels (FunDo) in 152.208ms
+2024-11-13 16:18:40.962 +05:30 [INF] Executed endpoint 'FunDo.Controllers.LabelController.UpdateLabels (FunDo)'
+2024-11-13 16:18:40.963 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7234/update-labels/1022 - 200 null application/json; charset=utf-8 160.9101ms
+2024-11-13 16:18:52.008 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7234/api/label/get-labels-checklist/1022 - null null
+2024-11-13 16:18:52.010 +05:30 [INF] Executing endpoint 'FunDo.Controllers.LabelController.GetLabelsChecklist (FunDo)'
+2024-11-13 16:18:52.028 +05:30 [INF] Route matched with {action = "GetLabelsChecklist", controller = "Label"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetLabelsChecklist(Int32) on controller FunDo.Controllers.LabelController (FunDo).
+2024-11-13 16:18:52.032 +05:30 [INF] Retrieving label checklist for Note ID: 1022
+2024-11-13 16:18:52.034 +05:30 [INF] Getting label checklist for note with ID: 1022
+2024-11-13 16:18:52.036 +05:30 [INF] Retrieving all labels from the database.
+2024-11-13 16:18:52.045 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[Name]
+FROM [Labels] AS [l]
+2024-11-13 16:18:52.047 +05:30 [INF] Successfully retrieved all labels from the database.
+2024-11-13 16:18:52.048 +05:30 [INF] Retrieving labels for Note ID: 1022 by User ID: 1010
+2024-11-13 16:18:52.052 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__noteId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Description], [t].[IsArchive], [t].[IsTrash], [t].[Title], [t].[UserId], [c].[UserId], [c].[NoteId], [n0].[NoteId], [n0].[LabelId]
+FROM (
+    SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+    FROM [Notes] AS [n]
+    WHERE [n].[Id] = @__noteId_0
+) AS [t]
+LEFT JOIN [Collaborators] AS [c] ON [t].[Id] = [c].[NoteId]
+LEFT JOIN [NoteLabels] AS [n0] ON [t].[Id] = [n0].[NoteId]
+ORDER BY [t].[Id], [c].[UserId], [c].[NoteId], [n0].[NoteId]
+2024-11-13 16:18:52.063 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__noteId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[LabelId]
+FROM [NoteLabels] AS [n]
+WHERE [n].[NoteId] = @__noteId_0
+2024-11-13 16:18:52.066 +05:30 [INF] Successfully retrieved labels for Note ID: 1022
+2024-11-13 16:18:52.069 +05:30 [INF] Retrieved label checklist for note ID: 1022
+2024-11-13 16:18:52.071 +05:30 [INF] Label checklist retrieved successfully for Note ID: 1022
+2024-11-13 16:18:52.072 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.LabelCheckListDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-13 16:18:52.075 +05:30 [INF] Executed action FunDo.Controllers.LabelController.GetLabelsChecklist (FunDo) in 45.59ms
+2024-11-13 16:18:52.076 +05:30 [INF] Executed endpoint 'FunDo.Controllers.LabelController.GetLabelsChecklist (FunDo)'
+2024-11-13 16:18:52.077 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7234/api/label/get-labels-checklist/1022 - 200 null application/json; charset=utf-8 69.5674ms
+2024-11-13 16:19:09.492 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7234/api/label/get-all-labels - null null
+2024-11-13 16:19:09.497 +05:30 [INF] Executing endpoint 'FunDo.Controllers.LabelController.GetAllLabels (FunDo)'
+2024-11-13 16:19:09.502 +05:30 [INF] Route matched with {action = "GetAllLabels", controller = "Label"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllLabels() on controller FunDo.Controllers.LabelController (FunDo).
+2024-11-13 16:19:09.504 +05:30 [INF] Retrieving all labels
+2024-11-13 16:19:09.505 +05:30 [INF] Retrieving all labels from database.
+2024-11-13 16:19:09.505 +05:30 [INF] Retrieving all labels from the database.
+2024-11-13 16:19:09.507 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[Id], [l].[Name]
+FROM [Labels] AS [l]
+2024-11-13 16:19:09.509 +05:30 [INF] Successfully retrieved all labels from the database.
+2024-11-13 16:19:09.509 +05:30 [INF] Retrieved 2 labels.
+2024-11-13 16:19:09.510 +05:30 [INF] All labels retrieved successfully
+2024-11-13 16:19:09.513 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.LabelDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-13 16:19:09.516 +05:30 [INF] Executed action FunDo.Controllers.LabelController.GetAllLabels (FunDo) in 13.3768ms
+2024-11-13 16:19:09.517 +05:30 [INF] Executed endpoint 'FunDo.Controllers.LabelController.GetAllLabels (FunDo)'
+2024-11-13 16:19:09.518 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7234/api/label/get-all-labels - 200 null application/json; charset=utf-8 25.9426ms
+2024-11-13 16:19:24.022 +05:30 [INF] Request starting HTTP/2 DELETE https://localhost:7234/api/label/delete-label/6 - null null
+2024-11-13 16:19:24.024 +05:30 [INF] Executing endpoint 'FunDo.Controllers.LabelController.DeleteLabel (FunDo)'
+2024-11-13 16:19:24.028 +05:30 [INF] Route matched with {action = "DeleteLabel", controller = "Label"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteLabel(Int32) on controller FunDo.Controllers.LabelController (FunDo).
+2024-11-13 16:19:24.031 +05:30 [INF] Attempting to delete label with ID: 6
+2024-11-13 16:19:24.033 +05:30 [INF] Deleting label with ID: 6
+2024-11-13 16:19:24.034 +05:30 [INF] Attempting to delete label with ID: 6
+2024-11-13 16:19:24.040 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [l].[Id], [l].[Name]
+FROM [Labels] AS [l]
+WHERE [l].[Id] = @__p_0
+2024-11-13 16:19:24.056 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Labels]
+OUTPUT 1
+WHERE [Id] = @p0;
+2024-11-13 16:19:24.058 +05:30 [INF] Successfully deleted label with ID: 6
+2024-11-13 16:19:24.060 +05:30 [INF] Successfully deleted label with ID: 6
+2024-11-13 16:19:24.061 +05:30 [INF] Label deleted successfully with ID: 6
+2024-11-13 16:19:24.062 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-13 16:19:24.063 +05:30 [INF] Executed action FunDo.Controllers.LabelController.DeleteLabel (FunDo) in 33.3416ms
+2024-11-13 16:19:24.064 +05:30 [INF] Executed endpoint 'FunDo.Controllers.LabelController.DeleteLabel (FunDo)'
+2024-11-13 16:19:24.064 +05:30 [INF] Request finished HTTP/2 DELETE https://localhost:7234/api/label/delete-label/6 - 200 null application/json; charset=utf-8 42.4069ms
+2024-11-13 16:20:02.173 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7234/api/Collaborator/AddCollaborator/1022?Email=Alex%40gmail.com - null 0
+2024-11-13 16:20:02.177 +05:30 [INF] Executing endpoint 'FunDo.Controllers.CollaboratorController.AddCollaborator (FunDo)'
+2024-11-13 16:20:02.186 +05:30 [INF] Route matched with {action = "AddCollaborator", controller = "Collaborator"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddCollaborator(Int32, System.String) on controller FunDo.Controllers.CollaboratorController (FunDo).
+2024-11-13 16:20:02.193 +05:30 [INF] Attempting to add collaborator with email: Alex@gmail.com to note with ID: 1022
+2024-11-13 16:20:02.195 +05:30 [INF] Attempting to add collaborator with email: Alex@gmail.com to note with ID: 1022 by user with ID: 1010
+2024-11-13 16:20:02.196 +05:30 [INF] Received request to add collaborator to note with ID: 1022 by user ID: 1010
+2024-11-13 16:20:02.200 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:20:02.203 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-13 16:20:02.206 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-13 16:20:02.209 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__collabUser_Id_0='?' (DbType = Int32), @__noteId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Collaborators] AS [c]
+        WHERE [c].[UserId] = @__collabUser_Id_0 AND [c].[NoteId] = @__noteId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:20:02.219 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Collaborators] ([NoteId], [UserId])
+VALUES (@p0, @p1);
+2024-11-13 16:20:02.221 +05:30 [INF] Successfully added user with email: Alex@gmail.com as a collaborator to note with ID: 1022
+2024-11-13 16:20:02.221 +05:30 [INF] Successfully added collaborator with email: Alex@gmail.com to note with ID: 1022
+2024-11-13 16:20:02.222 +05:30 [INF] Successfully added collaborator with email: Alex@gmail.com to note with ID: 1022
+2024-11-13 16:20:02.223 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[Models.DTOs.UserDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-13 16:20:02.224 +05:30 [INF] Executed action FunDo.Controllers.CollaboratorController.AddCollaborator (FunDo) in 30.8899ms
+2024-11-13 16:20:02.224 +05:30 [INF] Executed endpoint 'FunDo.Controllers.CollaboratorController.AddCollaborator (FunDo)'
+2024-11-13 16:20:02.228 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7234/api/Collaborator/AddCollaborator/1022?Email=Alex%40gmail.com - 200 null application/json; charset=utf-8 55.2144ms
+2024-11-13 16:20:09.019 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7234/swagger/index.html - null null
+2024-11-13 16:20:09.035 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7234/swagger/index.html - 200 null text/html;charset=utf-8 15.9149ms
+2024-11-13 16:20:09.083 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7234/_vs/browserLink - null null
+2024-11-13 16:20:09.085 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7234/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-13 16:20:09.089 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7234/_framework/aspnetcore-browser-refresh.js - 200 13746 application/javascript; charset=utf-8 5.7099ms
+2024-11-13 16:20:09.103 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7234/_vs/browserLink - 200 null text/javascript; charset=UTF-8 19.905ms
+2024-11-13 16:20:09.137 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7234/swagger/v1/swagger.json - null null
+2024-11-13 16:20:09.147 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7234/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 10.4773ms
+2024-11-13 16:20:30.829 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7234/api/user/login - application/json 71
+2024-11-13 16:20:30.831 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.LoginUser (FunDo)'
+2024-11-13 16:20:30.831 +05:30 [INF] Route matched with {action = "LoginUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginUser(Models.DTOs.LoginUserDto) on controller FunDo.Controllers.UserController (FunDo).
+2024-11-13 16:20:30.835 +05:30 [INF] Logging user shreesha2002ms@gmail.com
+2024-11-13 16:20:30.835 +05:30 [INF] Checking if the user present
+2024-11-13 16:20:30.836 +05:30 [INF] Attempting to retrieve user with Email: shreesha2002ms@gmail.com
+2024-11-13 16:20:30.838 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-13 16:20:30.844 +05:30 [INF] User with Email: shreesha2002ms@gmail.com retrieved successfully.
+2024-11-13 16:20:30.845 +05:30 [INF] Verifying the password
+2024-11-13 16:20:31.016 +05:30 [INF] Password is valid and token is generated
+2024-11-13 16:20:31.017 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.DTOs.LoginResponseDto'.
+2024-11-13 16:20:31.019 +05:30 [INF] Executed action FunDo.Controllers.UserController.LoginUser (FunDo) in 186.76ms
+2024-11-13 16:20:31.020 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.LoginUser (FunDo)'
+2024-11-13 16:20:31.021 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7234/api/user/login - 200 null application/json; charset=utf-8 191.4628ms
+2024-11-13 16:21:23.666 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7234/api/note - null null
+2024-11-13 16:21:23.673 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDo)'
+2024-11-13 16:21:23.673 +05:30 [INF] Route matched with {action = "GetAllNotes", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllNotes() on controller FunDo.Controllers.NoteController (FunDo).
+2024-11-13 16:21:23.674 +05:30 [INF] Attempt to get all notes from Database
+2024-11-13 16:21:23.675 +05:30 [INF] Fetching all notes for user with ID: 1006
+2024-11-13 16:21:23.675 +05:30 [INF] Checking if user with ID: 1006 exists
+2024-11-13 16:21:23.678 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:21:23.680 +05:30 [INF] Fetching notes for user with ID: 1006
+2024-11-13 16:21:23.685 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[Title], [n].[Description], [n].[Color], [n].[IsArchive], [n].[IsTrash], CASE
+    WHEN [n].[UserId] = @__userId_0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsCreated]
+FROM [Notes] AS [n]
+WHERE [n].[UserId] = @__userId_0 OR EXISTS (
+    SELECT 1
+    FROM [Collaborators] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[NoteId] = [n].[Id])
+2024-11-13 16:21:23.687 +05:30 [INF] 2 notes retrieved for user with ID: 1006
+2024-11-13 16:21:23.687 +05:30 [INF] Notes retrieved successfully
+2024-11-13 16:21:23.688 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.NoteResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-13 16:21:23.689 +05:30 [INF] Executed action FunDo.Controllers.NoteController.GetAllNotes (FunDo) in 14.659ms
+2024-11-13 16:21:23.690 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDo)'
+2024-11-13 16:21:23.691 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7234/api/note - 200 null application/json; charset=utf-8 25.1682ms
+2024-11-13 16:21:39.262 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7234/api/Collaborator/GetCollaborators/1022 - null null
+2024-11-13 16:21:39.271 +05:30 [INF] Executing endpoint 'FunDo.Controllers.CollaboratorController.GetCollaborators (FunDo)'
+2024-11-13 16:21:39.273 +05:30 [INF] Route matched with {action = "GetCollaborators", controller = "Collaborator"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCollaborators(Int32) on controller FunDo.Controllers.CollaboratorController (FunDo).
+2024-11-13 16:21:39.275 +05:30 [INF] Attempting to get collaborators for note with ID: 1022
+2024-11-13 16:21:39.275 +05:30 [INF] Attempting to retrieve collaborators for note with ID: 1022 by user with ID: 1006
+2024-11-13 16:21:39.278 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__ownerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__ownerId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:21:39.280 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-13 16:21:39.299 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__ownerId_0='?' (DbType = Int32), @__NoteId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Collaborators] AS [c]
+        WHERE [c].[UserId] = @__ownerId_0 AND [c].[NoteId] = @__NoteId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:21:39.305 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__NoteId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Name]
+FROM [Collaborators] AS [c]
+INNER JOIN [Users] AS [u] ON [c].[UserId] = [u].[Id]
+WHERE [c].[NoteId] = @__NoteId_0
+2024-11-13 16:21:39.306 +05:30 [INF] Successfully retrieved collaborators for note with ID: 1022
+2024-11-13 16:21:39.307 +05:30 [INF] Successfully retrieved collaborators for note with ID: 1022
+2024-11-13 16:21:39.307 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.UserDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-13 16:21:39.308 +05:30 [INF] Executed action FunDo.Controllers.CollaboratorController.GetCollaborators (FunDo) in 33.6451ms
+2024-11-13 16:21:39.311 +05:30 [INF] Executed endpoint 'FunDo.Controllers.CollaboratorController.GetCollaborators (FunDo)'
+2024-11-13 16:21:39.313 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7234/api/Collaborator/GetCollaborators/1022 - 200 null application/json; charset=utf-8 51.7156ms
+2024-11-13 16:22:15.994 +05:30 [INF] Request starting HTTP/2 DELETE https://localhost:7234/api/Collaborator/DeleteCollaborator/1022/Alex@gmail.com - null null
+2024-11-13 16:22:16.006 +05:30 [INF] Executing endpoint 'FunDo.Controllers.CollaboratorController.DeleteCollaborator (FunDo)'
+2024-11-13 16:22:16.007 +05:30 [INF] Route matched with {action = "DeleteCollaborator", controller = "Collaborator"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteCollaborator(Int32, System.String) on controller FunDo.Controllers.CollaboratorController (FunDo).
+2024-11-13 16:22:16.009 +05:30 [INF] Attempting to delete collaborator with email: Alex@gmail.com from note with ID: 1022
+2024-11-13 16:22:16.010 +05:30 [INF] Attempting to delete collaborator with email: Alex@gmail.com from note with ID: 1022 by user with ID: 1006
+2024-11-13 16:22:16.013 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:22:16.020 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-13 16:22:16.027 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Int32), @__noteId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Collaborators] AS [c]
+        WHERE [c].[UserId] = @__userId_0 AND [c].[NoteId] = @__noteId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:22:16.031 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-13 16:22:16.041 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__noteId_0='?' (DbType = Int32), @__collaboratorToDelete_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[UserId], [c].[NoteId]
+FROM [Collaborators] AS [c]
+WHERE [c].[NoteId] = @__noteId_0 AND [c].[UserId] = @__collaboratorToDelete_Id_1
+2024-11-13 16:22:16.044 +05:30 [WRN] User with ID: 1006 attempted to remove another collaborator
+2024-11-13 16:22:16.044 +05:30 [WRN] Failed to delete collaborator with email: Alex@gmail.com from note with ID: 1022. Reason: You cannot remove other collaborators
+2024-11-13 16:22:16.045 +05:30 [WRN] Failed to delete collaborator with email: Alex@gmail.com from note with ID: 1022. Reason: You cannot remove other collaborators
+2024-11-13 16:22:16.046 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-13 16:22:16.047 +05:30 [INF] Executed action FunDo.Controllers.CollaboratorController.DeleteCollaborator (FunDo) in 37.8009ms
+2024-11-13 16:22:16.048 +05:30 [INF] Executed endpoint 'FunDo.Controllers.CollaboratorController.DeleteCollaborator (FunDo)'
+2024-11-13 16:22:16.051 +05:30 [INF] Request finished HTTP/2 DELETE https://localhost:7234/api/Collaborator/DeleteCollaborator/1022/Alex@gmail.com - 400 null application/json; charset=utf-8 57.5209ms
+2024-11-13 16:22:25.761 +05:30 [INF] Request starting HTTP/2 DELETE https://localhost:7234/api/Collaborator/DeleteCollaborator/1022/shreesha2002ms@gmail.com - null null
+2024-11-13 16:22:25.763 +05:30 [INF] Executing endpoint 'FunDo.Controllers.CollaboratorController.DeleteCollaborator (FunDo)'
+2024-11-13 16:22:25.766 +05:30 [INF] Route matched with {action = "DeleteCollaborator", controller = "Collaborator"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteCollaborator(Int32, System.String) on controller FunDo.Controllers.CollaboratorController (FunDo).
+2024-11-13 16:22:25.767 +05:30 [INF] Attempting to delete collaborator with email: shreesha2002ms@gmail.com from note with ID: 1022
+2024-11-13 16:22:25.769 +05:30 [INF] Attempting to delete collaborator with email: shreesha2002ms@gmail.com from note with ID: 1022 by user with ID: 1006
+2024-11-13 16:22:25.773 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:22:25.775 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-13 16:22:25.777 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32), @__noteId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Collaborators] AS [c]
+        WHERE [c].[UserId] = @__userId_0 AND [c].[NoteId] = @__noteId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:22:25.778 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-13 16:22:25.780 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__noteId_0='?' (DbType = Int32), @__collaboratorToDelete_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[UserId], [c].[NoteId]
+FROM [Collaborators] AS [c]
+WHERE [c].[NoteId] = @__noteId_0 AND [c].[UserId] = @__collaboratorToDelete_Id_1
+2024-11-13 16:22:25.784 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Collaborators]
+OUTPUT 1
+WHERE [NoteId] = @p0 AND [UserId] = @p1;
+2024-11-13 16:22:25.791 +05:30 [INF] Collaborator with email: shreesha2002ms@gmail.com removed from note with ID: 1022
+2024-11-13 16:22:25.792 +05:30 [INF] Successfully deleted collaborator with email: shreesha2002ms@gmail.com from note with ID: 1022
+2024-11-13 16:22:25.792 +05:30 [INF] Successfully deleted collaborator with email: shreesha2002ms@gmail.com from note with ID: 1022
+2024-11-13 16:22:25.793 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-13 16:22:25.794 +05:30 [INF] Executed action FunDo.Controllers.CollaboratorController.DeleteCollaborator (FunDo) in 26.7912ms
+2024-11-13 16:22:25.795 +05:30 [INF] Executed endpoint 'FunDo.Controllers.CollaboratorController.DeleteCollaborator (FunDo)'
+2024-11-13 16:22:25.795 +05:30 [INF] Request finished HTTP/2 DELETE https://localhost:7234/api/Collaborator/DeleteCollaborator/1022/shreesha2002ms@gmail.com - 200 null application/json; charset=utf-8 33.8402ms
+2024-11-13 16:22:44.384 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7234/api/note - null null
+2024-11-13 16:22:44.385 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDo)'
+2024-11-13 16:22:44.386 +05:30 [INF] Route matched with {action = "GetAllNotes", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllNotes() on controller FunDo.Controllers.NoteController (FunDo).
+2024-11-13 16:22:44.388 +05:30 [INF] Attempt to get all notes from Database
+2024-11-13 16:22:44.388 +05:30 [INF] Fetching all notes for user with ID: 1006
+2024-11-13 16:22:44.389 +05:30 [INF] Checking if user with ID: 1006 exists
+2024-11-13 16:22:44.391 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-13 16:22:44.395 +05:30 [INF] Fetching notes for user with ID: 1006
+2024-11-13 16:22:44.400 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[Title], [n].[Description], [n].[Color], [n].[IsArchive], [n].[IsTrash], CASE
+    WHEN [n].[UserId] = @__userId_0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsCreated]
+FROM [Notes] AS [n]
+WHERE [n].[UserId] = @__userId_0 OR EXISTS (
+    SELECT 1
+    FROM [Collaborators] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[NoteId] = [n].[Id])
+2024-11-13 16:22:44.402 +05:30 [INF] 1 notes retrieved for user with ID: 1006
+2024-11-13 16:22:44.402 +05:30 [INF] Notes retrieved successfully
+2024-11-13 16:22:44.403 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.NoteResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-13 16:22:44.404 +05:30 [INF] Executed action FunDo.Controllers.NoteController.GetAllNotes (FunDo) in 16.4913ms
+2024-11-13 16:22:44.409 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDo)'
+2024-11-13 16:22:44.411 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7234/api/note - 200 null application/json; charset=utf-8 26.9237ms

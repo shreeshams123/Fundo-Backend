@@ -1,4 +1,5 @@
-﻿using Models.DTOs;
+﻿using Models;
+using Models.DTOs;
 using Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,8 @@ namespace DataLayer.Interfaces
 {
     public interface ICollaboratorDL
     {
-        Task<UserDto> AddCollaboratorToDb(int NoteId, string Email,int userId);
-        Task DeleteCollaboratorInDb(int NoteId, string Email, int ownerId);
-        Task<IEnumerable<UserDto>> GetCollaborators(int NoteId, int ownerId);
+        Task<ApiResponse<UserDto>> AddCollaboratorToDb(int noteId, string email, int userId);
+        Task<ApiResponse<string>> DeleteCollaboratorInDb(int noteId, string email, int userId);
+        Task<ApiResponse<IEnumerable<UserDto>>> GetCollaborators(int NoteId, int ownerId);
     }
 }

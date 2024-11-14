@@ -1,4 +1,5 @@
-﻿using Models.DTOs;
+﻿using Models;
+using Models.DTOs;
 using Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,12 @@ namespace BusinessLayer.Interfaces
 {
     public interface IUserBL
     {
-        Task<string> RegisterUserAsync(RegisterUserDto userdto);
-        Task<LoginResponseDto> LoginUserAsync(LoginUserDto userdto);
-        Task<bool> ForgotPasswordAsync(ForgotPasswordDto forgotPasswordDto);
-       
-        Task<bool> ResetPassword(string Token, string Password);
+        Task<ApiResponse<string>> RegisterUserAsync(RegisterUserDto userdto);
+        Task<ApiResponse<LoginResponseDto>> LoginUserAsync(LoginUserDto userdto);
+        Task<ApiResponse<string>> ForgotPasswordAsync(ForgotPasswordDto forgotPasswordDto);
+
+
+        Task<ApiResponse<string>> ResetPassword(string Token, string Password);
 
     }
 }

@@ -40,7 +40,7 @@ namespace DataLayer.Exceptions
                 context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 var NoteCreationResponse = new
                 {
-                    StatusCode = context.Response.StatusCode,
+                    StatusCode = HttpStatusCode.BadRequest,
                     Message = exception.Message,
                     ErrorType = "NoteException"
                 };
@@ -54,7 +54,7 @@ namespace DataLayer.Exceptions
                 context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 var UserNotFoundResponse = new
                 {
-                    StatusCode = context.Response.StatusCode,
+                    StatusCode = HttpStatusCode.BadRequest,
                     Message = exception.Message,
                     ErrorType = "UserException"
                 };
@@ -66,7 +66,7 @@ namespace DataLayer.Exceptions
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             var generalresponse = new
             {
-                StatusCode = context.Response.StatusCode,
+                StatusCode = HttpStatusCode.BadRequest,
                 Message = "Something went wrong",
                 Details = exception.Message
             };

@@ -3,8 +3,10 @@ using BusinessLayer.Utilities;
 using DataLayer.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
+using Models;
 using Models.DTOs;
 using Models.Entities;
 using System;
@@ -21,12 +23,14 @@ namespace BusinessLayer.Services
     {
         private readonly INoteDL _noteDL;
         private readonly TokenHelper _tokenHelper;
-        public NoteBL(INoteDL noteDL, TokenHelper tokenHelper)
+        private readonly ILogger<NoteBL> _logger;
+        public NoteBL(INoteDL noteDL, TokenHelper tokenHelper,ILogger<NoteBL> logger)
         {
             _noteDL = noteDL;
             _tokenHelper = tokenHelper;
+            _logger = logger;
         }
-        public async Task<NoteResponseDto> CreateNoteAsync(NoteDto noteDto)
+        public async Task<ApiResponse<NoteResponseDto>> CreateNoteAsync(NoteDto noteDto)
         {
             if (noteDto == null)
                 throw new ArgumentNullException(nameof(noteDto));
@@ -41,38 +45,44 @@ namespace BusinessLayer.Services
             };
             return await _noteDL.CreateNoteInDbAsync(newnote,userId);
         }
-                   
-        public async Task<IEnumerable<NoteResponseDto>> GetAllNoteAsync()
+
+        public async Task<ApiResponse<IEnumerable<NoteResponseDto>>> GetAllNoteAsync()
         {
             var userId = _tokenHelper.GetUserIdFromToken();
+            _logger.LogInformation("Fetching all notes for user with ID: {UserId}", userId);
             return await _noteDL.GetAllNotesInDb(userId);
         }
 
-        public async Task<NoteResponseDto> GetNoteByIdAsync(int noteId)
+        public async Task<ApiResponse<NoteResponseDto>> GetNoteByIdAsync(int noteId)
         {
             var userId = _tokenHelper.GetUserIdFromToken();
+            _logger.LogInformation("Attempting to retrieve note with ID: {NoteId} for user ID: {UserId}", noteId, userId);
             return await _noteDL.GetNoteByIdInDb(noteId, userId);
         }
- 
-        public async Task<NoteResponseDto> UpdateNoteAsync(NoteUpdateDto noteUpdateDto, int NoteId)
+
+        public async Task<ApiResponse<NoteResponseDto>> UpdateNoteAsync(NoteUpdateDto noteUpdateDto, int noteId)
         {
             var userId = _tokenHelper.GetUserIdFromToken();
-            return await _noteDL.UpdateNoteInDb(noteUpdateDto, NoteId, userId);
+            _logger.LogInformation("User with ID: {UserId} is attempting to update note with ID: {NoteId}", userId, noteId);
+            return await _noteDL.UpdateNoteInDb(noteUpdateDto, noteId, userId);
         }
-        public async Task DeleteNoteAsync(int NoteId)
+        public async Task<ApiResponse<string>> DeleteNoteAsync(int noteId)
         {
             var userId = _tokenHelper.GetUserIdFromToken();
-            await _noteDL.DeleteNoteInDb(NoteId,userId);
+            _logger.LogInformation("Initiating deletion of note with ID: {NoteId} for user ID: {UserId}", noteId, userId);
+            return await _noteDL.DeleteNoteInDb(noteId, userId);
         }
-        public async Task toggleArchiveAsync(int NoteId,bool isArchive)
-        {
-            var userId= _tokenHelper.GetUserIdFromToken();
-            await _noteDL.toggleArchive(NoteId,userId,isArchive);
-        }
-        public async Task toggleTrashAsync(int NoteId, bool isTrash)
+        public async Task<ApiResponse<string>> ToggleArchiveAsync(int noteId, bool isArchive)
         {
             var userId = _tokenHelper.GetUserIdFromToken();
-            await _noteDL.toggleArchive(NoteId, userId, isTrash);
+            _logger.LogInformation("Initiating toggle of archive status for note with ID: {NoteId} for user ID: {UserId}", noteId, userId);
+            return await _noteDL.ToggleArchive(noteId, userId, isArchive);
+        }
+        public async Task<ApiResponse<string>> ToggleTrashAsync(int noteId, bool isTrash)
+        {
+            var userId = _tokenHelper.GetUserIdFromToken();
+            _logger.LogInformation("Initiating toggle of trash status for note with ID: {NoteId} for user ID: {UserId}", noteId, userId);
+            return await _noteDL.ToggleTrash(noteId, userId, isTrash);
         }
     }
 }

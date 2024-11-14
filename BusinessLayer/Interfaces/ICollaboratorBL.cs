@@ -1,4 +1,5 @@
-﻿using Models.DTOs;
+﻿using Models;
+using Models.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -10,8 +11,8 @@ namespace BusinessLayer.Interfaces
 {
     public interface ICollaboratorBL
     {
-        Task<UserDto>AddCollaboratorAsync(int NoteId, string Email);
-        Task DeleteCollaboratorAsync(int NoteId, string Email);
-        Task<IEnumerable<UserDto>> GetCollaboratorsAsync(int NoteId);
+        Task<ApiResponse<UserDto>> AddCollaboratorAsync(int NoteId, string Email);
+        Task<ApiResponse<string>> DeleteCollaboratorAsync(int NoteId, string Email);
+        Task<ApiResponse<IEnumerable<UserDto>>> GetCollaboratorsAsync(int NoteId);
     }
 }
