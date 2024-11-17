@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace FunDo.Controllers
 {
     [ApiController]
-    [Route("api/Collaborator")]
+    [Route("api/collaborators")]
     public class CollaboratorController : ControllerBase
     {
         private readonly ICollaboratorBL _collabBL;
@@ -21,8 +21,8 @@ namespace FunDo.Controllers
         }
 
         [Authorize]
-        [HttpPost("AddCollaborator/{NoteId}")]
-        public async Task<IActionResult> AddCollaborator([FromRoute] int NoteId, string Email)
+        [HttpPost("{NoteId}")]
+        public async Task<IActionResult> AddCollaborator([FromRoute] int NoteId, [FromBody]string Email)
         {
             _logger.LogInformation("Attempting to add collaborator with email: {Email} to note with ID: {NoteId}", Email, NoteId);
             var apiresponse = await _collabBL.AddCollaboratorAsync(NoteId, Email);
@@ -36,7 +36,7 @@ namespace FunDo.Controllers
         }
 
         [Authorize]
-        [HttpDelete("DeleteCollaborator/{NoteId}/{Email}")]
+        [HttpDelete("{NoteId}/{Email}")]
         public async Task<IActionResult> DeleteCollaborator([FromRoute] int NoteId, [FromRoute] string Email)
         {
             _logger.LogInformation("Attempting to delete collaborator with email: {Email} from note with ID: {NoteId}", Email, NoteId);
@@ -51,7 +51,7 @@ namespace FunDo.Controllers
         }
 
         [Authorize]
-        [HttpGet("GetCollaborators/{NoteId}")]
+        [HttpGet("{NoteId}")]
         public async Task<IActionResult> GetCollaborators([FromRoute] int NoteId)
         {
             _logger.LogInformation("Attempting to get collaborators for note with ID: {NoteId}", NoteId);

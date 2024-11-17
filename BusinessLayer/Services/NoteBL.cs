@@ -16,6 +16,8 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Caching.Distributed;
+using System.Text.Json;
 
 namespace BusinessLayer.Services
 {
@@ -24,11 +26,13 @@ namespace BusinessLayer.Services
         private readonly INoteDL _noteDL;
         private readonly TokenHelper _tokenHelper;
         private readonly ILogger<NoteBL> _logger;
-        public NoteBL(INoteDL noteDL, TokenHelper tokenHelper,ILogger<NoteBL> logger)
+        private readonly IDistributedCache _distributedCache;
+        public NoteBL(INoteDL noteDL, TokenHelper tokenHelper,ILogger<NoteBL> logger, IDistributedCache distributedCache)
         {
             _noteDL = noteDL;
             _tokenHelper = tokenHelper;
             _logger = logger;
+            _distributedCache = distributedCache;
         }
         public async Task<ApiResponse<NoteResponseDto>> CreateNoteAsync(NoteDto noteDto)
         {
@@ -48,9 +52,12 @@ namespace BusinessLayer.Services
 
         public async Task<ApiResponse<IEnumerable<NoteResponseDto>>> GetAllNoteAsync()
         {
+           
             var userId = _tokenHelper.GetUserIdFromToken();
-            _logger.LogInformation("Fetching all notes for user with ID: {UserId}", userId);
+            _logger.LogInformation($"Fetching all notes for user with ID: {userId}", userId);
             return await _noteDL.GetAllNotesInDb(userId);
+            
+            
         }
 
         public async Task<ApiResponse<NoteResponseDto>> GetNoteByIdAsync(int noteId)
@@ -63,13 +70,13 @@ namespace BusinessLayer.Services
         public async Task<ApiResponse<NoteResponseDto>> UpdateNoteAsync(NoteUpdateDto noteUpdateDto, int noteId)
         {
             var userId = _tokenHelper.GetUserIdFromToken();
-            _logger.LogInformation("User with ID: {UserId} is attempting to update note with ID: {NoteId}", userId, noteId);
+            _logger.LogInformation($"User with ID: {userId} is attempting to update note with ID: {noteId}", userId, noteId);
             return await _noteDL.UpdateNoteInDb(noteUpdateDto, noteId, userId);
         }
         public async Task<ApiResponse<string>> DeleteNoteAsync(int noteId)
         {
             var userId = _tokenHelper.GetUserIdFromToken();
-            _logger.LogInformation("Initiating deletion of note with ID: {NoteId} for user ID: {UserId}", noteId, userId);
+            _logger.LogInformation($"Initiating deletion of note with ID: {noteId} for user ID: {userId}", noteId, userId);
             return await _noteDL.DeleteNoteInDb(noteId, userId);
         }
         public async Task<ApiResponse<string>> ToggleArchiveAsync(int noteId, bool isArchive)

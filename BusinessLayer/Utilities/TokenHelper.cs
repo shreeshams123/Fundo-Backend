@@ -43,7 +43,7 @@ namespace BusinessLayer.Utilities
                 expires: DateTime.Now.AddHours(1),
                 signingCredentials: creds
             );
-
+            
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
         
@@ -52,6 +52,7 @@ namespace BusinessLayer.Utilities
         {
             try
             {
+               
                 var userIdClaim = _httpContextAccessor.HttpContext.User.FindFirst(claim => claim.Type == ClaimTypes.NameIdentifier)?.Value;
 
                 if (string.IsNullOrEmpty(userIdClaim))

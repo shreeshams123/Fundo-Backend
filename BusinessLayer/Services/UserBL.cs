@@ -127,6 +127,12 @@ namespace BusinessLayer.Services
                 _logger.LogWarning("User not found");
                 return new ApiResponse<string> { Success=false,Message="User not found",Data=null};
             }
+            var pattern= @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$";
+            if(!Regex.IsMatch(Password, pattern))
+            {
+                _logger.LogWarning("Password mismatch");
+                return new ApiResponse<string> { Success = false,Message= "Password should contain minimum 8 characters(atleast one special character,one number,one lowercase and one uppercase letter)",Data=null };
+            }
             var hashpassword=PasswordHelper.GenerateHashedPassword(Password);
             user.Password = hashpassword;
             await _userRepo.UpdateUserAsync(user);

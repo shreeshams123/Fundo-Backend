@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace FunDo.Controllers
 {
     [ApiController]
-    [Route("api/label")]
+    [Route("api/labels")]
     public class LabelController : ControllerBase
     {
         private readonly ILabelBL _labelBL;
@@ -23,7 +23,7 @@ namespace FunDo.Controllers
         }
 
         [Authorize]
-        [HttpPost("/add-labels")]
+        [HttpPost]
         public async Task<IActionResult> AddLabels(LabelRequestDto requestDto)
         {
             _logger.LogInformation("Attempting to add labels");
@@ -38,7 +38,7 @@ namespace FunDo.Controllers
         }
 
         [Authorize]
-        [HttpPost("/update-labels/{noteId}")]
+        [HttpPatch("{noteId}")]
         public async Task<IActionResult> UpdateLabels([FromRoute] int noteId, [FromBody] List<int> LabelIds)
         {
             _logger.LogInformation("Attempting to update labels for Note ID: {NoteId}", noteId);
@@ -53,7 +53,7 @@ namespace FunDo.Controllers
         }
 
         [Authorize]
-        [HttpGet("get-labels-checklist/{noteId}")]
+        [HttpGet("labels-checklist/{noteId}")]
         public async Task<IActionResult> GetLabelsChecklist([FromRoute] int noteId)
         {
             _logger.LogInformation("Retrieving label checklist for Note ID: {NoteId}", noteId);
@@ -68,7 +68,7 @@ namespace FunDo.Controllers
         }
 
         [Authorize]
-        [HttpGet("get-all-labels")]
+        [HttpGet]
         public async Task<IActionResult> GetAllLabels()
         {
             _logger.LogInformation("Retrieving all labels");
@@ -83,7 +83,7 @@ namespace FunDo.Controllers
         }
 
         [Authorize]
-        [HttpDelete("delete-label/{labelId}")]
+        [HttpDelete("{labelId}")]
         public async Task<IActionResult> DeleteLabel([FromRoute] int labelId)
         {
             _logger.LogInformation("Attempting to delete label with ID: {LabelId}", labelId);

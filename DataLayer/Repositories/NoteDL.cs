@@ -2,6 +2,7 @@
 using DataLayer.Exceptions;
 using DataLayer.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
 using Models;
 using Models.DTOs;
@@ -12,6 +13,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace DataLayer.Repositories
@@ -20,10 +22,12 @@ namespace DataLayer.Repositories
     {
         private readonly ApplicationDbContext _context;
         private readonly ILogger<NoteDL> _logger;
-        public NoteDL(ApplicationDbContext context,ILogger<NoteDL> logger)
+        private readonly IDistributedCache _distributedCache;
+        public NoteDL(ApplicationDbContext context,ILogger<NoteDL> logger,IDistributedCache distributedCache)
         {
             _context = context;
             _logger = logger;
+            _distributedCache = distributedCache;
         }
 
         public async Task<ApiResponse<NoteResponseDto>> CreateNoteInDbAsync(Note note, int userId)
@@ -61,7 +65,7 @@ namespace DataLayer.Repositories
                     Message = "Note created successfully",
                     Data = newNote
                 };
-
+                await _distributedCache.RemoveAsync($"user:{userId}notes");
                 return response;
             }
             catch (DbUpdateException ex)
@@ -79,12 +83,12 @@ namespace DataLayer.Repositories
 
         public async Task<ApiResponse<IEnumerable<NoteResponseDto>>> GetAllNotesInDb(int userId)
         {
-            _logger.LogInformation("Checking if user with ID: {UserId} exists", userId);
+            _logger.LogInformation($"Checking if user with ID: {userId} exists");
             var userExists = await _context.Users.AnyAsync(u => u.Id == userId);
 
             if (!userExists)
             {
-                _logger.LogWarning("User with ID: {UserId} not found", userId);
+                _logger.LogWarning($"User with ID: {userId} not found");
                 var notfoundresponse = new ApiResponse<IEnumerable<NoteResponseDto>>
                 {
                     Success = false,
@@ -116,6 +120,12 @@ namespace DataLayer.Repositories
                 Message = "Notes retrieved successfully",
                 Data = notes
             };
+            _logger.LogInformation("Serializing notes to store it in cache");
+            var serializednotes = JsonSerializer.Serialize(notes);
+            await _distributedCache.SetStringAsync($"user:{userId}notes", serializednotes, new DistributedCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
+            });
 
             return response;
         }
@@ -239,7 +249,7 @@ namespace DataLayer.Repositories
                 };
 
                 _logger.LogInformation("Successfully updated note with ID: {NoteId}", noteId);
-
+                await _distributedCache.RemoveAsync($"user:{userId}notes");
                 return new ApiResponse<NoteResponseDto>
                 {
                     Success = true,
@@ -324,7 +334,7 @@ namespace DataLayer.Repositories
             }
             note.IsTrash = isTrash;
             await _context.SaveChangesAsync();
-            _logger.LogInformation("Note with ID: {NoteId} archive status updated to {IsArchive}", noteId, isTrash);
+            _logger.LogInformation("Note with ID: {NoteId} archive status updated to {isTrash}", noteId, isTrash);
 
             return new ApiResponse<string>
             {
@@ -367,6 +377,7 @@ namespace DataLayer.Repositories
             _context.Notes.Remove(note);
             await _context.SaveChangesAsync();
             _logger.LogInformation("Deleted note with {noteId} successfully", noteId);
+            await _distributedCache.RemoveAsync($"user:{userId}notes");
             return new ApiResponse<string> {Success=true,Message="Deleted note Successfully",Data=null };
         }
     }

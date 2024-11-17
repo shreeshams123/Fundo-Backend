@@ -14,6 +14,9 @@ using Microsoft.AspNetCore.Diagnostics;
 
 using BusinessLayer.Utilities;
 using Serilog;
+using StackExchange.Redis;
+using System.Text.Json;
+using DataLayer.Exceptions;
 
 
 
@@ -26,7 +29,12 @@ if (!Directory.Exists("Logs"))
     Directory.CreateDirectory("Logs");
 }
 builder.Host.UseSerilog();
-
+builder.Services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect("localhost:6379"));
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = "localhost:6379";
+    options.InstanceName = "FunDoRedisInstance";
+});
 builder.Services.AddControllers();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("FunDoConnection")));
@@ -60,6 +68,39 @@ builder.Services.AddAuthentication(options =>
         ValidAudience = builder.Configuration["Jwt:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]))
     };
+    options.Events = new JwtBearerEvents
+    {
+        OnAuthenticationFailed = context =>
+        {
+            context.NoResult(); 
+            context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+            context.Response.ContentType = "application/json";
+
+            var result = JsonSerializer.Serialize(new
+            {
+                StatusCode = StatusCodes.Status401Unauthorized,
+                Message = "Invalid token. Please log in again.",
+                ErrorType = "AuthenticationFailed"
+            });
+
+            return context.Response.WriteAsync(result);
+        },
+        OnChallenge = context =>
+        {
+            context.HandleResponse(); 
+            context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+            context.Response.ContentType = "application/json";
+
+            var result = JsonSerializer.Serialize(new
+            {
+                StatusCode = StatusCodes.Status401Unauthorized,
+                Message = "Token is required. Please provide a valid token.",
+                ErrorType = "AuthorizationFailed"
+            });
+
+            return context.Response.WriteAsync(result);
+        }
+    };
 });
 builder.Services.AddSwaggerGen(options =>
 {
@@ -88,20 +129,22 @@ builder.Services.AddSwaggerGen(options =>
 });
 builder.Services.AddHttpContextAccessor();
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FunDo API V1"));
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FunDoo API V1"));
 }
 
 app.UseHttpsRedirection();
+app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
+
 app.UseAuthentication();
 app.UseAuthorization();
 

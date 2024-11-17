@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic;
 using Models.DTOs;
@@ -18,7 +19,7 @@ namespace FunDo.Controllers
             _logger = logger;
 
         }
-        [HttpPost("Register")]
+        [HttpPost("register")]
 
         public async Task<IActionResult> RegisterUser(RegisterUserDto userdto)
         {
@@ -37,7 +38,7 @@ namespace FunDo.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> LoginUser(LoginUserDto userdto)
         {
-            _logger.LogInformation("Logging user {Email}", userdto.Email);
+            _logger.LogInformation($"Logging user {userdto.Email}");
             var apiresponse = await _userBL.LoginUserAsync(userdto);
             if (apiresponse.Success)
             {
@@ -51,7 +52,7 @@ namespace FunDo.Controllers
         [HttpPost("forgot-password")]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordDto forgotPasswordDto)
         {
-            _logger.LogInformation("Forgot password started by {Email}",forgotPasswordDto.Email);
+            _logger.LogInformation($"Forgot password started by {forgotPasswordDto.Email}");
             var apiresponse=await _userBL.ForgotPasswordAsync(forgotPasswordDto);
             if (apiresponse.Success)
             {
@@ -62,6 +63,7 @@ namespace FunDo.Controllers
         }
         
         [HttpPost("reset-password")]
+        
         public async Task<IActionResult> ResetPassword(ResetPasswordDto resetPasswordDto)
         {
             _logger.LogInformation("Reset password started");
