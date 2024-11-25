@@ -47,7 +47,7 @@ namespace BusinessLayer.Services
             var pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$";
             if (!Regex.IsMatch(userdto.Password, pattern))
             {
-                _logger.LogWarning("Password do not match the requirements");
+                _logger.LogError("Password do not match the requirements");
                 return new ApiResponse<string>
                 {
                     Success = false,

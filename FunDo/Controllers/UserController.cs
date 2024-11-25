@@ -31,7 +31,7 @@ namespace FunDo.Controllers
                 return Ok(apiResponse);
                 
             }
-            _logger.LogWarning("Registration failed");
+            _logger.LogError("Registration failed");
             return BadRequest(apiResponse);
 
         }
@@ -45,7 +45,7 @@ namespace FunDo.Controllers
                 _logger.LogInformation("Login successful");
                 return Ok(apiresponse);
             }
-            _logger.LogWarning("Login failed");
+            _logger.LogError("Login failed");
             return BadRequest(apiresponse);
 
         }
@@ -59,6 +59,7 @@ namespace FunDo.Controllers
                 _logger.LogInformation("A link has been sent to mail if the user is registered ");
                 return Ok(apiresponse);
             }
+            _logger.LogError("Failed to send mail");
             return BadRequest(apiresponse);
         }
         
@@ -73,7 +74,7 @@ namespace FunDo.Controllers
                 _logger.LogInformation("Reset password successful");
                 return Ok(apiresponse);
             }
-            _logger.LogWarning("Reset password failed");
+            _logger.LogError("Reset password failed");
                 return BadRequest(apiresponse);
             }
             

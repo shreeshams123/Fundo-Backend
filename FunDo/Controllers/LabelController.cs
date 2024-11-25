@@ -33,7 +33,7 @@ namespace FunDo.Controllers
                 _logger.LogInformation("Labels added successfully");
                 return Ok(apiresponse);
             }
-            _logger.LogWarning("Failed to add labels: {Message}", apiresponse.Message);
+            _logger.LogError("Failed to add labels: {Message}", apiresponse.Message);
             return BadRequest(apiresponse);
         }
 
@@ -48,7 +48,7 @@ namespace FunDo.Controllers
                 _logger.LogInformation("Labels updated successfully for Note ID: {NoteId}", noteId);
                 return Ok(apiresponse);
             }
-            _logger.LogWarning("Failed to update labels for Note ID: {NoteId}: {Message}", noteId, apiresponse.Message);
+            _logger.LogError("Failed to update labels for Note ID: {NoteId}: {Message}", noteId, apiresponse.Message);
             return BadRequest(apiresponse);
         }
 
@@ -63,7 +63,7 @@ namespace FunDo.Controllers
                 _logger.LogInformation("Label checklist retrieved successfully for Note ID: {NoteId}", noteId);
                 return Ok(apiresponse);
             }
-            _logger.LogWarning("Failed to retrieve label checklist for Note ID: {NoteId}: {Message}", noteId, apiresponse.Message);
+            _logger.LogError("Failed to retrieve label checklist for Note ID: {NoteId}: {Message}", noteId, apiresponse.Message);
             return BadRequest(apiresponse);
         }
 
@@ -78,7 +78,7 @@ namespace FunDo.Controllers
                 _logger.LogInformation("All labels retrieved successfully");
                 return Ok(apiresponse);
             }
-            _logger.LogWarning("Failed to retrieve all labels: {Message}", apiresponse.Message);
+            _logger.LogError("Failed to retrieve all labels: {Message}", apiresponse.Message);
             return BadRequest(apiresponse);
         }
 
@@ -93,7 +93,7 @@ namespace FunDo.Controllers
                 _logger.LogInformation("Label deleted successfully with ID: {LabelId}", labelId);
                 return Ok(apiresponse);
             }
-            _logger.LogWarning("Failed to delete label with ID: {LabelId}: {Message}", labelId, apiresponse.Message);
+            _logger.LogError("Failed to delete label with ID: {LabelId}: {Message}", labelId, apiresponse.Message);
             return BadRequest(apiresponse);
         }
     }

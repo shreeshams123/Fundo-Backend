@@ -33,7 +33,7 @@ namespace FunDo.Controllers
                 _logger.LogInformation("Created notes successfully");
                 return Ok(apiResponse);
             }
-            _logger.LogWarning("Note creation failed");
+            _logger.LogError("Note creation failed");
             return BadRequest(apiResponse);
         }
 
@@ -67,7 +67,7 @@ namespace FunDo.Controllers
                 _logger.LogInformation("Notes retrieved successfully");
                 return Ok(apiResponse);
             }
-            _logger.LogInformation("Retrieving notes failed");
+            _logger.LogError("Retrieving notes failed");
             return BadRequest(apiResponse);
 
         }
@@ -79,8 +79,10 @@ namespace FunDo.Controllers
             var apiResponse = await _noteBL.GetNoteByIdAsync(noteId);
             if (apiResponse.Success)
             {
+                _logger.LogInformation("Retrieved notes successfully");
                 return Ok(apiResponse);
             }
+            _logger.LogError("Failed to get notes");
             return BadRequest(apiResponse);
         }
 
@@ -93,8 +95,11 @@ namespace FunDo.Controllers
             var apiResponse = await _noteBL.UpdateNoteAsync(noteUpdateDto, noteId);
             if (apiResponse.Success)
             {
+                _logger.LogInformation("Retrieved notes successfully");
                 return Ok(apiResponse);
+                
             }
+            _logger.LogError("Failed to update note");
             return BadRequest(apiResponse);
         }
         [HttpDelete("{noteId}")]
@@ -108,7 +113,7 @@ namespace FunDo.Controllers
                 _logger.LogInformation($"Successfully deleted note with ID: {noteId}");
                 return Ok(apiresponse);
             }
-            _logger.LogWarning($"Failed to delete note with ID: {noteId}");
+            _logger.LogError($"Failed to delete note with ID: {noteId}");
             return BadRequest(apiresponse);
         }
         [HttpPatch("archive/{noteId}")]
@@ -122,7 +127,7 @@ namespace FunDo.Controllers
                 _logger.LogInformation($"Successfully toggled archive status for note with ID: {noteId}");
                 return Ok(apiresponse);
             }
-            _logger.LogWarning($"Failed to toggle archive status for note with ID: {noteId}");
+            _logger.LogError($"Failed to toggle archive status for note with ID: {noteId}");
             return BadRequest(apiresponse);
         }
         [HttpPatch("trash/{noteId}")]
@@ -136,7 +141,7 @@ namespace FunDo.Controllers
                 _logger.LogInformation("Successfully toggled trash status for note with ID: {NoteId}", noteId);
                 return Ok(apiresponse);
             }
-            _logger.LogWarning("Failed to toggle trash status for note with ID: {NoteId}. Reason: {Message}", noteId, apiresponse.Message);
+            _logger.LogError("Failed to toggle trash status for note with ID: {NoteId}. Reason: {Message}", noteId, apiresponse.Message);
             return BadRequest(apiresponse);
         }
 

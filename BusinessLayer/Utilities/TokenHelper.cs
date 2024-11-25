@@ -20,8 +20,8 @@ namespace BusinessLayer.Utilities
         
         public TokenHelper(IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
         {
-            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
-            _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
+            _configuration = configuration;
+            _httpContextAccessor = httpContextAccessor ;
         }
 
         
@@ -57,19 +57,16 @@ namespace BusinessLayer.Utilities
 
                 if (string.IsNullOrEmpty(userIdClaim))
                 {
-                    throw new UnauthorizedAccessException("User ID not found in token.");
+                    throw new UnauthorizedAccessException();
                 }
 
                 return int.Parse(userIdClaim);
             }
             catch (SecurityTokenExpiredException)
             {
-                throw new UnauthorizedAccessException("Token has expired.");
+                throw new SecurityTokenExpiredException("Token has expired.");
             }
-            catch (Exception ex)
-            {
-                throw new UnauthorizedAccessException("Invalid token: " + ex.Message);
-            }
+            
         }
         public string GeneratePasswordResetToken(User user)
         {

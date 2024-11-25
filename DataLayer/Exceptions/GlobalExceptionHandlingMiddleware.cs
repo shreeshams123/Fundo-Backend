@@ -41,7 +41,7 @@ namespace DataLayer.Exceptions
                 var unauthorizedResponse = new
                 {
                     StatusCode = HttpStatusCode.Unauthorized,
-                    Message = "Authorization failed. Please provide a valid token.",
+                    Message = "Authorization failed",
                     ErrorType = "UnauthorizedAccessException"
                 };
                 var unauthorizedJsonResponse = JsonSerializer.Serialize(unauthorizedResponse);

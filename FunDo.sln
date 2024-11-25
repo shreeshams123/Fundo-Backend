@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunDoo", "FunDo\FunDoo.csproj", "{0421091E-5367-4729-B7DA-009CF7B19B65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunDooNotes", "FunDo\FunDooNotes.csproj", "{0421091E-5367-4729-B7DA-009CF7B19B65}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{E4E7259A-B5E3-432E-B8B0-14F53A21DEF2}"
 EndProject
