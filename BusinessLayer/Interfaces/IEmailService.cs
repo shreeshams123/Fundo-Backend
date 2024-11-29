@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace BusinessLayer.Interfaces
 {
     public interface IEmailService
     {
-        Task SendForgotPasswordMailAsync(string email,string resetLink);
+        Task SendMailAsync(EmailMessageDto emailMessageDto);
     }
 }

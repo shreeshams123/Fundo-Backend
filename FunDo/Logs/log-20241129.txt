@@ -1,0 +1,468 @@
+2024-11-29 11:56:28.629 +05:30 [INF] User profile is available. Using 'C:\Users\Shreesha_MS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-29 11:56:32.759 +05:30 [ERR] Hosting failed to start
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection()
+   at BusinessLayer.Services.RabbitMqService..ctor(ConnectionFactory connectionFactory, IEmailService emailService) in D:\FunDo\BusinessLayer\Services\RabbitMqService.cs:line 23
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at RabbitMqBackgroundService.ExecuteAsync(CancellationToken stoppingToken) in D:\FunDo\BusinessLayer\Services\RabbitMqBackgroundService.cs:line 18
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2024-11-29 12:01:42.775 +05:30 [INF] User profile is available. Using 'C:\Users\Shreesha_MS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-29 12:01:43.080 +05:30 [INF] Now listening on: https://localhost:5000
+2024-11-29 12:01:43.081 +05:30 [INF] Now listening on: http://localhost:5001
+2024-11-29 12:01:43.117 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-29 12:01:43.118 +05:30 [INF] Hosting environment: Development
+2024-11-29 12:01:43.119 +05:30 [INF] Content root path: D:\FunDo\FunDo
+2024-11-29 12:01:43.619 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/index.html - null null
+2024-11-29 12:01:43.771 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 157.3819ms
+2024-11-29 12:01:43.776 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-29 12:01:43.777 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_vs/browserLink - null null
+2024-11-29 12:01:43.785 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 10.4099ms
+2024-11-29 12:01:43.824 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 47.565ms
+2024-11-29 12:01:43.853 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - null null
+2024-11-29 12:01:43.934 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 81.0837ms
+2024-11-29 12:02:20.394 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5000/api/user/register - application/json 155
+2024-11-29 12:02:21.411 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:02:21.451 +05:30 [INF] Route matched with {action = "RegisterUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterUser(Models.DTOs.RegisterUserDto) on controller FunDo.Controllers.UserController (FunDooNotes).
+2024-11-29 12:02:21.967 +05:30 [INF] User registration attempt started
+2024-11-29 12:02:21.970 +05:30 [INF] Checking if the user present
+2024-11-29 12:02:21.972 +05:30 [INF] Attempting to retrieve user with Email: shreesha2002ms@gmail.com
+2024-11-29 12:02:24.090 +05:30 [INF] Executed DbCommand (110ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-29 12:02:24.152 +05:30 [INF] User with Email: shreesha2002ms@gmail.com retrieved successfully.
+2024-11-29 12:02:24.154 +05:30 [WRN] User with shreesha2002ms@gmail.com already present
+2024-11-29 12:02:24.155 +05:30 [ERR] Registration failed
+2024-11-29 12:02:24.161 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-29 12:02:24.169 +05:30 [INF] Executed action FunDo.Controllers.UserController.RegisterUser (FunDooNotes) in 2714.0093ms
+2024-11-29 12:02:24.171 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:02:24.179 +05:30 [INF] Request finished HTTP/2 POST https://localhost:5000/api/user/register - 400 null application/json; charset=utf-8 3785.43ms
+2024-11-29 12:04:51.979 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5000/api/user/register - application/json 155
+2024-11-29 12:04:51.988 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:04:51.991 +05:30 [INF] Route matched with {action = "RegisterUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterUser(Models.DTOs.RegisterUserDto) on controller FunDo.Controllers.UserController (FunDooNotes).
+2024-11-29 12:04:51.994 +05:30 [INF] User registration attempt started
+2024-11-29 12:04:51.995 +05:30 [INF] Checking if the user present
+2024-11-29 12:04:51.995 +05:30 [INF] Attempting to retrieve user with Email: shreesha577427@gmail.com
+2024-11-29 12:04:52.016 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-29 12:04:52.018 +05:30 [WRN] User with Email: shreesha577427@gmail.com not found.
+2024-11-29 12:04:52.019 +05:30 [INF] Hashing the password
+2024-11-29 12:04:52.431 +05:30 [INF] Attempting to add a new user with Email: shreesha577427@gmail.com
+2024-11-29 12:04:52.565 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Name], [Password], [Phone])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2024-11-29 12:04:52.593 +05:30 [INF] User with Email: shreesha577427@gmail.com successfully registered.
+2024-11-29 12:06:38.574 +05:30 [INF] User profile is available. Using 'C:\Users\Shreesha_MS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-29 12:06:38.772 +05:30 [INF] Now listening on: https://localhost:5000
+2024-11-29 12:06:38.772 +05:30 [INF] Now listening on: http://localhost:5001
+2024-11-29 12:06:38.803 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-29 12:06:38.805 +05:30 [INF] Hosting environment: Development
+2024-11-29 12:06:38.806 +05:30 [INF] Content root path: D:\FunDo\FunDo
+2024-11-29 12:06:39.249 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/index.html - null null
+2024-11-29 12:06:39.365 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 125.3566ms
+2024-11-29 12:06:39.371 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_vs/browserLink - null null
+2024-11-29 12:06:39.371 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-29 12:06:39.378 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 7.3226ms
+2024-11-29 12:06:39.399 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 28.1117ms
+2024-11-29 12:06:39.451 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - null null
+2024-11-29 12:06:39.524 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 73.705ms
+2024-11-29 12:06:49.631 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5000/api/user/register - application/json 155
+2024-11-29 12:06:49.690 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:06:49.713 +05:30 [INF] Route matched with {action = "RegisterUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterUser(Models.DTOs.RegisterUserDto) on controller FunDo.Controllers.UserController (FunDooNotes).
+2024-11-29 12:06:49.871 +05:30 [INF] User registration attempt started
+2024-11-29 12:06:49.874 +05:30 [INF] Checking if the user is present
+2024-11-29 12:06:49.875 +05:30 [INF] Attempting to retrieve user with Email: shreesha577427@gmail.com
+2024-11-29 12:06:51.291 +05:30 [INF] Executed DbCommand (55ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-29 12:06:51.367 +05:30 [INF] User with Email: shreesha577427@gmail.com retrieved successfully.
+2024-11-29 12:06:51.368 +05:30 [WRN] User with shreesha577427@gmail.com already present
+2024-11-29 12:06:51.371 +05:30 [ERR] Registration failed
+2024-11-29 12:06:51.386 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-29 12:06:51.400 +05:30 [INF] Executed action FunDo.Controllers.UserController.RegisterUser (FunDooNotes) in 1678.8239ms
+2024-11-29 12:06:51.403 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:06:51.416 +05:30 [INF] Request finished HTTP/2 POST https://localhost:5000/api/user/register - 400 null application/json; charset=utf-8 1785.0277ms
+2024-11-29 12:07:48.796 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5000/api/user/register - application/json 155
+2024-11-29 12:07:48.807 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:07:48.809 +05:30 [INF] Route matched with {action = "RegisterUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterUser(Models.DTOs.RegisterUserDto) on controller FunDo.Controllers.UserController (FunDooNotes).
+2024-11-29 12:07:48.812 +05:30 [INF] User registration attempt started
+2024-11-29 12:07:48.813 +05:30 [INF] Checking if the user is present
+2024-11-29 12:07:48.813 +05:30 [INF] Attempting to retrieve user with Email: shreesha577427@gmail.com
+2024-11-29 12:07:48.833 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-29 12:07:48.834 +05:30 [WRN] User with Email: shreesha577427@gmail.com not found.
+2024-11-29 12:07:48.835 +05:30 [INF] Hashing the password
+2024-11-29 12:07:49.240 +05:30 [INF] Attempting to add a new user with Email: shreesha577427@gmail.com
+2024-11-29 12:07:49.353 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Name], [Password], [Phone])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2024-11-29 12:07:49.396 +05:30 [INF] User with Email: shreesha577427@gmail.com successfully registered.
+2024-11-29 12:07:49.398 +05:30 [ERR] RabbitMQ service is not initialized.
+2024-11-29 12:07:49.399 +05:30 [ERR] Registration failed
+2024-11-29 12:07:49.400 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-29 12:07:49.403 +05:30 [INF] Executed action FunDo.Controllers.UserController.RegisterUser (FunDooNotes) in 592.4597ms
+2024-11-29 12:07:49.404 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:07:49.405 +05:30 [INF] Request finished HTTP/2 POST https://localhost:5000/api/user/register - 400 null application/json; charset=utf-8 609.4921ms
+2024-11-29 12:09:39.686 +05:30 [INF] User profile is available. Using 'C:\Users\Shreesha_MS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-29 12:09:52.107 +05:30 [INF] User profile is available. Using 'C:\Users\Shreesha_MS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-29 12:10:01.852 +05:30 [INF] Now listening on: https://localhost:5000
+2024-11-29 12:10:01.853 +05:30 [INF] Now listening on: http://localhost:5001
+2024-11-29 12:10:01.910 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-29 12:10:01.912 +05:30 [INF] Hosting environment: Development
+2024-11-29 12:10:01.913 +05:30 [INF] Content root path: D:\FunDo\FunDo
+2024-11-29 12:10:02.177 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/index.html - null null
+2024-11-29 12:10:02.368 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 199.117ms
+2024-11-29 12:10:02.370 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-29 12:10:02.370 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_vs/browserLink - null null
+2024-11-29 12:10:02.378 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 7.8302ms
+2024-11-29 12:10:02.408 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.263ms
+2024-11-29 12:10:02.439 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - null null
+2024-11-29 12:10:02.526 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 86.916ms
+2024-11-29 12:10:11.417 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5000/api/user/register - application/json 155
+2024-11-29 12:10:11.479 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:10:11.512 +05:30 [INF] Route matched with {action = "RegisterUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterUser(Models.DTOs.RegisterUserDto) on controller FunDo.Controllers.UserController (FunDooNotes).
+2024-11-29 12:10:11.681 +05:30 [INF] User registration attempt started
+2024-11-29 12:10:11.684 +05:30 [INF] Checking if the user is present
+2024-11-29 12:10:11.686 +05:30 [INF] Attempting to retrieve user with Email: shreesha577427@gmail.com
+2024-11-29 12:10:13.147 +05:30 [INF] Executed DbCommand (75ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-29 12:10:13.191 +05:30 [WRN] User with Email: shreesha577427@gmail.com not found.
+2024-11-29 12:10:13.194 +05:30 [INF] Hashing the password
+2024-11-29 12:10:13.646 +05:30 [INF] Attempting to add a new user with Email: shreesha577427@gmail.com
+2024-11-29 12:10:13.872 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Name], [Password], [Phone])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2024-11-29 12:10:13.914 +05:30 [INF] User with Email: shreesha577427@gmail.com successfully registered.
+2024-11-29 12:10:13.915 +05:30 [ERR] RabbitMQ service is not initialized.
+2024-11-29 12:10:13.917 +05:30 [ERR] Registration failed
+2024-11-29 12:10:13.931 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-29 12:10:13.941 +05:30 [INF] Executed action FunDo.Controllers.UserController.RegisterUser (FunDooNotes) in 2422.1319ms
+2024-11-29 12:10:13.943 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:10:13.955 +05:30 [INF] Request finished HTTP/2 POST https://localhost:5000/api/user/register - 400 null application/json; charset=utf-8 2538.3605ms
+2024-11-29 12:12:20.755 +05:30 [INF] User profile is available. Using 'C:\Users\Shreesha_MS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-29 12:12:27.697 +05:30 [INF] Now listening on: https://localhost:5000
+2024-11-29 12:12:27.698 +05:30 [INF] Now listening on: http://localhost:5001
+2024-11-29 12:12:27.742 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-29 12:12:27.745 +05:30 [INF] Hosting environment: Development
+2024-11-29 12:12:27.745 +05:30 [INF] Content root path: D:\FunDo\FunDo
+2024-11-29 12:12:28.042 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/index.html - null null
+2024-11-29 12:12:28.210 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 181.4695ms
+2024-11-29 12:12:28.217 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_vs/browserLink - null null
+2024-11-29 12:12:28.217 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-29 12:12:28.224 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 6.9046ms
+2024-11-29 12:12:28.247 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 30.5535ms
+2024-11-29 12:12:28.273 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - null null
+2024-11-29 12:12:28.369 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 96.7991ms
+2024-11-29 12:12:37.766 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5000/api/user/register - application/json 155
+2024-11-29 12:12:37.833 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:12:37.862 +05:30 [INF] Route matched with {action = "RegisterUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterUser(Models.DTOs.RegisterUserDto) on controller FunDo.Controllers.UserController (FunDooNotes).
+2024-11-29 12:12:38.019 +05:30 [INF] User registration attempt started
+2024-11-29 12:12:38.020 +05:30 [INF] Checking if the user is present
+2024-11-29 12:12:38.022 +05:30 [INF] Attempting to retrieve user with Email: shreesha577427@gmail.com
+2024-11-29 12:12:39.282 +05:30 [INF] Executed DbCommand (54ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-29 12:12:39.309 +05:30 [WRN] User with Email: shreesha577427@gmail.com not found.
+2024-11-29 12:12:39.310 +05:30 [INF] Hashing the password
+2024-11-29 12:12:39.738 +05:30 [INF] Attempting to add a new user with Email: shreesha577427@gmail.com
+2024-11-29 12:12:39.937 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Name], [Password], [Phone])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2024-11-29 12:12:39.965 +05:30 [INF] User with Email: shreesha577427@gmail.com successfully registered.
+2024-11-29 12:12:39.967 +05:30 [ERR] RabbitMQ service is not initialized.
+2024-11-29 12:12:39.968 +05:30 [ERR] Registration failed
+2024-11-29 12:12:39.976 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-29 12:12:39.983 +05:30 [INF] Executed action FunDo.Controllers.UserController.RegisterUser (FunDooNotes) in 2116.7431ms
+2024-11-29 12:12:39.984 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:12:39.992 +05:30 [INF] Request finished HTTP/2 POST https://localhost:5000/api/user/register - 400 null application/json; charset=utf-8 2225.798ms
+2024-11-29 12:23:57.765 +05:30 [INF] User profile is available. Using 'C:\Users\Shreesha_MS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-29 12:24:04.351 +05:30 [INF] Now listening on: https://localhost:5000
+2024-11-29 12:24:04.352 +05:30 [INF] Now listening on: http://localhost:5001
+2024-11-29 12:24:04.418 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-29 12:24:04.420 +05:30 [INF] Hosting environment: Development
+2024-11-29 12:24:04.421 +05:30 [INF] Content root path: D:\FunDo\FunDo
+2024-11-29 12:24:04.669 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/index.html - null null
+2024-11-29 12:24:04.831 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 173.2784ms
+2024-11-29 12:24:04.840 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-29 12:24:04.841 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_vs/browserLink - null null
+2024-11-29 12:24:04.849 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 9.5709ms
+2024-11-29 12:24:04.878 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 38.5499ms
+2024-11-29 12:24:04.912 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - null null
+2024-11-29 12:24:05.022 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 110.702ms
+2024-11-29 12:24:19.216 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5000/api/user/register - application/json 155
+2024-11-29 12:24:19.277 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:24:19.304 +05:30 [INF] Route matched with {action = "RegisterUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterUser(Models.DTOs.RegisterUserDto) on controller FunDo.Controllers.UserController (FunDooNotes).
+2024-11-29 12:24:19.489 +05:30 [INF] User registration attempt started
+2024-11-29 12:24:19.491 +05:30 [INF] Checking if the user is present
+2024-11-29 12:24:19.493 +05:30 [INF] Attempting to retrieve user with Email: shreesha577427@gmail.com
+2024-11-29 12:24:20.780 +05:30 [INF] Executed DbCommand (65ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-29 12:24:20.818 +05:30 [WRN] User with Email: shreesha577427@gmail.com not found.
+2024-11-29 12:24:20.822 +05:30 [INF] Hashing the password
+2024-11-29 12:24:21.242 +05:30 [INF] Attempting to add a new user with Email: shreesha577427@gmail.com
+2024-11-29 12:24:21.435 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Name], [Password], [Phone])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2024-11-29 12:24:21.484 +05:30 [INF] User with Email: shreesha577427@gmail.com successfully registered.
+2024-11-29 12:24:21.486 +05:30 [ERR] RabbitMQ service is not initialized.
+2024-11-29 12:24:21.488 +05:30 [ERR] Registration failed
+2024-11-29 12:24:21.495 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-29 12:24:21.502 +05:30 [INF] Executed action FunDo.Controllers.UserController.RegisterUser (FunDooNotes) in 2192.1664ms
+2024-11-29 12:24:21.503 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:24:21.510 +05:30 [INF] Request finished HTTP/2 POST https://localhost:5000/api/user/register - 400 null application/json; charset=utf-8 2293.4292ms
+2024-11-29 12:28:37.146 +05:30 [INF] User profile is available. Using 'C:\Users\Shreesha_MS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-29 12:28:44.046 +05:30 [INF] Now listening on: https://localhost:5000
+2024-11-29 12:28:44.048 +05:30 [INF] Now listening on: http://localhost:5001
+2024-11-29 12:28:44.090 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-29 12:28:44.091 +05:30 [INF] Hosting environment: Development
+2024-11-29 12:28:44.092 +05:30 [INF] Content root path: D:\FunDo\FunDo
+2024-11-29 12:28:44.315 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/index.html - null null
+2024-11-29 12:28:44.487 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 181.2556ms
+2024-11-29 12:28:44.495 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_vs/browserLink - null null
+2024-11-29 12:28:44.495 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-29 12:28:44.506 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 10.3742ms
+2024-11-29 12:28:44.529 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 34.8601ms
+2024-11-29 12:28:44.565 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - null null
+2024-11-29 12:28:44.656 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 91.3104ms
+2024-11-29 12:28:52.304 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5000/api/user/register - application/json 155
+2024-11-29 12:28:52.384 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:28:52.418 +05:30 [INF] Route matched with {action = "RegisterUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterUser(Models.DTOs.RegisterUserDto) on controller FunDo.Controllers.UserController (FunDooNotes).
+2024-11-29 12:28:52.593 +05:30 [INF] User registration attempt started
+2024-11-29 12:28:52.597 +05:30 [INF] Checking if the user is present
+2024-11-29 12:28:52.598 +05:30 [INF] Attempting to retrieve user with Email: shreesha577427@gmail.com
+2024-11-29 12:28:53.917 +05:30 [INF] Executed DbCommand (49ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-29 12:28:53.946 +05:30 [WRN] User with Email: shreesha577427@gmail.com not found.
+2024-11-29 12:28:53.950 +05:30 [INF] Hashing the password
+2024-11-29 12:28:54.350 +05:30 [INF] Attempting to add a new user with Email: shreesha577427@gmail.com
+2024-11-29 12:28:54.543 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Name], [Password], [Phone])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2024-11-29 12:28:54.580 +05:30 [INF] User with Email: shreesha577427@gmail.com successfully registered.
+2024-11-29 12:29:05.078 +05:30 [INF] Registration successful
+2024-11-29 12:29:05.088 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-29 12:29:05.095 +05:30 [INF] Executed action FunDo.Controllers.UserController.RegisterUser (FunDooNotes) in 12672.7809ms
+2024-11-29 12:29:05.096 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:29:05.103 +05:30 [INF] Request finished HTTP/2 POST https://localhost:5000/api/user/register - 200 null application/json; charset=utf-8 12799.0246ms
+2024-11-29 12:31:25.422 +05:30 [INF] User profile is available. Using 'C:\Users\Shreesha_MS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-29 12:31:25.619 +05:30 [INF] Now listening on: https://localhost:5000
+2024-11-29 12:31:25.620 +05:30 [INF] Now listening on: http://localhost:5001
+2024-11-29 12:31:25.651 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-29 12:31:25.652 +05:30 [INF] Hosting environment: Development
+2024-11-29 12:31:25.652 +05:30 [INF] Content root path: D:\FunDo\FunDo
+2024-11-29 12:31:25.984 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/index.html - null null
+2024-11-29 12:31:26.105 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 128.0471ms
+2024-11-29 12:31:26.115 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_vs/browserLink - null null
+2024-11-29 12:31:26.115 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-29 12:31:26.122 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 7.8692ms
+2024-11-29 12:31:26.143 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 28.7449ms
+2024-11-29 12:31:26.171 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - null null
+2024-11-29 12:31:26.247 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 75.6226ms
+2024-11-29 12:31:40.132 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5000/api/user/register - application/json 155
+2024-11-29 12:31:40.186 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:31:40.207 +05:30 [INF] Route matched with {action = "RegisterUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterUser(Models.DTOs.RegisterUserDto) on controller FunDo.Controllers.UserController (FunDooNotes).
+2024-11-29 12:31:40.317 +05:30 [INF] User registration attempt started
+2024-11-29 12:31:40.318 +05:30 [INF] Checking if the user is present
+2024-11-29 12:31:40.319 +05:30 [INF] Attempting to retrieve user with Email: shreesha577427@gmail.com
+2024-11-29 12:31:41.116 +05:30 [INF] Executed DbCommand (40ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-29 12:31:41.132 +05:30 [WRN] User with Email: shreesha577427@gmail.com not found.
+2024-11-29 12:31:41.133 +05:30 [INF] Hashing the password
+2024-11-29 12:31:41.440 +05:30 [INF] Attempting to add a new user with Email: shreesha577427@gmail.com
+2024-11-29 12:31:41.546 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Name], [Password], [Phone])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2024-11-29 12:31:41.566 +05:30 [INF] User with Email: shreesha577427@gmail.com successfully registered.
+2024-11-29 12:31:41.570 +05:30 [INF] Registration successful
+2024-11-29 12:31:41.576 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-29 12:31:41.581 +05:30 [INF] Executed action FunDo.Controllers.UserController.RegisterUser (FunDooNotes) in 1370.9855ms
+2024-11-29 12:31:41.583 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:31:41.589 +05:30 [INF] Request finished HTTP/2 POST https://localhost:5000/api/user/register - 200 null application/json; charset=utf-8 1457.2956ms
+2024-11-29 12:34:05.796 +05:30 [INF] User profile is available. Using 'C:\Users\Shreesha_MS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-29 12:34:05.992 +05:30 [INF] Now listening on: https://localhost:5000
+2024-11-29 12:34:05.993 +05:30 [INF] Now listening on: http://localhost:5001
+2024-11-29 12:34:06.025 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-29 12:34:06.027 +05:30 [INF] Hosting environment: Development
+2024-11-29 12:34:06.027 +05:30 [INF] Content root path: D:\FunDo\FunDo
+2024-11-29 12:34:06.513 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/index.html - null null
+2024-11-29 12:34:06.635 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 129.6279ms
+2024-11-29 12:34:06.643 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-29 12:34:06.644 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_vs/browserLink - null null
+2024-11-29 12:34:06.649 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 6.1974ms
+2024-11-29 12:34:06.675 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 31.1491ms
+2024-11-29 12:34:06.719 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - null null
+2024-11-29 12:34:06.848 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 129.1398ms
+2024-11-29 12:34:27.731 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5000/api/user/forgot-password - application/json 41
+2024-11-29 12:34:27.794 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.ForgotPassword (FunDooNotes)'
+2024-11-29 12:34:27.822 +05:30 [INF] Route matched with {action = "ForgotPassword", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(Models.DTOs.ForgotPasswordDto) on controller FunDo.Controllers.UserController (FunDooNotes).
+2024-11-29 12:34:28.020 +05:30 [INF] Forgot password started by shreesha577427@gmail.com
+2024-11-29 12:34:28.022 +05:30 [INF] Checking if the user present
+2024-11-29 12:34:28.024 +05:30 [INF] Attempting to retrieve user with Email: shreesha577427@gmail.com
+2024-11-29 12:34:29.223 +05:30 [INF] Executed DbCommand (47ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-29 12:34:29.317 +05:30 [INF] User with Email: shreesha577427@gmail.com retrieved successfully.
+2024-11-29 12:34:29.373 +05:30 [INF] Reset email sent to shreesha577427@gmail.com
+2024-11-29 12:34:29.646 +05:30 [INF] Attempt to create email
+2024-11-29 12:34:29.723 +05:30 [INF] Connecting to smtp server
+2024-11-29 12:34:30.772 +05:30 [INF] Authenticatingwith smtp server
+2024-11-29 12:34:31.112 +05:30 [INF] Sending mail
+2024-11-29 12:34:32.283 +05:30 [INF] Sent email to shreesha577427@gmail.com successfully
+2024-11-29 12:34:32.286 +05:30 [INF] Disconnecting from smtp server
+2024-11-29 12:34:32.499 +05:30 [INF] A link has been sent to mail if the user is registered 
+2024-11-29 12:34:32.508 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-29 12:34:32.515 +05:30 [INF] Executed action FunDo.Controllers.UserController.ForgotPassword (FunDooNotes) in 4686.8623ms
+2024-11-29 12:34:32.516 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.ForgotPassword (FunDooNotes)'
+2024-11-29 12:34:32.523 +05:30 [INF] Request finished HTTP/2 POST https://localhost:5000/api/user/forgot-password - 200 null application/json; charset=utf-8 4792.9999ms
+2024-11-29 12:43:54.209 +05:30 [INF] User profile is available. Using 'C:\Users\Shreesha_MS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-29 12:43:54.433 +05:30 [INF] Now listening on: https://localhost:5000
+2024-11-29 12:43:54.433 +05:30 [INF] Now listening on: http://localhost:5001
+2024-11-29 12:43:54.465 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-29 12:43:54.466 +05:30 [INF] Hosting environment: Development
+2024-11-29 12:43:54.466 +05:30 [INF] Content root path: D:\FunDo\FunDo
+2024-11-29 12:43:55.058 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/index.html - null null
+2024-11-29 12:43:55.180 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 132.6812ms
+2024-11-29 12:43:55.186 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-29 12:43:55.186 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_vs/browserLink - null null
+2024-11-29 12:43:55.193 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 7.4406ms
+2024-11-29 12:43:55.219 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.5544ms
+2024-11-29 12:43:55.256 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - null null
+2024-11-29 12:43:55.331 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 74.7775ms
+2024-11-29 12:44:08.914 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5000/api/user/register - application/json 155
+2024-11-29 12:44:08.987 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:44:09.013 +05:30 [INF] Route matched with {action = "RegisterUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterUser(Models.DTOs.RegisterUserDto) on controller FunDo.Controllers.UserController (FunDooNotes).
+2024-11-29 12:44:09.165 +05:30 [INF] User registration attempt started
+2024-11-29 12:44:09.167 +05:30 [INF] Checking if the user is present
+2024-11-29 12:44:09.168 +05:30 [INF] Attempting to retrieve user with Email: shreesha577427@gmail.com
+2024-11-29 12:44:10.528 +05:30 [INF] Executed DbCommand (46ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-29 12:44:10.550 +05:30 [WRN] User with Email: shreesha577427@gmail.com not found.
+2024-11-29 12:44:10.552 +05:30 [INF] Hashing the password
+2024-11-29 12:44:10.951 +05:30 [INF] Attempting to add a new user with Email: shreesha577427@gmail.com
+2024-11-29 12:44:11.172 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Name], [Password], [Phone])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2024-11-29 12:44:11.200 +05:30 [INF] User with Email: shreesha577427@gmail.com successfully registered.
+2024-11-29 12:44:11.207 +05:30 [INF] Registration successful
+2024-11-29 12:44:11.231 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-29 12:44:11.233 +05:30 [INF] Attempt to create email
+2024-11-29 12:44:11.239 +05:30 [INF] Executed action FunDo.Controllers.UserController.RegisterUser (FunDooNotes) in 2222.1462ms
+2024-11-29 12:44:11.241 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:44:11.251 +05:30 [INF] Request finished HTTP/2 POST https://localhost:5000/api/user/register - 200 null application/json; charset=utf-8 2337.5338ms
+2024-11-29 12:44:11.289 +05:30 [INF] Connecting to smtp server
+2024-11-29 12:44:12.274 +05:30 [INF] Authenticatingwith smtp server
+2024-11-29 12:44:12.595 +05:30 [INF] Sending mail
+2024-11-29 12:44:13.755 +05:30 [INF] Sent email to shreesha577427@gmail.com successfully
+2024-11-29 12:44:13.756 +05:30 [INF] Disconnecting from smtp server
+2024-11-29 12:45:50.844 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5000/api/user/register - application/json 157
+2024-11-29 12:45:50.853 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:45:50.855 +05:30 [INF] Route matched with {action = "RegisterUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterUser(Models.DTOs.RegisterUserDto) on controller FunDo.Controllers.UserController (FunDooNotes).
+2024-11-29 12:45:50.869 +05:30 [INF] User registration attempt started
+2024-11-29 12:45:50.871 +05:30 [INF] Checking if the user is present
+2024-11-29 12:45:50.871 +05:30 [INF] Attempting to retrieve user with Email: upscpriyanshu06@gmail.com
+2024-11-29 12:45:50.892 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-29 12:45:50.893 +05:30 [WRN] User with Email: upscpriyanshu06@gmail.com not found.
+2024-11-29 12:45:50.894 +05:30 [INF] Hashing the password
+2024-11-29 12:45:51.246 +05:30 [INF] Attempting to add a new user with Email: upscpriyanshu06@gmail.com
+2024-11-29 12:45:51.253 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Name], [Password], [Phone])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2024-11-29 12:45:51.254 +05:30 [INF] User with Email: upscpriyanshu06@gmail.com successfully registered.
+2024-11-29 12:45:51.255 +05:30 [INF] Registration successful
+2024-11-29 12:45:51.256 +05:30 [INF] Attempt to create email
+2024-11-29 12:45:51.256 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-29 12:45:51.256 +05:30 [INF] Connecting to smtp server
+2024-11-29 12:45:51.257 +05:30 [INF] Executed action FunDo.Controllers.UserController.RegisterUser (FunDooNotes) in 401.5921ms
+2024-11-29 12:45:51.265 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.RegisterUser (FunDooNotes)'
+2024-11-29 12:45:51.268 +05:30 [INF] Request finished HTTP/2 POST https://localhost:5000/api/user/register - 200 null application/json; charset=utf-8 424.6052ms
+2024-11-29 12:45:52.198 +05:30 [INF] Authenticatingwith smtp server
+2024-11-29 12:45:52.495 +05:30 [INF] Sending mail
+2024-11-29 12:45:53.598 +05:30 [INF] Sent email to upscpriyanshu06@gmail.com successfully
+2024-11-29 12:45:53.601 +05:30 [INF] Disconnecting from smtp server

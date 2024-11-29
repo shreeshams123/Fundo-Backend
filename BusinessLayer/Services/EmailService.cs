@@ -9,6 +9,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Models.DTOs;
 
 namespace BusinessLayer.Services
 {
@@ -21,16 +22,16 @@ namespace BusinessLayer.Services
             _logger = logger;
            }
 
-        public async Task SendForgotPasswordMailAsync(string email, string resetToken)
+        public async Task SendMailAsync(EmailMessageDto emailMessageDto)
         {
             _logger.LogInformation("Attempt to create email");
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("FunDo", _configuration["Email:From"]));
-            message.To.Add(new MailboxAddress("",email));
-            message.Subject = "Password Reset request";
+            message.To.Add(new MailboxAddress("",emailMessageDto.Email));
+            message.Subject = emailMessageDto.Subject;
             message.Body = new TextPart("html")
             {
-                Text=$"<p>The token to reset password=>{resetToken}</p>"
+                Text=$"<p>{emailMessageDto.Body}</p>"
             };
             using var smtpClient = new MailKit.Net.Smtp.SmtpClient();
             try
@@ -41,7 +42,7 @@ namespace BusinessLayer.Services
                 await smtpClient.AuthenticateAsync(_configuration["Email:Username"], _configuration["Email:Password"]);
                 _logger.LogInformation("Sending mail");
                 await smtpClient.SendAsync(message);
-                _logger.LogInformation("Sent email to {Email} successfully",email);
+                _logger.LogInformation("Sent email to {Email} successfully",emailMessageDto.Email);
             }
             catch(Exception ex)
             {

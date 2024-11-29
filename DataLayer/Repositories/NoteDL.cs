@@ -263,6 +263,8 @@ namespace DataLayer.Repositories
         }
         public async Task<ApiResponse<string>> ToggleArchive(int noteId,int userId,bool isArchive)
         {
+            _logger.LogInformation($"Received isArchive value: {isArchive}");
+
             var userExists = await _context.Users.AnyAsync(u => u.Id == userId);
 
             if (!userExists)
@@ -334,12 +336,12 @@ namespace DataLayer.Repositories
             }
             note.IsTrash = isTrash;
             await _context.SaveChangesAsync();
-            _logger.LogInformation("Note with ID: {NoteId} archive status updated to {isTrash}", noteId, isTrash);
+            _logger.LogInformation("Note with ID: {NoteId} trash status updated to {isTrash}", noteId, isTrash);
 
             return new ApiResponse<string>
             {
                 Success = true,
-                Message = "Note archive status updated successfully",
+                Message = "Note trash status updated successfully",
                 Data = isTrash ? "Trashed" : "UnTrashed"
             };
         }

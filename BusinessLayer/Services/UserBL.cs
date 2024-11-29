@@ -2,6 +2,7 @@
 using BusinessLayer.Interfaces;
 using BusinessLayer.Utilities;
 using DataLayer.Interfaces;
+using DataLayer.Repositories;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -15,6 +16,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -27,37 +29,54 @@ namespace BusinessLayer.Services
         private readonly IConfiguration _configuration;
         private readonly IEmailService _emailService;
         private readonly ILogger<UserBL> _logger;
-        public UserBL(IUserDL userRepo, TokenHelper tokenHelper,IConfiguration configuration, IEmailService emailService,ILogger<UserBL> logger)
+        private readonly IRabbitMqService _rabbitMqService;
+        public UserBL(IUserDL userRepo, TokenHelper tokenHelper,IConfiguration configuration, IEmailService emailService,ILogger<UserBL> logger,IRabbitMqService rabbitMqService)
         {
             _userRepo = userRepo;
             _tokenHelper = tokenHelper;
             _configuration = configuration;
             _emailService = emailService;
             _logger = logger;
+            _rabbitMqService = rabbitMqService;
         }
         public async Task<ApiResponse<string>> RegisterUserAsync(RegisterUserDto userdto)
         {
-            _logger.LogInformation("Checking if the user present");
-            var userpresent = await _userRepo.GetUserByEmailAsync(userdto.Email);
-            if (userpresent!=null)
+            _logger.LogInformation("Checking if the user is present");
+
+            if (_userRepo == null)
             {
-                _logger.LogWarning("User with {Email} already present",userdto.Email);
-                return new ApiResponse<string> { Success = false,Message="Email already exists",Data=null };
+                _logger.LogError("User repository is not initialized.");
+                return new ApiResponse<string> { Success = false, Message = "Internal server error", Data = null };
             }
+
+            var userpresent = await _userRepo.GetUserByEmailAsync(userdto.Email);
+            if (userpresent != null)
+            {
+                _logger.LogWarning("User with {Email} already present", userdto.Email);
+                return new ApiResponse<string> { Success = false, Message = "Email already exists", Data = null };
+            }
+
             var pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$";
             if (!Regex.IsMatch(userdto.Password, pattern))
             {
-                _logger.LogError("Password do not match the requirements");
+                _logger.LogError("Password does not match the requirements");
                 return new ApiResponse<string>
                 {
                     Success = false,
-                    Message = "Password should contain minimum 8 characters(atleast one special character,one number,one lowercase and one uppercase letter)",
-                    Data=null
-
+                    Message = "Password should contain minimum 8 characters (at least one special character, one number, one lowercase and one uppercase letter)",
+                    Data = null
                 };
             }
+
             _logger.LogInformation("Hashing the password");
-            string hashedpassword= PasswordHelper.GenerateHashedPassword(userdto.Password);
+            string hashedpassword = PasswordHelper.GenerateHashedPassword(userdto.Password);
+
+            if (string.IsNullOrEmpty(hashedpassword))
+            {
+                _logger.LogError("Failed to hash the password.");
+                return new ApiResponse<string> { Success = false, Message = "Failed to hash password", Data = null };
+            }
+
             var newUser = new User
             {
                 Name = userdto.Name,
@@ -65,9 +84,36 @@ namespace BusinessLayer.Services
                 Phone = userdto.Phone,
                 Password = hashedpassword
             };
+
+            if (newUser == null)
+            {
+                _logger.LogError("Failed to create a new user. User object is null.");
+                return new ApiResponse<string> { Success = false, Message = "User registration failed", Data = null };
+            }
+
             await _userRepo.RegisterUserAsync(newUser);
-            return new ApiResponse<string> {Success=true,Message="Registration successful",Data=null};
+
+            if (_rabbitMqService == null)
+            {
+                _logger.LogError("RabbitMQ service is not initialized.");
+                return new ApiResponse<string> { Success = false, Message = "Failed to send email notification", Data = null };
+            }
+
+            var emailMessage = new EmailMessageDto
+            {
+                Email = userdto.Email,
+                Subject = "Welcome to FunDo Notes",
+                Body = $"<p>Hello {userdto.Name},</p><p>Welcome to FunDo Notes!</p>"
+            };
+
+            var messageJson = JsonSerializer.Serialize(emailMessage);
+           
+
+            _rabbitMqService.SendMessage(messageJson);
+
+            return new ApiResponse<string> { Success = true, Message = "Registration successful", Data = null };
         }
+
 
         public async Task<ApiResponse<LoginResponseDto>> LoginUserAsync(LoginUserDto userdto)
         {
@@ -107,7 +153,13 @@ namespace BusinessLayer.Services
             {
                 var resetToken=_tokenHelper.GeneratePasswordResetToken(user);
                 _logger.LogInformation("Reset email sent to {Email}", forgotPasswordDto.Email);
-                await _emailService.SendForgotPasswordMailAsync(forgotPasswordDto.Email,resetToken);
+                var emailmessage = new EmailMessageDto
+                {
+                    Email = forgotPasswordDto.Email,
+                    Subject = "Token for reset password",
+                    Body = resetToken
+                };
+                await _emailService.SendMailAsync(emailmessage);
                 return new ApiResponse<string> { Success=true,Message="Reset link sent to mail",Data=null};
             }
             

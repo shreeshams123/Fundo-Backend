@@ -17,6 +17,7 @@ using Serilog;
 using StackExchange.Redis;
 using System.Text.Json;
 using DataLayer.Exceptions;
+using RabbitMQ.Client;
 
 
 
@@ -24,10 +25,7 @@ using DataLayer.Exceptions;
 var builder = WebApplication.CreateBuilder(args);
 Log.Logger=new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration).CreateLogger();
-if (!Directory.Exists("Logs"))
-{
-    Directory.CreateDirectory("Logs");
-}
+
 builder.Host.UseSerilog();
 builder.Services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect("localhost:6379"));
 builder.Services.AddStackExchangeRedisCache(options =>
@@ -49,6 +47,19 @@ builder.Services.AddScoped<ILabelDL, LabelDL>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddTransient<TokenHelper>();
+builder.Services.AddSingleton(new ConnectionFactory
+{
+    HostName = "localhost", // RabbitMQ hostname
+    UserName = "guest",     // Default username
+    Password = "guest"      // Default password
+});
+
+builder.Services.AddScoped<IRabbitMqService, RabbitMqService>();
+builder.Services.AddSingleton<RabbitMqBackgroundService>();
+builder.Services.AddHostedService(provider => provider.GetRequiredService<RabbitMqBackgroundService>());
+
+
+
 
 
 builder.Services.AddAuthentication(options =>
@@ -72,35 +83,46 @@ builder.Services.AddAuthentication(options =>
     {
         OnAuthenticationFailed = context =>
         {
-            context.NoResult(); 
-            context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-            context.Response.ContentType = "application/json";
-
-            var result = JsonSerializer.Serialize(new
+            if (!context.Response.HasStarted)
             {
-                StatusCode = StatusCodes.Status401Unauthorized,
-                Message = "Invalid token. Please log in again.",
-                ErrorType = "AuthenticationFailed"
-            });
+                context.NoResult();
+                context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                context.Response.ContentType = "application/json";
 
-            return context.Response.WriteAsync(result);
+                var result = JsonSerializer.Serialize(new
+                {
+                    StatusCode = StatusCodes.Status401Unauthorized,
+                    Message = "Invalid token. Please log in again.",
+                    ErrorType = "AuthenticationFailed"
+                });
+
+                return context.Response.WriteAsync(result);
+            }
+
+            return Task.CompletedTask;
         },
         OnChallenge = context =>
         {
-            context.HandleResponse(); 
-            context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-            context.Response.ContentType = "application/json";
-
-            var result = JsonSerializer.Serialize(new
+            if (!context.Response.HasStarted)
             {
-                StatusCode = StatusCodes.Status401Unauthorized,
-                Message = "Token is required. Please provide a valid token.",
-                ErrorType = "AuthorizationFailed"
-            });
+                context.HandleResponse();
+                context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                context.Response.ContentType = "application/json";
 
-            return context.Response.WriteAsync(result);
+                var result = JsonSerializer.Serialize(new
+                {
+                    StatusCode = StatusCodes.Status401Unauthorized,
+                    Message = "Token is required. Please provide a valid token.",
+                    ErrorType = "AuthorizationFailed"
+                });
+
+                return context.Response.WriteAsync(result);
+            }
+
+            return Task.CompletedTask;
         }
     };
+
 });
 builder.Services.AddSwaggerGen(options =>
 {

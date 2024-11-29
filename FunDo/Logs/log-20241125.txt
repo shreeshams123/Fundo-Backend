@@ -1,0 +1,613 @@
+2024-11-25 15:49:09.011 +05:30 [INF] User profile is available. Using 'C:\Users\Shreesha_MS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-25 15:49:09.726 +05:30 [INF] Now listening on: https://localhost:5000
+2024-11-25 15:49:09.728 +05:30 [INF] Now listening on: http://localhost:5001
+2024-11-25 15:49:09.840 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-25 15:49:09.843 +05:30 [INF] Hosting environment: Development
+2024-11-25 15:49:09.844 +05:30 [INF] Content root path: D:\FunDo\FunDo
+2024-11-25 15:49:11.113 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/index.html - null null
+2024-11-25 15:49:11.387 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-11-25 15:49:11.529 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/index.html - 500 null text/html; charset=utf-8 437.9752ms
+2024-11-25 15:49:11.543 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_vs/browserLink - null null
+2024-11-25 15:49:11.543 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-25 15:49:11.555 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 12.9001ms
+2024-11-25 15:49:11.627 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 84.5288ms
+2024-11-25 15:49:11.648 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/favicon.ico - null null
+2024-11-25 15:49:11.652 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-11-25 15:49:11.661 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/favicon.ico - 500 null text/plain; charset=utf-8 13.5893ms
+2024-11-25 15:49:47.729 +05:30 [INF] User profile is available. Using 'C:\Users\Shreesha_MS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-25 15:49:48.133 +05:30 [INF] Now listening on: https://localhost:5000
+2024-11-25 15:49:48.135 +05:30 [INF] Now listening on: http://localhost:5001
+2024-11-25 15:49:48.195 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-25 15:49:48.198 +05:30 [INF] Hosting environment: Development
+2024-11-25 15:49:48.200 +05:30 [INF] Content root path: D:\FunDo\FunDo
+2024-11-25 15:49:49.287 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/index.html - null null
+2024-11-25 15:49:49.578 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 305.7436ms
+2024-11-25 15:49:49.594 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_vs/browserLink - null null
+2024-11-25 15:49:49.594 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-25 15:49:49.612 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 18.1315ms
+2024-11-25 15:49:49.662 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 67.7642ms
+2024-11-25 15:49:49.857 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - null null
+2024-11-25 15:49:49.883 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/favicon-32x32.png - null null
+2024-11-25 15:49:49.910 +05:30 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-11-25 15:49:49.912 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/favicon-32x32.png - 200 628 image/png 30.0562ms
+2024-11-25 15:49:50.001 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 145.046ms
+2024-11-25 15:50:12.186 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:5000/api/user/login - application/json 76
+2024-11-25 15:50:14.441 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.LoginUser (FunDooNotes)'
+2024-11-25 15:50:14.523 +05:30 [INF] Route matched with {action = "LoginUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginUser(Models.DTOs.LoginUserDto) on controller FunDo.Controllers.UserController (FunDooNotes).
+2024-11-25 15:50:15.870 +05:30 [INF] Logging user shreesha2002ms@gmail.com
+2024-11-25 15:50:15.875 +05:30 [INF] Checking if the user present
+2024-11-25 15:50:15.883 +05:30 [INF] Attempting to retrieve user with Email: shreesha2002ms@gmail.com
+2024-11-25 15:50:20.425 +05:30 [INF] Executed DbCommand (234ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-25 15:50:20.602 +05:30 [INF] User with Email: shreesha2002ms@gmail.com retrieved successfully.
+2024-11-25 15:50:20.604 +05:30 [INF] Verifying the password
+2024-11-25 15:50:21.679 +05:30 [INF] Password is valid and token is generated
+2024-11-25 15:50:21.682 +05:30 [INF] Login successful
+2024-11-25 15:50:21.695 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[Models.DTOs.LoginResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-25 15:50:21.725 +05:30 [INF] Executed action FunDo.Controllers.UserController.LoginUser (FunDooNotes) in 7192.0917ms
+2024-11-25 15:50:21.729 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.LoginUser (FunDooNotes)'
+2024-11-25 15:50:21.748 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:5000/api/user/login - 200 null application/json; charset=utf-8 9562.2503ms
+2024-11-25 15:51:26.693 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:5000/api/collaborators/1 - null null
+2024-11-25 15:51:26.803 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '19-11-2024 06:39:26', Current time (UTC): '25-11-2024 10:21:26'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-11-25 15:51:26.847 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-11-25 15:51:55.012 +05:30 [INF] User profile is available. Using 'C:\Users\Shreesha_MS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-25 15:51:55.262 +05:30 [INF] Now listening on: https://localhost:5000
+2024-11-25 15:51:55.267 +05:30 [INF] Now listening on: http://localhost:5001
+2024-11-25 15:51:55.307 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-25 15:51:55.310 +05:30 [INF] Hosting environment: Development
+2024-11-25 15:51:55.311 +05:30 [INF] Content root path: D:\FunDo\FunDo
+2024-11-25 15:51:56.093 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/index.html - null null
+2024-11-25 15:51:56.319 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 237.8525ms
+2024-11-25 15:51:56.321 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-25 15:51:56.321 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_vs/browserLink - null null
+2024-11-25 15:51:56.336 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 15.4542ms
+2024-11-25 15:51:56.372 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 51.5094ms
+2024-11-25 15:51:56.500 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - null null
+2024-11-25 15:51:56.605 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 105.9517ms
+2024-11-25 15:52:24.834 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5000/api/user/login - application/json 71
+2024-11-25 15:52:25.006 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.LoginUser (FunDooNotes)'
+2024-11-25 15:52:25.062 +05:30 [INF] Route matched with {action = "LoginUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginUser(Models.DTOs.LoginUserDto) on controller FunDo.Controllers.UserController (FunDooNotes).
+2024-11-25 15:52:25.379 +05:30 [INF] Logging user Shreesha2002ms@gmail.com
+2024-11-25 15:52:25.382 +05:30 [INF] Checking if the user present
+2024-11-25 15:52:25.386 +05:30 [INF] Attempting to retrieve user with Email: Shreesha2002ms@gmail.com
+2024-11-25 15:52:27.801 +05:30 [INF] Executed DbCommand (100ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-25 15:52:27.957 +05:30 [INF] User with Email: Shreesha2002ms@gmail.com retrieved successfully.
+2024-11-25 15:52:27.958 +05:30 [INF] Verifying the password
+2024-11-25 15:52:28.924 +05:30 [INF] Password is valid and token is generated
+2024-11-25 15:52:28.927 +05:30 [INF] Login successful
+2024-11-25 15:52:28.945 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[Models.DTOs.LoginResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-25 15:52:28.962 +05:30 [INF] Executed action FunDo.Controllers.UserController.LoginUser (FunDooNotes) in 3891.7885ms
+2024-11-25 15:52:28.965 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.LoginUser (FunDooNotes)'
+2024-11-25 15:52:28.983 +05:30 [INF] Request finished HTTP/2 POST https://localhost:5000/api/user/login - 200 null application/json; charset=utf-8 4150.1529ms
+2024-11-25 15:52:50.730 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/api/collaborators/1 - null null
+2024-11-25 15:52:50.847 +05:30 [INF] Executing endpoint 'FunDo.Controllers.CollaboratorController.GetCollaborators (FunDooNotes)'
+2024-11-25 15:52:50.860 +05:30 [INF] Route matched with {action = "GetCollaborators", controller = "Collaborator"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCollaborators(Int32) on controller FunDo.Controllers.CollaboratorController (FunDooNotes).
+2024-11-25 15:52:50.875 +05:30 [INF] Attempting to get collaborators for note with ID: 1
+2024-11-25 15:52:50.881 +05:30 [INF] Attempting to retrieve collaborators for note with ID: 1 by user with ID: 1
+2024-11-25 15:52:50.992 +05:30 [INF] Executed DbCommand (28ms) [Parameters=[@__ownerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__ownerId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-25 15:52:51.068 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-25 15:52:51.197 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__NoteId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Name]
+FROM [Collaborators] AS [c]
+INNER JOIN [Users] AS [u] ON [c].[UserId] = [u].[Id]
+WHERE [c].[NoteId] = @__NoteId_0
+2024-11-25 15:52:51.201 +05:30 [INF] Successfully retrieved collaborators for note with ID: 1
+2024-11-25 15:52:51.203 +05:30 [INF] Successfully retrieved collaborators for note with ID: 1
+2024-11-25 15:52:51.205 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.UserDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-25 15:52:51.210 +05:30 [INF] Executed action FunDo.Controllers.CollaboratorController.GetCollaborators (FunDooNotes) in 343.6413ms
+2024-11-25 15:52:51.217 +05:30 [INF] Executed endpoint 'FunDo.Controllers.CollaboratorController.GetCollaborators (FunDooNotes)'
+2024-11-25 15:52:51.220 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/api/collaborators/1 - 200 null application/json; charset=utf-8 501.3459ms
+2024-11-25 15:53:09.173 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:5000/api/collaborators/1 - null null
+2024-11-25 15:53:09.193 +05:30 [INF] Executing endpoint 'FunDo.Controllers.CollaboratorController.GetCollaborators (FunDooNotes)'
+2024-11-25 15:53:09.199 +05:30 [INF] Route matched with {action = "GetCollaborators", controller = "Collaborator"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCollaborators(Int32) on controller FunDo.Controllers.CollaboratorController (FunDooNotes).
+2024-11-25 15:53:09.207 +05:30 [INF] Attempting to get collaborators for note with ID: 1
+2024-11-25 15:53:09.209 +05:30 [INF] Attempting to retrieve collaborators for note with ID: 1 by user with ID: 1
+2024-11-25 15:53:09.339 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__ownerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__ownerId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-25 15:53:09.347 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-25 15:53:09.356 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__NoteId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Name]
+FROM [Collaborators] AS [c]
+INNER JOIN [Users] AS [u] ON [c].[UserId] = [u].[Id]
+WHERE [c].[NoteId] = @__NoteId_0
+2024-11-25 15:53:09.359 +05:30 [INF] Successfully retrieved collaborators for note with ID: 1
+2024-11-25 15:53:09.361 +05:30 [INF] Successfully retrieved collaborators for note with ID: 1
+2024-11-25 15:53:09.364 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.UserDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-25 15:53:09.371 +05:30 [INF] Executed action FunDo.Controllers.CollaboratorController.GetCollaborators (FunDooNotes) in 166.6532ms
+2024-11-25 15:53:09.375 +05:30 [INF] Executed endpoint 'FunDo.Controllers.CollaboratorController.GetCollaborators (FunDooNotes)'
+2024-11-25 15:53:09.379 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:5000/api/collaborators/1 - 200 null application/json; charset=utf-8 206.3835ms
+2024-11-25 15:53:19.519 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:5000/api/collaborators/1 - null null
+2024-11-25 15:53:19.537 +05:30 [INF] Failed to validate the token.
+System.ArgumentException: IDX14102: Unable to decode the header '[PII of type 'Microsoft.IdentityModel.Logging.SecurityArtifact' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]' as Base64Url encoded string.
+ ---> System.Text.Json.JsonReaderException: '$' is invalid after a property name. Expected a ':'. LineNumber: 0 | BytePositionInLine: 6.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ConsumePropertyName()
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at Microsoft.IdentityModel.Tokens.Json.JsonSerializerPrimitives.IsReaderAtTokenType(Utf8JsonReader& reader, JsonTokenType tokenType, Boolean advanceReader)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.CreateHeaderClaimSet(ReadOnlySpan`1 byteSpan)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.CreateClaimSet(ReadOnlySpan`1 strSpan, Int32 startIndex, Int32 length, Boolean createHeaderClaimSet)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.ReadToken(ReadOnlyMemory`1 encodedTokenMemory)
+   --- End of inner exception stack trace ---
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.ReadToken(ReadOnlyMemory`1 encodedTokenMemory)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken..ctor(String jwtEncodedString)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ReadToken(String token, TokenValidationParameters validationParameters)
+2024-11-25 15:53:19.576 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-11-25 16:01:10.538 +05:30 [INF] User profile is available. Using 'C:\Users\Shreesha_MS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-25 16:01:10.770 +05:30 [INF] Now listening on: https://localhost:5000
+2024-11-25 16:01:10.775 +05:30 [INF] Now listening on: http://localhost:5001
+2024-11-25 16:01:10.815 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-25 16:01:10.818 +05:30 [INF] Hosting environment: Development
+2024-11-25 16:01:10.820 +05:30 [INF] Content root path: D:\FunDo\FunDo
+2024-11-25 16:01:11.435 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/index.html - null null
+2024-11-25 16:01:11.638 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 212.7089ms
+2024-11-25 16:01:11.645 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_vs/browserLink - null null
+2024-11-25 16:01:11.645 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-25 16:01:11.667 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 21.964ms
+2024-11-25 16:01:11.694 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 49.6064ms
+2024-11-25 16:01:11.802 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - null null
+2024-11-25 16:01:11.953 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 150.6831ms
+2024-11-25 16:01:17.987 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:5000/api/collaborators/1 - null null
+2024-11-25 16:01:18.190 +05:30 [INF] Failed to validate the token.
+System.ArgumentException: IDX14102: Unable to decode the header '[PII of type 'Microsoft.IdentityModel.Logging.SecurityArtifact' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]' as Base64Url encoded string.
+ ---> System.Text.Json.JsonReaderException: '$' is invalid after a property name. Expected a ':'. LineNumber: 0 | BytePositionInLine: 6.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ConsumePropertyName()
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at Microsoft.IdentityModel.Tokens.Json.JsonSerializerPrimitives.IsReaderAtTokenType(Utf8JsonReader& reader, JsonTokenType tokenType, Boolean advanceReader)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.CreateHeaderClaimSet(ReadOnlySpan`1 byteSpan)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.CreateClaimSet(ReadOnlySpan`1 strSpan, Int32 startIndex, Int32 length, Boolean createHeaderClaimSet)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.ReadToken(ReadOnlyMemory`1 encodedTokenMemory)
+   --- End of inner exception stack trace ---
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.ReadToken(ReadOnlyMemory`1 encodedTokenMemory)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken..ctor(String jwtEncodedString)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ReadToken(String token, TokenValidationParameters validationParameters)
+2024-11-25 16:01:18.267 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-11-25 16:01:18.385 +05:30 [ERR] An unhandled exception has occurred.
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at DataLayer.Exceptions.GlobalExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in D:\FunDo\DataLayer\Exceptions\GlobalExceptionHandlingMiddleware.cs:line 25
+2024-11-25 16:01:18.523 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpResponseHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_ContentType(StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at DataLayer.Exceptions.GlobalExceptionHandlingMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in D:\FunDo\DataLayer\Exceptions\GlobalExceptionHandlingMiddleware.cs:line 36
+   at DataLayer.Exceptions.GlobalExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in D:\FunDo\DataLayer\Exceptions\GlobalExceptionHandlingMiddleware.cs:line 29
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-11-25 16:01:18.538 +05:30 [WRN] The response has already started, the error page middleware will not be executed.
+2024-11-25 16:01:18.549 +05:30 [ERR] Connection id "0HN8D7H3T6KUR", Request id "0HN8D7H3T6KUR:00000001": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpResponseHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_ContentType(StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at DataLayer.Exceptions.GlobalExceptionHandlingMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in D:\FunDo\DataLayer\Exceptions\GlobalExceptionHandlingMiddleware.cs:line 36
+   at DataLayer.Exceptions.GlobalExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in D:\FunDo\DataLayer\Exceptions\GlobalExceptionHandlingMiddleware.cs:line 29
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-25 16:01:18.589 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:5000/api/collaborators/1 - 401 null application/json 602.4228ms
+2024-11-25 16:01:39.085 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:5000/api/user/login - application/json 76
+2024-11-25 16:01:39.193 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.LoginUser (FunDooNotes)'
+2024-11-25 16:01:39.258 +05:30 [INF] Route matched with {action = "LoginUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginUser(Models.DTOs.LoginUserDto) on controller FunDo.Controllers.UserController (FunDooNotes).
+2024-11-25 16:01:39.578 +05:30 [INF] Logging user shreesha2002ms@gmail.com
+2024-11-25 16:01:39.584 +05:30 [INF] Checking if the user present
+2024-11-25 16:01:39.591 +05:30 [INF] Attempting to retrieve user with Email: shreesha2002ms@gmail.com
+2024-11-25 16:01:42.425 +05:30 [INF] Executed DbCommand (113ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-25 16:01:42.605 +05:30 [INF] User with Email: shreesha2002ms@gmail.com retrieved successfully.
+2024-11-25 16:01:42.608 +05:30 [INF] Verifying the password
+2024-11-25 16:01:43.468 +05:30 [INF] Password is valid and token is generated
+2024-11-25 16:01:43.471 +05:30 [INF] Login successful
+2024-11-25 16:01:43.484 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[Models.DTOs.LoginResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-25 16:01:43.503 +05:30 [INF] Executed action FunDo.Controllers.UserController.LoginUser (FunDooNotes) in 4232.4008ms
+2024-11-25 16:01:43.510 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.LoginUser (FunDooNotes)'
+2024-11-25 16:01:43.529 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:5000/api/user/login - 200 null application/json; charset=utf-8 4444.0608ms
+2024-11-25 16:02:32.656 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:5000/api/user/login - application/json 62
+2024-11-25 16:02:32.668 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.LoginUser (FunDooNotes)'
+2024-11-25 16:02:32.674 +05:30 [INF] Route matched with {action = "LoginUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginUser(Models.DTOs.LoginUserDto) on controller FunDo.Controllers.UserController (FunDooNotes).
+2024-11-25 16:02:32.685 +05:30 [INF] Logging user ALex@gmail.com
+2024-11-25 16:02:32.687 +05:30 [INF] Checking if the user present
+2024-11-25 16:02:32.688 +05:30 [INF] Attempting to retrieve user with Email: ALex@gmail.com
+2024-11-25 16:02:32.731 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-25 16:02:32.739 +05:30 [INF] User with Email: ALex@gmail.com retrieved successfully.
+2024-11-25 16:02:32.741 +05:30 [INF] Verifying the password
+2024-11-25 16:02:33.257 +05:30 [INF] Password is valid and token is generated
+2024-11-25 16:02:33.259 +05:30 [INF] Login successful
+2024-11-25 16:02:33.268 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[Models.DTOs.LoginResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-25 16:02:33.272 +05:30 [INF] Executed action FunDo.Controllers.UserController.LoginUser (FunDooNotes) in 593.5125ms
+2024-11-25 16:02:33.274 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.LoginUser (FunDooNotes)'
+2024-11-25 16:02:33.276 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:5000/api/user/login - 200 null application/json; charset=utf-8 619.8638ms
+2024-11-25 16:03:13.063 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:5000/api/collaborators/5 - null null
+2024-11-25 16:03:13.075 +05:30 [INF] Executing endpoint 'FunDo.Controllers.CollaboratorController.GetCollaborators (FunDooNotes)'
+2024-11-25 16:03:13.090 +05:30 [INF] Route matched with {action = "GetCollaborators", controller = "Collaborator"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCollaborators(Int32) on controller FunDo.Controllers.CollaboratorController (FunDooNotes).
+2024-11-25 16:03:13.106 +05:30 [INF] Attempting to get collaborators for note with ID: 5
+2024-11-25 16:03:13.112 +05:30 [INF] Attempting to retrieve collaborators for note with ID: 5 by user with ID: 2
+2024-11-25 16:03:13.274 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__ownerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__ownerId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-25 16:03:13.357 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-25 16:03:13.477 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__NoteId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Name]
+FROM [Collaborators] AS [c]
+INNER JOIN [Users] AS [u] ON [c].[UserId] = [u].[Id]
+WHERE [c].[NoteId] = @__NoteId_0
+2024-11-25 16:03:13.482 +05:30 [INF] Successfully retrieved collaborators for note with ID: 5
+2024-11-25 16:03:13.486 +05:30 [INF] Successfully retrieved collaborators for note with ID: 5
+2024-11-25 16:03:13.492 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.UserDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-25 16:03:13.499 +05:30 [INF] Executed action FunDo.Controllers.CollaboratorController.GetCollaborators (FunDooNotes) in 400.9041ms
+2024-11-25 16:03:13.502 +05:30 [INF] Executed endpoint 'FunDo.Controllers.CollaboratorController.GetCollaborators (FunDooNotes)'
+2024-11-25 16:03:13.504 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:5000/api/collaborators/5 - 200 null application/json; charset=utf-8 441.1396ms
+2024-11-25 16:04:15.504 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:5000/api/collaborators/5 - null null
+2024-11-25 16:04:15.513 +05:30 [INF] Executing endpoint 'FunDo.Controllers.CollaboratorController.GetCollaborators (FunDooNotes)'
+2024-11-25 16:04:15.515 +05:30 [INF] Route matched with {action = "GetCollaborators", controller = "Collaborator"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCollaborators(Int32) on controller FunDo.Controllers.CollaboratorController (FunDooNotes).
+2024-11-25 16:04:15.523 +05:30 [INF] Attempting to get collaborators for note with ID: 5
+2024-11-25 16:04:15.526 +05:30 [INF] Attempting to retrieve collaborators for note with ID: 5 by user with ID: 2
+2024-11-25 16:04:15.540 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__ownerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__ownerId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-25 16:04:15.552 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-25 16:04:15.567 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__NoteId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Name]
+FROM [Collaborators] AS [c]
+INNER JOIN [Users] AS [u] ON [c].[UserId] = [u].[Id]
+WHERE [c].[NoteId] = @__NoteId_0
+2024-11-25 16:04:15.570 +05:30 [INF] Successfully retrieved collaborators for note with ID: 5
+2024-11-25 16:04:15.571 +05:30 [INF] Successfully retrieved collaborators for note with ID: 5
+2024-11-25 16:04:15.573 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.UserDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-25 16:04:15.576 +05:30 [INF] Executed action FunDo.Controllers.CollaboratorController.GetCollaborators (FunDooNotes) in 55.9316ms
+2024-11-25 16:04:15.579 +05:30 [INF] Executed endpoint 'FunDo.Controllers.CollaboratorController.GetCollaborators (FunDooNotes)'
+2024-11-25 16:04:15.581 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:5000/api/collaborators/5 - 200 null application/json; charset=utf-8 77.7013ms
+2024-11-25 16:04:46.270 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5000/api/collaborators/5 - application/json 8
+2024-11-25 16:04:46.291 +05:30 [INF] Executing endpoint 'FunDo.Controllers.CollaboratorController.AddCollaborator (FunDooNotes)'
+2024-11-25 16:04:46.303 +05:30 [INF] Route matched with {action = "AddCollaborator", controller = "Collaborator"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddCollaborator(Int32, System.String) on controller FunDo.Controllers.CollaboratorController (FunDooNotes).
+2024-11-25 16:04:46.316 +05:30 [INF] Attempting to add collaborator with email: string to note with ID: 5
+2024-11-25 16:04:46.323 +05:30 [INF] Attempting to add collaborator with email: string to note with ID: 5 by user with ID: 2
+2024-11-25 16:04:46.333 +05:30 [INF] Received request to add collaborator to note with ID: 5 by user ID: 2
+2024-11-25 16:04:46.350 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-25 16:04:46.360 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-25 16:04:46.372 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-25 16:04:46.375 +05:30 [WRN] User with email: string not found
+2024-11-25 16:04:46.376 +05:30 [WRN] Failed to add collaborator with email: string to note with ID: 5. Reason: User with email: string not found
+2024-11-25 16:04:46.378 +05:30 [WRN] Failed to add collaborator with email: string to note with ID: 5. Reason: User with email: string not found
+2024-11-25 16:04:46.381 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Models.ApiResponse`1[[Models.DTOs.UserDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-25 16:04:46.387 +05:30 [INF] Executed action FunDo.Controllers.CollaboratorController.AddCollaborator (FunDooNotes) in 80.0017ms
+2024-11-25 16:04:46.391 +05:30 [INF] Executed endpoint 'FunDo.Controllers.CollaboratorController.AddCollaborator (FunDooNotes)'
+2024-11-25 16:04:46.392 +05:30 [INF] Request finished HTTP/2 POST https://localhost:5000/api/collaborators/5 - 400 null application/json; charset=utf-8 122.348ms
+2024-11-25 16:06:59.928 +05:30 [INF] User profile is available. Using 'C:\Users\Shreesha_MS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-25 16:07:00.193 +05:30 [INF] Now listening on: https://localhost:5000
+2024-11-25 16:07:00.195 +05:30 [INF] Now listening on: http://localhost:5001
+2024-11-25 16:07:00.268 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-25 16:07:00.270 +05:30 [INF] Hosting environment: Development
+2024-11-25 16:07:00.271 +05:30 [INF] Content root path: D:\FunDo\FunDo
+2024-11-25 16:07:00.517 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/index.html - null null
+2024-11-25 16:07:00.695 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 188.9782ms
+2024-11-25 16:07:00.703 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_vs/browserLink - null null
+2024-11-25 16:07:00.703 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-25 16:07:00.720 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 16.944ms
+2024-11-25 16:07:00.758 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 55.1945ms
+2024-11-25 16:07:00.808 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - null null
+2024-11-25 16:07:00.920 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 112.1649ms
+2024-11-25 16:07:33.143 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:5000/api/user/login - application/json 76
+2024-11-25 16:07:33.425 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.LoginUser (FunDooNotes)'
+2024-11-25 16:07:33.497 +05:30 [INF] Route matched with {action = "LoginUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginUser(Models.DTOs.LoginUserDto) on controller FunDo.Controllers.UserController (FunDooNotes).
+2024-11-25 16:07:33.840 +05:30 [INF] Logging user shreesha2002ms@gmail.com
+2024-11-25 16:07:33.843 +05:30 [INF] Checking if the user present
+2024-11-25 16:07:33.847 +05:30 [INF] Attempting to retrieve user with Email: shreesha2002ms@gmail.com
+2024-11-25 16:07:36.421 +05:30 [INF] Executed DbCommand (97ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-25 16:07:36.598 +05:30 [INF] User with Email: shreesha2002ms@gmail.com retrieved successfully.
+2024-11-25 16:07:36.600 +05:30 [INF] Verifying the password
+2024-11-25 16:07:37.536 +05:30 [INF] Password is valid and token is generated
+2024-11-25 16:07:37.542 +05:30 [INF] Login successful
+2024-11-25 16:07:37.563 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[Models.DTOs.LoginResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-25 16:07:37.581 +05:30 [INF] Executed action FunDo.Controllers.UserController.LoginUser (FunDooNotes) in 4071.5061ms
+2024-11-25 16:07:37.587 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.LoginUser (FunDooNotes)'
+2024-11-25 16:07:37.616 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:5000/api/user/login - 200 null application/json; charset=utf-8 4473.2044ms
+2024-11-25 16:07:55.458 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:5000/api/notes/ - null null
+2024-11-25 16:07:55.477 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes)'
+2024-11-25 16:07:55.488 +05:30 [INF] Route matched with {action = "GetAllNotes", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllNotes() on controller FunDo.Controllers.NoteController (FunDooNotes).
+2024-11-25 16:07:55.506 +05:30 [INF] Attempt to get all notes from Database
+2024-11-25 16:07:55.613 +05:30 [INF] Attempt to fetch notes from cache for user 1
+2024-11-25 16:07:55.616 +05:30 [WRN] Failed to fetch notes from cache
+2024-11-25 16:07:55.620 +05:30 [INF] Fetching all notes for user with ID: 1
+2024-11-25 16:07:55.631 +05:30 [INF] Checking if user with ID: 1 exists
+2024-11-25 16:07:55.709 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-25 16:07:55.720 +05:30 [INF] Fetching notes for user with ID: 1
+2024-11-25 16:07:55.836 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[Title], [n].[Description], [n].[Color], [n].[IsArchive], [n].[IsTrash], CASE
+    WHEN [n].[UserId] = @__userId_0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsCreated]
+FROM [Notes] AS [n]
+WHERE [n].[UserId] = @__userId_0 OR EXISTS (
+    SELECT 1
+    FROM [Collaborators] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[NoteId] = [n].[Id])
+2024-11-25 16:07:55.850 +05:30 [INF] 6 notes retrieved for user with ID: 1
+2024-11-25 16:07:55.852 +05:30 [INF] Serializing notes to store it in cache
+2024-11-25 16:07:55.882 +05:30 [INF] Notes retrieved successfully
+2024-11-25 16:07:55.886 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.NoteResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-25 16:07:55.895 +05:30 [INF] Executed action FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes) in 400.1279ms
+2024-11-25 16:07:55.897 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes)'
+2024-11-25 16:07:55.901 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:5000/api/notes/ - 200 null application/json; charset=utf-8 442.7043ms
+2024-11-25 16:09:12.666 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:5000/api/user/login - application/json 62
+2024-11-25 16:09:12.681 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.LoginUser (FunDooNotes)'
+2024-11-25 16:09:12.682 +05:30 [INF] Route matched with {action = "LoginUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginUser(Models.DTOs.LoginUserDto) on controller FunDo.Controllers.UserController (FunDooNotes).
+2024-11-25 16:09:12.688 +05:30 [INF] Logging user ALex@gmail.com
+2024-11-25 16:09:12.689 +05:30 [INF] Checking if the user present
+2024-11-25 16:09:12.690 +05:30 [INF] Attempting to retrieve user with Email: ALex@gmail.com
+2024-11-25 16:09:12.810 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-11-25 16:09:12.818 +05:30 [INF] User with Email: ALex@gmail.com retrieved successfully.
+2024-11-25 16:09:12.820 +05:30 [INF] Verifying the password
+2024-11-25 16:09:13.349 +05:30 [INF] Password is valid and token is generated
+2024-11-25 16:09:13.353 +05:30 [INF] Login successful
+2024-11-25 16:09:13.355 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[Models.DTOs.LoginResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-25 16:09:13.357 +05:30 [INF] Executed action FunDo.Controllers.UserController.LoginUser (FunDooNotes) in 673.0291ms
+2024-11-25 16:09:13.361 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.LoginUser (FunDooNotes)'
+2024-11-25 16:09:13.366 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:5000/api/user/login - 200 null application/json; charset=utf-8 699.7571ms
+2024-11-25 16:09:25.922 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:5000/api/collaborators/5 - null null
+2024-11-25 16:09:25.933 +05:30 [INF] Executing endpoint 'FunDo.Controllers.CollaboratorController.GetCollaborators (FunDooNotes)'
+2024-11-25 16:09:25.944 +05:30 [INF] Route matched with {action = "GetCollaborators", controller = "Collaborator"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCollaborators(Int32) on controller FunDo.Controllers.CollaboratorController (FunDooNotes).
+2024-11-25 16:09:25.957 +05:30 [INF] Attempting to get collaborators for note with ID: 5
+2024-11-25 16:09:25.964 +05:30 [INF] Attempting to retrieve collaborators for note with ID: 5 by user with ID: 2
+2024-11-25 16:09:25.987 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__ownerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__ownerId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-25 16:09:26.027 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-25 16:09:26.135 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__NoteId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Name]
+FROM [Collaborators] AS [c]
+INNER JOIN [Users] AS [u] ON [c].[UserId] = [u].[Id]
+WHERE [c].[NoteId] = @__NoteId_0
+2024-11-25 16:09:26.140 +05:30 [INF] Successfully retrieved collaborators for note with ID: 5
+2024-11-25 16:09:26.142 +05:30 [INF] Successfully retrieved collaborators for note with ID: 5
+2024-11-25 16:09:26.143 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.UserDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-25 16:09:26.148 +05:30 [INF] Executed action FunDo.Controllers.CollaboratorController.GetCollaborators (FunDooNotes) in 197.365ms
+2024-11-25 16:09:26.150 +05:30 [INF] Executed endpoint 'FunDo.Controllers.CollaboratorController.GetCollaborators (FunDooNotes)'
+2024-11-25 16:09:26.152 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:5000/api/collaborators/5 - 200 null application/json; charset=utf-8 229.8916ms
+2024-11-25 16:09:33.762 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:5000/api/collaborators/9 - null null
+2024-11-25 16:09:33.769 +05:30 [INF] Executing endpoint 'FunDo.Controllers.CollaboratorController.GetCollaborators (FunDooNotes)'
+2024-11-25 16:09:33.772 +05:30 [INF] Route matched with {action = "GetCollaborators", controller = "Collaborator"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCollaborators(Int32) on controller FunDo.Controllers.CollaboratorController (FunDooNotes).
+2024-11-25 16:09:33.779 +05:30 [INF] Attempting to get collaborators for note with ID: 9
+2024-11-25 16:09:33.781 +05:30 [INF] Attempting to retrieve collaborators for note with ID: 9 by user with ID: 2
+2024-11-25 16:09:33.787 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__ownerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__ownerId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-25 16:09:33.795 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-11-25 16:09:33.828 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__ownerId_0='?' (DbType = Int32), @__NoteId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Collaborators] AS [c]
+        WHERE [c].[UserId] = @__ownerId_0 AND [c].[NoteId] = @__NoteId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-25 16:09:34.010 +05:30 [INF] Executed action FunDo.Controllers.CollaboratorController.GetCollaborators (FunDooNotes) in 233.3897ms
+2024-11-25 16:09:34.014 +05:30 [INF] Executed endpoint 'FunDo.Controllers.CollaboratorController.GetCollaborators (FunDooNotes)'
+2024-11-25 16:09:34.128 +05:30 [ERR] An unhandled exception has occurred.
+DataLayer.Exceptions.UserException: You do not have access to  get the Collaborators
+   at DataLayer.Repositories.CollaboratorDL.GetCollaborators(Int32 NoteId, Int32 ownerId) in D:\FunDo\DataLayer\Repositories\CollaboratorDL.cs:line 215
+   at BusinessLayer.Services.CollaboratorBL.GetCollaboratorsAsync(Int32 NoteId) in D:\FunDo\BusinessLayer\Services\CollaboratorBL.cs:line 64
+   at FunDo.Controllers.CollaboratorController.GetCollaborators(Int32 NoteId) in D:\FunDo\FunDo\Controllers\CollaboratorController.cs:line 58
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at DataLayer.Exceptions.GlobalExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in D:\FunDo\DataLayer\Exceptions\GlobalExceptionHandlingMiddleware.cs:line 25
+2024-11-25 16:09:34.215 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:5000/api/collaborators/9 - 400 null application/json 453.2706ms
+2024-11-25 16:11:13.351 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:5000/api/notes/ - null null
+2024-11-25 16:11:13.361 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes)'
+2024-11-25 16:11:13.366 +05:30 [INF] Route matched with {action = "GetAllNotes", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllNotes() on controller FunDo.Controllers.NoteController (FunDooNotes).
+2024-11-25 16:11:13.370 +05:30 [INF] Attempt to get all notes from Database
+2024-11-25 16:11:13.378 +05:30 [INF] Attempt to fetch notes from cache for user 2
+2024-11-25 16:11:13.379 +05:30 [WRN] Failed to fetch notes from cache
+2024-11-25 16:11:13.380 +05:30 [INF] Fetching all notes for user with ID: 2
+2024-11-25 16:11:13.381 +05:30 [INF] Checking if user with ID: 2 exists
+2024-11-25 16:11:13.389 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-11-25 16:11:13.397 +05:30 [INF] Fetching notes for user with ID: 2
+2024-11-25 16:11:13.412 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[Title], [n].[Description], [n].[Color], [n].[IsArchive], [n].[IsTrash], CASE
+    WHEN [n].[UserId] = @__userId_0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsCreated]
+FROM [Notes] AS [n]
+WHERE [n].[UserId] = @__userId_0 OR EXISTS (
+    SELECT 1
+    FROM [Collaborators] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[NoteId] = [n].[Id])
+2024-11-25 16:11:13.416 +05:30 [INF] 2 notes retrieved for user with ID: 2
+2024-11-25 16:11:13.417 +05:30 [INF] Serializing notes to store it in cache
+2024-11-25 16:11:13.419 +05:30 [INF] Notes retrieved successfully
+2024-11-25 16:11:13.420 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.NoteResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-11-25 16:11:13.422 +05:30 [INF] Executed action FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes) in 54.7104ms
+2024-11-25 16:11:13.427 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes)'
+2024-11-25 16:11:13.431 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:5000/api/notes/ - 200 null application/json; charset=utf-8 80.0873ms
+2024-11-25 16:11:20.417 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:5000/api/notes/ - null null
+2024-11-25 16:11:20.435 +05:30 [INF] Failed to validate the token.
+System.ArgumentException: IDX14102: Unable to decode the header '[PII of type 'Microsoft.IdentityModel.Logging.SecurityArtifact' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]' as Base64Url encoded string.
+ ---> System.Text.Json.JsonReaderException: Expected end of string, but instead reached end of data. LineNumber: 0 | BytePositionInLine: 32.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ConsumeString()
+   at System.Text.Json.Utf8JsonReader.ConsumeValue(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at Microsoft.IdentityModel.Tokens.Json.JsonSerializerPrimitives.IsReaderPositionedOnNull(Utf8JsonReader& reader, Boolean read, Boolean advanceReader)
+   at Microsoft.IdentityModel.Tokens.Json.JsonSerializerPrimitives.ReadString(Utf8JsonReader& reader, String propertyName, String className, Boolean read)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.CreateHeaderClaimSet(ReadOnlySpan`1 byteSpan)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.CreateClaimSet(ReadOnlySpan`1 strSpan, Int32 startIndex, Int32 length, Boolean createHeaderClaimSet)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.ReadToken(ReadOnlyMemory`1 encodedTokenMemory)
+   --- End of inner exception stack trace ---
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.ReadToken(ReadOnlyMemory`1 encodedTokenMemory)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken..ctor(String jwtEncodedString)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ReadToken(String token, TokenValidationParameters validationParameters)
+2024-11-25 16:11:20.456 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-11-25 16:11:20.535 +05:30 [ERR] An unhandled exception has occurred.
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at DataLayer.Exceptions.GlobalExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in D:\FunDo\DataLayer\Exceptions\GlobalExceptionHandlingMiddleware.cs:line 25
+2024-11-25 16:11:20.630 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpResponseHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_ContentType(StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at DataLayer.Exceptions.GlobalExceptionHandlingMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in D:\FunDo\DataLayer\Exceptions\GlobalExceptionHandlingMiddleware.cs:line 36
+   at DataLayer.Exceptions.GlobalExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in D:\FunDo\DataLayer\Exceptions\GlobalExceptionHandlingMiddleware.cs:line 29
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-11-25 16:11:20.643 +05:30 [WRN] The response has already started, the error page middleware will not be executed.
+2024-11-25 16:11:20.648 +05:30 [ERR] Connection id "0HN8D7KBULLJN", Request id "0HN8D7KBULLJN:00000002": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpResponseHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_ContentType(StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at DataLayer.Exceptions.GlobalExceptionHandlingMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in D:\FunDo\DataLayer\Exceptions\GlobalExceptionHandlingMiddleware.cs:line 36
+   at DataLayer.Exceptions.GlobalExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in D:\FunDo\DataLayer\Exceptions\GlobalExceptionHandlingMiddleware.cs:line 29
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-25 16:11:20.662 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:5000/api/notes/ - 401 null application/json 245.1824ms

@@ -52,7 +52,7 @@ namespace FunDo.Controllers
                 _logger.LogInformation("Deserializing the notes");
                 var notesfromcache = JsonSerializer.Deserialize<IEnumerable<NoteResponseDto>>(cachenotes);
 
-                var apiresponse= new ApiResponse<IEnumerable<NoteResponseDto>>
+                var apiresponse = new ApiResponse<IEnumerable<NoteResponseDto>>
                 {
                     Success = true,
                     Message = "Retreived notes successfully",
@@ -61,7 +61,7 @@ namespace FunDo.Controllers
                 return Ok(apiresponse);
             }
             _logger.LogWarning("Failed to fetch notes from cache");
-            var apiResponse=await _noteBL.GetAllNoteAsync();
+            var apiResponse = await _noteBL.GetAllNoteAsync();
             if (apiResponse.Success)
             {
                 _logger.LogInformation("Notes retrieved successfully");
@@ -97,7 +97,7 @@ namespace FunDo.Controllers
             {
                 _logger.LogInformation("Retrieved notes successfully");
                 return Ok(apiResponse);
-                
+
             }
             _logger.LogError("Failed to update note");
             return BadRequest(apiResponse);
@@ -118,7 +118,7 @@ namespace FunDo.Controllers
         }
         [HttpPatch("archive/{noteId}")]
         [Authorize]
-        public async Task<IActionResult> ToggleArchiveNote([FromRoute] int noteId, bool isArchive)
+        public async Task<IActionResult> ToggleArchiveNote([FromRoute] int noteId,[FromBody] bool isArchive)
         {
             _logger.LogInformation($"Received request to toggle archive status for note with ID: {noteId}");
             var apiresponse = await _noteBL.ToggleArchiveAsync(noteId, isArchive);
@@ -132,7 +132,7 @@ namespace FunDo.Controllers
         }
         [HttpPatch("trash/{noteId}")]
         [Authorize]
-        public async Task<IActionResult> ToggleTrashNote([FromRoute] int noteId, bool isTrash)
+        public async Task<IActionResult> ToggleTrashNote([FromRoute] int noteId,[FromBody] bool isTrash)
         {
             _logger.LogInformation($"Received request to toggle trash status for note with ID: {noteId}");
             var apiresponse = await _noteBL.ToggleTrashAsync(noteId, isTrash);
