@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
 using Models;
 using Models.DTOs;
+using Newtonsoft.Json;
 using System.Text.Json;
 
 namespace FunDo.Controllers
@@ -50,7 +51,7 @@ namespace FunDo.Controllers
             {
                 _logger.LogInformation("Fetched notes from cache successfully");
                 _logger.LogInformation("Deserializing the notes");
-                var notesfromcache = JsonSerializer.Deserialize<IEnumerable<NoteResponseDto>>(cachenotes);
+                var notesfromcache = System.Text.Json.JsonSerializer.Deserialize<IEnumerable<NoteResponseDto>>(cachenotes);
 
                 var apiresponse = new ApiResponse<IEnumerable<NoteResponseDto>>
                 {
@@ -91,6 +92,8 @@ namespace FunDo.Controllers
         [Authorize]
         public async Task<IActionResult> UpdateNote([FromRoute] int noteId, NoteUpdateDto noteUpdateDto)
         {
+            _logger.LogInformation($"Received note update: {JsonConvert.SerializeObject(noteUpdateDto)}");
+
             _logger.LogInformation($"Updating note with ID: {noteId}");
             var apiResponse = await _noteBL.UpdateNoteAsync(noteUpdateDto, noteId);
             if (apiResponse.Success)
@@ -120,6 +123,7 @@ namespace FunDo.Controllers
         [Authorize]
         public async Task<IActionResult> ToggleArchiveNote([FromRoute] int noteId,[FromBody] bool isArchive)
         {
+            _logger.LogInformation($"Received noteId: {noteId}, isArchive: {isArchive}");
             _logger.LogInformation($"Received request to toggle archive status for note with ID: {noteId}");
             var apiresponse = await _noteBL.ToggleArchiveAsync(noteId, isArchive);
             if (apiresponse.Success)

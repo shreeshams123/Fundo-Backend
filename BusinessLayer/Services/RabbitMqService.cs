@@ -23,7 +23,6 @@ namespace BusinessLayer.Services
             _connection = connectionFactory.CreateConnection();
             _channel = _connection.CreateModel();
             _emailService = emailService;
-
         }
         public void SendMessage(string message)
         {

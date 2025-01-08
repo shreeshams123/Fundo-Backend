@@ -23,6 +23,15 @@ using RabbitMQ.Client;
 
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.WithOrigins("*")
+              .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
 Log.Logger=new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration).CreateLogger();
 
@@ -163,6 +172,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FunDoo API V1"));
 }
+app.UseCors("AllowAll");
 
 app.UseHttpsRedirection();
 app.UseMiddleware<GlobalExceptionHandlingMiddleware>();

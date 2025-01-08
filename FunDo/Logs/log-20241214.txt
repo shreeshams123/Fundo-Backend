@@ -1,0 +1,416 @@
+2024-12-14 21:07:37.148 +05:30 [INF] User profile is available. Using 'C:\Users\Shreesha_MS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-14 21:07:37.677 +05:30 [INF] Now listening on: https://localhost:5000
+2024-12-14 21:07:37.678 +05:30 [INF] Now listening on: http://localhost:5001
+2024-12-14 21:07:37.800 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-14 21:07:37.802 +05:30 [INF] Hosting environment: Development
+2024-12-14 21:07:37.803 +05:30 [INF] Content root path: D:\FunDo\FunDo
+2024-12-14 21:07:41.544 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger - null null
+2024-12-14 21:07:41.835 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger - 301 0 null 304.9194ms
+2024-12-14 21:07:41.845 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/index.html - null null
+2024-12-14 21:07:41.967 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 122.0806ms
+2024-12-14 21:07:41.974 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/swagger-ui.css - null null
+2024-12-14 21:07:41.975 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_vs/browserLink - null null
+2024-12-14 21:07:41.974 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/swagger-ui-bundle.js - null null
+2024-12-14 21:07:41.975 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/swagger-ui-standalone-preset.js - null null
+2024-12-14 21:07:41.974 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-14 21:07:42.030 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 56.2291ms
+2024-12-14 21:07:42.072 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-12-14 21:07:42.072 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-12-14 21:07:42.081 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 106.26ms
+2024-12-14 21:07:42.087 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/swagger-ui.css - 200 143943 text/css 112.7981ms
+2024-12-14 21:07:42.108 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-12-14 21:07:42.111 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 136.8126ms
+2024-12-14 21:07:42.125 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 149.8094ms
+2024-12-14 21:07:42.406 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - null null
+2024-12-14 21:07:42.440 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/swagger/favicon-32x32.png - null null
+2024-12-14 21:07:42.445 +05:30 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-12-14 21:07:42.447 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/favicon-32x32.png - 200 628 image/png 8.4211ms
+2024-12-14 21:07:42.603 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 197.2442ms
+2024-12-14 21:08:28.622 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:5000/api/user/login - null null
+2024-12-14 21:08:28.649 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:08:28.654 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:5000/api/user/login - 204 null null 31.8972ms
+2024-12-14 21:08:28.657 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5000/api/user/login - application/json 62
+2024-12-14 21:08:28.666 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:08:30.318 +05:30 [INF] Executing endpoint 'FunDo.Controllers.UserController.LoginUser (FunDooNotes)'
+2024-12-14 21:08:30.359 +05:30 [INF] Route matched with {action = "LoginUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginUser(Models.DTOs.LoginUserDto) on controller FunDo.Controllers.UserController (FunDooNotes).
+2024-12-14 21:08:31.221 +05:30 [INF] Logging user shreesha2002ms@gmail.com
+2024-12-14 21:08:31.225 +05:30 [INF] Checking if the user present
+2024-12-14 21:08:31.227 +05:30 [INF] Attempting to retrieve user with Email: shreesha2002ms@gmail.com
+2024-12-14 21:08:33.631 +05:30 [INF] Executed DbCommand (163ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-12-14 21:08:33.704 +05:30 [INF] User with Email: shreesha2002ms@gmail.com retrieved successfully.
+2024-12-14 21:08:33.707 +05:30 [INF] Verifying the password
+2024-12-14 21:08:34.336 +05:30 [INF] Password is valid and token is generated
+2024-12-14 21:08:34.338 +05:30 [INF] Login successful
+2024-12-14 21:08:34.345 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[Models.DTOs.LoginResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-12-14 21:08:34.357 +05:30 [INF] Executed action FunDo.Controllers.UserController.LoginUser (FunDooNotes) in 3988.8697ms
+2024-12-14 21:08:34.359 +05:30 [INF] Executed endpoint 'FunDo.Controllers.UserController.LoginUser (FunDooNotes)'
+2024-12-14 21:08:34.365 +05:30 [INF] Request finished HTTP/2 POST https://localhost:5000/api/user/login - 200 null application/json; charset=utf-8 5708.5663ms
+2024-12-14 21:08:34.393 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:5000/api/notes - null null
+2024-12-14 21:08:34.397 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:08:34.399 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:5000/api/notes - 204 null null 7.1129ms
+2024-12-14 21:08:34.403 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/api/notes - null null
+2024-12-14 21:08:34.410 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:08:34.474 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes)'
+2024-12-14 21:08:34.480 +05:30 [INF] Route matched with {action = "GetAllNotes", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllNotes() on controller FunDo.Controllers.NoteController (FunDooNotes).
+2024-12-14 21:08:34.486 +05:30 [INF] Attempt to get all notes from Database
+2024-12-14 21:08:34.532 +05:30 [INF] Attempt to fetch notes from cache for user 1
+2024-12-14 21:08:34.533 +05:30 [WRN] Failed to fetch notes from cache
+2024-12-14 21:08:34.535 +05:30 [INF] Fetching all notes for user with ID: 1
+2024-12-14 21:08:34.538 +05:30 [INF] Checking if user with ID: 1 exists
+2024-12-14 21:08:34.574 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-12-14 21:08:34.579 +05:30 [INF] Fetching notes for user with ID: 1
+2024-12-14 21:08:34.642 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[Title], [n].[Description], [n].[Color], [n].[IsArchive], [n].[IsTrash], CASE
+    WHEN [n].[UserId] = @__userId_0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsCreated]
+FROM [Notes] AS [n]
+WHERE [n].[UserId] = @__userId_0 OR EXISTS (
+    SELECT 1
+    FROM [Collaborators] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[NoteId] = [n].[Id])
+2024-12-14 21:08:34.646 +05:30 [INF] 16 notes retrieved for user with ID: 1
+2024-12-14 21:08:34.647 +05:30 [INF] Serializing notes to store it in cache
+2024-12-14 21:08:34.658 +05:30 [INF] Notes retrieved successfully
+2024-12-14 21:08:34.660 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.NoteResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-12-14 21:08:34.663 +05:30 [INF] Executed action FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes) in 180.7383ms
+2024-12-14 21:08:34.665 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes)'
+2024-12-14 21:08:34.666 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/api/notes - 200 null application/json; charset=utf-8 263.2434ms
+2024-12-14 21:08:41.628 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:5000/api/notes/1034 - null null
+2024-12-14 21:08:41.631 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:08:41.633 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:5000/api/notes/1034 - 204 null null 4.4987ms
+2024-12-14 21:08:41.635 +05:30 [INF] Request starting HTTP/2 PATCH https://localhost:5000/api/notes/1034 - application/json 68
+2024-12-14 21:08:41.641 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:08:41.647 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.UpdateNote (FunDooNotes)'
+2024-12-14 21:08:41.654 +05:30 [INF] Route matched with {action = "UpdateNote", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateNote(Int32, Models.DTOs.NoteUpdateDto) on controller FunDo.Controllers.NoteController (FunDooNotes).
+2024-12-14 21:08:41.947 +05:30 [INF] Received note update: {"Title":"strde","Description":"string","Color":"#AECCDC"}
+2024-12-14 21:08:41.949 +05:30 [INF] Updating note with ID: 1034
+2024-12-14 21:08:41.951 +05:30 [INF] User with ID: 1 is attempting to update note with ID: 1034
+2024-12-14 21:08:41.953 +05:30 [INF] Checking if user with ID: 1 exists
+2024-12-14 21:08:42.007 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-12-14 21:08:42.015 +05:30 [INF] Retrieving note with ID: 1034
+2024-12-14 21:08:42.038 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-12-14 21:08:42.056 +05:30 [INF] User with ID: 1 has permission to update note ID: 1034
+2024-12-14 21:08:42.138 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Notes] SET [Color] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2024-12-14 21:08:42.165 +05:30 [INF] Successfully updated note with ID: 1034
+2024-12-14 21:08:42.174 +05:30 [INF] Retrieved notes successfully
+2024-12-14 21:08:42.177 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[Models.DTOs.NoteResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-12-14 21:08:42.181 +05:30 [INF] Executed action FunDo.Controllers.NoteController.UpdateNote (FunDooNotes) in 523.4135ms
+2024-12-14 21:08:42.183 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.UpdateNote (FunDooNotes)'
+2024-12-14 21:08:42.185 +05:30 [INF] Request finished HTTP/2 PATCH https://localhost:5000/api/notes/1034 - 200 null application/json; charset=utf-8 549.632ms
+2024-12-14 21:08:47.417 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:5000/api/notes/archive/1034 - null null
+2024-12-14 21:08:47.421 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:08:47.422 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:5000/api/notes/archive/1034 - 204 null null 5.1889ms
+2024-12-14 21:08:47.424 +05:30 [INF] Request starting HTTP/2 PATCH https://localhost:5000/api/notes/archive/1034 - application/json 4
+2024-12-14 21:08:47.428 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:08:47.430 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.ToggleArchiveNote (FunDooNotes)'
+2024-12-14 21:08:47.437 +05:30 [INF] Route matched with {action = "ToggleArchiveNote", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ToggleArchiveNote(Int32, Boolean) on controller FunDo.Controllers.NoteController (FunDooNotes).
+2024-12-14 21:08:47.449 +05:30 [INF] Received noteId: 1034, isArchive: True
+2024-12-14 21:08:47.451 +05:30 [INF] Received request to toggle archive status for note with ID: 1034
+2024-12-14 21:08:47.456 +05:30 [INF] Initiating toggle of archive status for note with ID: 1034 for user ID: 1
+2024-12-14 21:08:47.464 +05:30 [INF] Received isArchive value: True
+2024-12-14 21:08:47.469 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-12-14 21:08:47.482 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-12-14 21:08:47.497 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Notes] SET [IsArchive] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2024-12-14 21:08:47.507 +05:30 [INF] Note with ID: 1034 archive status updated to true
+2024-12-14 21:08:47.509 +05:30 [INF] Successfully toggled archive status for note with ID: 1034
+2024-12-14 21:08:47.509 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-12-14 21:08:47.511 +05:30 [INF] Executed action FunDo.Controllers.NoteController.ToggleArchiveNote (FunDooNotes) in 69.2324ms
+2024-12-14 21:08:47.512 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.ToggleArchiveNote (FunDooNotes)'
+2024-12-14 21:08:47.513 +05:30 [INF] Request finished HTTP/2 PATCH https://localhost:5000/api/notes/archive/1034 - 200 null application/json; charset=utf-8 89.412ms
+2024-12-14 21:08:50.868 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:5000/api/notes - null null
+2024-12-14 21:08:50.891 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:08:50.894 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:5000/api/notes - 204 null null 25.7602ms
+2024-12-14 21:08:50.912 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/api/notes - null null
+2024-12-14 21:08:50.937 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:08:50.959 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes)'
+2024-12-14 21:08:50.987 +05:30 [INF] Route matched with {action = "GetAllNotes", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllNotes() on controller FunDo.Controllers.NoteController (FunDooNotes).
+2024-12-14 21:08:50.991 +05:30 [INF] Attempt to get all notes from Database
+2024-12-14 21:08:51.110 +05:30 [INF] Attempt to fetch notes from cache for user 1
+2024-12-14 21:08:51.111 +05:30 [WRN] Failed to fetch notes from cache
+2024-12-14 21:08:51.113 +05:30 [INF] Fetching all notes for user with ID: 1
+2024-12-14 21:08:51.114 +05:30 [INF] Checking if user with ID: 1 exists
+2024-12-14 21:08:51.122 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-12-14 21:08:51.125 +05:30 [INF] Fetching notes for user with ID: 1
+2024-12-14 21:08:51.136 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[Title], [n].[Description], [n].[Color], [n].[IsArchive], [n].[IsTrash], CASE
+    WHEN [n].[UserId] = @__userId_0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsCreated]
+FROM [Notes] AS [n]
+WHERE [n].[UserId] = @__userId_0 OR EXISTS (
+    SELECT 1
+    FROM [Collaborators] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[NoteId] = [n].[Id])
+2024-12-14 21:08:51.140 +05:30 [INF] 16 notes retrieved for user with ID: 1
+2024-12-14 21:08:51.142 +05:30 [INF] Serializing notes to store it in cache
+2024-12-14 21:08:51.148 +05:30 [INF] Notes retrieved successfully
+2024-12-14 21:08:51.158 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.NoteResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-12-14 21:08:51.160 +05:30 [INF] Executed action FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes) in 169.2324ms
+2024-12-14 21:08:51.165 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes)'
+2024-12-14 21:08:51.172 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/api/notes - 200 null application/json; charset=utf-8 259.3985ms
+2024-12-14 21:08:53.390 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/api/notes - null null
+2024-12-14 21:08:53.443 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:08:53.445 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes)'
+2024-12-14 21:08:53.447 +05:30 [INF] Route matched with {action = "GetAllNotes", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllNotes() on controller FunDo.Controllers.NoteController (FunDooNotes).
+2024-12-14 21:08:53.456 +05:30 [INF] Attempt to get all notes from Database
+2024-12-14 21:08:53.480 +05:30 [INF] Attempt to fetch notes from cache for user 1
+2024-12-14 21:08:53.493 +05:30 [INF] Fetched notes from cache successfully
+2024-12-14 21:08:53.500 +05:30 [INF] Deserializing the notes
+2024-12-14 21:08:53.506 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.NoteResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-12-14 21:08:53.512 +05:30 [INF] Executed action FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes) in 57.2119ms
+2024-12-14 21:08:53.526 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes)'
+2024-12-14 21:08:53.533 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/api/notes - 200 null application/json; charset=utf-8 143.7439ms
+2024-12-14 21:08:57.650 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:5000/api/notes/trash/1049 - null null
+2024-12-14 21:08:57.653 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:08:57.654 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:5000/api/notes/trash/1049 - 204 null null 4.1508ms
+2024-12-14 21:08:57.658 +05:30 [INF] Request starting HTTP/2 PATCH https://localhost:5000/api/notes/trash/1049 - application/json 4
+2024-12-14 21:08:57.660 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:08:57.661 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.ToggleTrashNote (FunDooNotes)'
+2024-12-14 21:08:57.668 +05:30 [INF] Route matched with {action = "ToggleTrashNote", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ToggleTrashNote(Int32, Boolean) on controller FunDo.Controllers.NoteController (FunDooNotes).
+2024-12-14 21:08:57.675 +05:30 [INF] Received request to toggle trash status for note with ID: 1049
+2024-12-14 21:08:57.677 +05:30 [INF] Initiating toggle of trash status for note with ID: 1049 for user ID: 1
+2024-12-14 21:08:57.684 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-12-14 21:08:57.690 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-12-14 21:08:57.700 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Notes] SET [IsTrash] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2024-12-14 21:08:57.703 +05:30 [INF] Note with ID: 1049 trash status updated to true
+2024-12-14 21:08:57.709 +05:30 [INF] Successfully toggled trash status for note with ID: 1049
+2024-12-14 21:08:57.710 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-12-14 21:08:57.711 +05:30 [INF] Executed action FunDo.Controllers.NoteController.ToggleTrashNote (FunDooNotes) in 39.2471ms
+2024-12-14 21:08:57.713 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.ToggleTrashNote (FunDooNotes)'
+2024-12-14 21:08:57.715 +05:30 [INF] Request finished HTTP/2 PATCH https://localhost:5000/api/notes/trash/1049 - 200 null application/json; charset=utf-8 56.9217ms
+2024-12-14 21:09:00.737 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:5000/api/notes - null null
+2024-12-14 21:09:00.771 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:09:00.781 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:5000/api/notes - 204 null null 44.0316ms
+2024-12-14 21:09:00.785 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/api/notes - null null
+2024-12-14 21:09:00.797 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:09:00.798 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes)'
+2024-12-14 21:09:00.799 +05:30 [INF] Route matched with {action = "GetAllNotes", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllNotes() on controller FunDo.Controllers.NoteController (FunDooNotes).
+2024-12-14 21:09:00.802 +05:30 [INF] Attempt to get all notes from Database
+2024-12-14 21:09:00.804 +05:30 [INF] Attempt to fetch notes from cache for user 1
+2024-12-14 21:09:00.806 +05:30 [WRN] Failed to fetch notes from cache
+2024-12-14 21:09:00.808 +05:30 [INF] Fetching all notes for user with ID: 1
+2024-12-14 21:09:00.809 +05:30 [INF] Checking if user with ID: 1 exists
+2024-12-14 21:09:00.817 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-12-14 21:09:00.855 +05:30 [INF] Fetching notes for user with ID: 1
+2024-12-14 21:09:00.862 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[Title], [n].[Description], [n].[Color], [n].[IsArchive], [n].[IsTrash], CASE
+    WHEN [n].[UserId] = @__userId_0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsCreated]
+FROM [Notes] AS [n]
+WHERE [n].[UserId] = @__userId_0 OR EXISTS (
+    SELECT 1
+    FROM [Collaborators] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[NoteId] = [n].[Id])
+2024-12-14 21:09:00.872 +05:30 [INF] 16 notes retrieved for user with ID: 1
+2024-12-14 21:09:00.890 +05:30 [INF] Serializing notes to store it in cache
+2024-12-14 21:09:00.894 +05:30 [INF] Notes retrieved successfully
+2024-12-14 21:09:00.922 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.NoteResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-12-14 21:09:00.998 +05:30 [INF] Executed action FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes) in 197.1863ms
+2024-12-14 21:09:01.139 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes)'
+2024-12-14 21:09:01.140 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/api/notes - 200 null application/json; charset=utf-8 355.1137ms
+2024-12-14 21:09:05.295 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:5000/api/notes/1047 - null null
+2024-12-14 21:09:05.302 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:09:05.303 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:5000/api/notes/1047 - 204 null null 8.0993ms
+2024-12-14 21:09:05.307 +05:30 [INF] Request starting HTTP/2 DELETE https://localhost:5000/api/notes/1047 - null null
+2024-12-14 21:09:05.320 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:09:05.321 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.DeleteNote (FunDooNotes)'
+2024-12-14 21:09:05.327 +05:30 [INF] Route matched with {action = "DeleteNote", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteNote(Int32) on controller FunDo.Controllers.NoteController (FunDooNotes).
+2024-12-14 21:09:05.333 +05:30 [INF] Received request to delete note with ID: 1047
+2024-12-14 21:09:05.337 +05:30 [INF] Initiating deletion of note with ID: 1047 for user ID: 1
+2024-12-14 21:09:05.346 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-12-14 21:09:05.351 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-12-14 21:09:05.376 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Notes]
+OUTPUT 1
+WHERE [Id] = @p0;
+2024-12-14 21:09:05.383 +05:30 [INF] Deleted note with 1047 successfully
+2024-12-14 21:09:05.386 +05:30 [INF] Successfully deleted note with ID: 1047
+2024-12-14 21:09:05.388 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-12-14 21:09:05.390 +05:30 [INF] Executed action FunDo.Controllers.NoteController.DeleteNote (FunDooNotes) in 57.8256ms
+2024-12-14 21:09:05.391 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.DeleteNote (FunDooNotes)'
+2024-12-14 21:09:05.392 +05:30 [INF] Request finished HTTP/2 DELETE https://localhost:5000/api/notes/1047 - 200 null application/json; charset=utf-8 85.1521ms
+2024-12-14 21:09:09.264 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:5000/api/notes - null null
+2024-12-14 21:09:09.279 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:09:09.286 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:5000/api/notes - 204 null null 22.0377ms
+2024-12-14 21:09:09.323 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5000/api/notes - null null
+2024-12-14 21:09:09.344 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:09:09.346 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes)'
+2024-12-14 21:09:09.348 +05:30 [INF] Route matched with {action = "GetAllNotes", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllNotes() on controller FunDo.Controllers.NoteController (FunDooNotes).
+2024-12-14 21:09:09.352 +05:30 [INF] Attempt to get all notes from Database
+2024-12-14 21:09:09.359 +05:30 [INF] Attempt to fetch notes from cache for user 1
+2024-12-14 21:09:09.361 +05:30 [WRN] Failed to fetch notes from cache
+2024-12-14 21:09:09.363 +05:30 [INF] Fetching all notes for user with ID: 1
+2024-12-14 21:09:09.365 +05:30 [INF] Checking if user with ID: 1 exists
+2024-12-14 21:09:09.372 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-12-14 21:09:09.380 +05:30 [INF] Fetching notes for user with ID: 1
+2024-12-14 21:09:09.386 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[Title], [n].[Description], [n].[Color], [n].[IsArchive], [n].[IsTrash], CASE
+    WHEN [n].[UserId] = @__userId_0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [IsCreated]
+FROM [Notes] AS [n]
+WHERE [n].[UserId] = @__userId_0 OR EXISTS (
+    SELECT 1
+    FROM [Collaborators] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[NoteId] = [n].[Id])
+2024-12-14 21:09:09.394 +05:30 [INF] 15 notes retrieved for user with ID: 1
+2024-12-14 21:09:09.397 +05:30 [INF] Serializing notes to store it in cache
+2024-12-14 21:09:09.400 +05:30 [INF] Notes retrieved successfully
+2024-12-14 21:09:09.402 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Models.DTOs.NoteResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-12-14 21:09:09.410 +05:30 [INF] Executed action FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes) in 57.6798ms
+2024-12-14 21:09:09.417 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.GetAllNotes (FunDooNotes)'
+2024-12-14 21:09:09.422 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5000/api/notes - 200 null application/json; charset=utf-8 98.8963ms
+2024-12-14 21:09:13.636 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:5000/api/notes/1052 - null null
+2024-12-14 21:09:13.676 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:09:13.678 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:5000/api/notes/1052 - 204 null null 42.0972ms
+2024-12-14 21:09:13.681 +05:30 [INF] Request starting HTTP/2 PATCH https://localhost:5000/api/notes/1052 - application/json 66
+2024-12-14 21:09:13.684 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:09:13.686 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.UpdateNote (FunDooNotes)'
+2024-12-14 21:09:13.687 +05:30 [INF] Route matched with {action = "UpdateNote", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateNote(Int32, Models.DTOs.NoteUpdateDto) on controller FunDo.Controllers.NoteController (FunDooNotes).
+2024-12-14 21:09:13.690 +05:30 [INF] Received note update: {"Title":"svug","Description":"kcduy","Color":"#AECCDC"}
+2024-12-14 21:09:13.691 +05:30 [INF] Updating note with ID: 1052
+2024-12-14 21:09:13.692 +05:30 [INF] User with ID: 1 is attempting to update note with ID: 1052
+2024-12-14 21:09:13.693 +05:30 [INF] Checking if user with ID: 1 exists
+2024-12-14 21:09:13.700 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-12-14 21:09:13.713 +05:30 [INF] Retrieving note with ID: 1052
+2024-12-14 21:09:13.717 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Color], [n].[Description], [n].[IsArchive], [n].[IsTrash], [n].[Title], [n].[UserId]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__p_0
+2024-12-14 21:09:13.721 +05:30 [INF] User with ID: 1 has permission to update note ID: 1052
+2024-12-14 21:09:13.728 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Notes] SET [Color] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2024-12-14 21:09:13.732 +05:30 [INF] Successfully updated note with ID: 1052
+2024-12-14 21:09:13.734 +05:30 [INF] Retrieved notes successfully
+2024-12-14 21:09:13.737 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[Models.DTOs.NoteResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-12-14 21:09:13.740 +05:30 [INF] Executed action FunDo.Controllers.NoteController.UpdateNote (FunDooNotes) in 51.5618ms
+2024-12-14 21:09:13.744 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.UpdateNote (FunDooNotes)'
+2024-12-14 21:09:13.746 +05:30 [INF] Request finished HTTP/2 PATCH https://localhost:5000/api/notes/1052 - 200 null application/json; charset=utf-8 65.2219ms
+2024-12-14 21:09:21.807 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:5000/api/notes - null null
+2024-12-14 21:09:21.810 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:09:21.811 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:5000/api/notes - 204 null null 4.0208ms
+2024-12-14 21:09:21.813 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5000/api/notes - application/json 61
+2024-12-14 21:09:21.818 +05:30 [INF] CORS policy execution successful.
+2024-12-14 21:09:21.820 +05:30 [INF] Executing endpoint 'FunDo.Controllers.NoteController.CreateNote (FunDooNotes)'
+2024-12-14 21:09:21.826 +05:30 [INF] Route matched with {action = "CreateNote", controller = "Note"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateNote(Models.DTOs.NoteDto) on controller FunDo.Controllers.NoteController (FunDooNotes).
+2024-12-14 21:09:21.834 +05:30 [INF] Attempt to create a note
+2024-12-14 21:09:21.842 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__userId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-12-14 21:09:21.890 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Boolean), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Notes] ([Color], [Description], [IsArchive], [IsTrash], [Title], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2024-12-14 21:09:21.911 +05:30 [INF] Created notes successfully
+2024-12-14 21:09:21.912 +05:30 [INF] Executing OkObjectResult, writing value of type 'Models.ApiResponse`1[[Models.DTOs.NoteResponseDto, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-12-14 21:09:21.914 +05:30 [INF] Executed action FunDo.Controllers.NoteController.CreateNote (FunDooNotes) in 83.4792ms
+2024-12-14 21:09:21.915 +05:30 [INF] Executed endpoint 'FunDo.Controllers.NoteController.CreateNote (FunDooNotes)'
+2024-12-14 21:09:21.917 +05:30 [INF] Request finished HTTP/2 POST https://localhost:5000/api/notes - 200 null application/json; charset=utf-8 103.9914ms

@@ -45,7 +45,10 @@ namespace BusinessLayer.Services
                 UserId = userId,
                 Title = noteDto.Title,
                 Description = noteDto.Description,
-                Color = string.IsNullOrWhiteSpace(noteDto.Color) ? null : noteDto.Color
+                Color = string.IsNullOrWhiteSpace(noteDto.Color) ? null : noteDto.Color,
+                IsArchive = noteDto.IsArchive ?? false,
+                IsTrash=noteDto.IsTrash ?? false
+
             };
             return await _noteDL.CreateNoteInDbAsync(newnote,userId);
         }

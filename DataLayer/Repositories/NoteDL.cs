@@ -234,6 +234,8 @@ namespace DataLayer.Repositories
                 {
                     note.Color = noteUpdateDto.Color;
                 }
+                note.IsArchive= noteUpdateDto.IsArchive;
+                note.IsTrash= noteUpdateDto.IsTrash;
 
                 await _context.SaveChangesAsync();
 
@@ -295,8 +297,9 @@ namespace DataLayer.Repositories
             }
             note.IsArchive = isArchive;
             await _context.SaveChangesAsync();
+            await _distributedCache.RemoveAsync($"user:{userId}notes");
             _logger.LogInformation("Note with ID: {NoteId} archive status updated to {IsArchive}", noteId, isArchive);
-
+            
             return new ApiResponse<string>
             {
                 Success = true,
@@ -337,6 +340,7 @@ namespace DataLayer.Repositories
             note.IsTrash = isTrash;
             await _context.SaveChangesAsync();
             _logger.LogInformation("Note with ID: {NoteId} trash status updated to {isTrash}", noteId, isTrash);
+            await _distributedCache.RemoveAsync($"user:{userId}notes");
 
             return new ApiResponse<string>
             {

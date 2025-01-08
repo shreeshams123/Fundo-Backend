@@ -131,7 +131,7 @@ namespace BusinessLayer.Services
             {
                 var token = _tokenHelper.GenerateJwtToken(result);
                 _logger.LogInformation("Password is valid and token is generated");
-                var newdto=new LoginResponseDto { Token = token};
+                var newdto=new LoginResponseDto { Name=result.Name,Email=userdto.Email, Token = token};
                 return new ApiResponse<LoginResponseDto> {Success=true, Message="Login Successful",Data=newdto };
             }
             else
